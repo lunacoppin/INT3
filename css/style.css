@@ -1,0 +1,125 @@
+:root {
+    --color-red-primary: #B10A3A;
+    --color-background: #DEDBD4;
+    --color-black: #131212;
+
+    --whitespace-xs: .5rem;
+    --whitespace-s: 1rem;
+    --whitespace-base: 1.5rem;
+    --whitespace-m: 2rem;
+    --whitespace-l: 3rem;
+
+    --font-size-s: .75rem;
+    --font-size-base: 1rem;
+    --font-size-m: 1.25rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 2.5rem;
+
+    --font-family-serif: Playfair Display, Georgia, serif;
+    --font-family-sans: Inconsolata, Helvetica, Arial, sans-serif;
+}
+
+.inconsolata {
+    font-family: "Inconsolata", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.playfair-display {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-repeat: repeat;
+    pointer-events: none;
+    background-image: url("../assets/img/cardboard.png");
+    opacity: 50%;
+    z-index: 10;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-base);
+    color: var(--color-black);
+    background-color: var(--color-background);
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* ------------------------------------- HEADER ------------------------------------- */
+
+header {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.header__title {
+    display: grid;
+    margin-inline: 2rem;
+    grid-template-columns: 1.5fr 1fr 3fr 1fr 1.5fr;
+    grid-template-rows: min-content min-content;
+}
+
+.title {
+    font-family: var(--font-family-serif);
+    font-kerning: 500px;
+}
+
+.title:nth-child(1) {
+    font-size: 10rem;
+    letter-spacing: -0.05em;
+    font-style: italic;
+    grid-row: 1;
+    grid-column: 2/4;
+}
+
+.header__p {
+    grid-row: 1;
+    grid-column: 4;
+}
+
+.title:nth-child(3) {
+    font-size: 6.75rem;
+    font-style: italic;
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.title:nth-child(4){
+    font-size: 12rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    grid-row: 2;
+    grid-column: 3/5;
+}
