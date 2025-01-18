@@ -8,29 +8,107 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/src/css/reset.css">
+  <link rel="stylesheet" href="/src/css/style.css">
   <title>Plantin Story</title>
 </head>
 
 <body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.js"></script>
+
+  <header>
+    <svg style="display:none">
+      <symbol id="navicon" viewBox="0 0 56 56" fill="none">
+        <line x1="17" y1="21" x2="38" y2="21" stroke="#B10A3A" stroke-width="2" />
+        <line x1="17" y1="28" x2="38" y2="28" stroke="#B10A3A" stroke-width="2" />
+        <line x1="17" y1="35" x2="38" y2="35" stroke="#B10A3A" stroke-width="2" />
+        <circle cx="28" cy="28" r="27" stroke="#B10A3A" stroke-width="2" />
+      </symbol>
+      <symbol id="close" viewBox="0 0 56 56" fill="none">
+        <rect x="1" y="1" width="54" height="54" rx="27" stroke="#B10A3A" stroke-width="2" />
+        <line x1="17.747" y1="36.8388" x2="36.8389" y2="17.747" stroke="#B10A3A" stroke-width="2" />
+        <line x1="19.1612" y1="17.747" x2="38.2531" y2="36.8388" stroke="#B10A3A" stroke-width="2" />
+      </symbol>
+    </svg>
+    <nav class="nav">
+      <div class="nav__buttons">
+        <button class="nav__button nav__button--left">
+          <svg width="56" height="58" viewBox="0 0 56 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M37.8358 23.5063H37.2141C36.3608 25.3592 35.3246 26.8343 34.1055 27.9314C32.8621 29.0286 31.3748 29.8331 29.6438 30.3451C31.3748 30.8571 32.8621 31.6617 34.1055 32.7589C35.3246 33.856 36.3608 35.331 37.2141 37.184H37.8358C36.9825 35.331 36.0316 33.8682 34.9832 32.7954C33.9348 31.6983 32.6792 30.8815 31.2164 30.3451C32.6792 29.7844 33.9348 28.9676 34.9832 27.8949C36.0316 26.8221 36.9825 25.3592 37.8358 23.5063ZM24.2312 23.5063H23.6095C22.7562 25.3592 21.72 26.8343 20.5009 27.9314C19.2575 29.0286 17.7703 29.8331 16.0392 30.3451C17.7703 30.8571 19.2575 31.6617 20.5009 32.7589C21.72 33.856 22.7562 35.331 23.6095 37.184H24.2312C23.1828 34.941 22.6587 32.6613 22.6587 30.3451C22.6587 28.029 23.1828 25.7493 24.2312 23.5063ZM27.7055 30.0526H22.2929V30.6377H27.7055V30.0526ZM34.5444 23.5063H33.9227C33.0693 25.3592 32.0331 26.8343 30.8141 27.9314C29.5707 29.0286 28.0834 29.8331 26.3524 30.3451C28.0834 30.8571 29.5707 31.6617 30.8141 32.7589C32.0331 33.856 33.0693 35.331 33.9227 37.184H34.5444C33.691 35.331 32.7402 33.8682 31.6918 32.7954C30.6434 31.6983 29.3878 30.8815 27.9249 30.3451C29.3878 29.7844 30.6434 28.9676 31.6918 27.8949C32.7402 26.8221 33.691 25.3592 34.5444 23.5063Z"
+              fill="#B10A3A" />
+            <circle cx="28" cy="29.1111" r="27" stroke="#B10A3A" stroke-width="2" />
+          </svg>
+        </button>
+        <button class="nav__button nav__button--menu nav__button--right hidden" aria-label="Navigation menu" aria-expanded="false" aria-controls="nav__list">
+          <svg role="img" aria-labelledby="svg-title" focusable="false">
+            <title id="svg-title">Menu</title>
+            <use id="iconlink" xlink:href="#navicon"></use>
+          </svg>
+        </button>
+      </div>
+      <ul class="nav__list" id="nav__list">
+        <li class="nav__item"><a class="nav__link" href="#">start</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">introduction</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">a business plan</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">first prints</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">heretics</a></li>
+        <li class="nav__item"><a class="nav__link" href="#">closure</a></li>
+      </ul>
+    </nav>
+    <svg class="header__path path visually-hidden" width="1440" height="396" viewBox="0 0 1440 396" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path id="drawPath"
+        d="M-1.5001 96.5C62.8371 187.046 -31.6038 294.371 111.892 363.418C236.052 423.161 418.478 386.305 508.727 339.155C605.432 288.633 609.507 178.375 658.843 107.852C699.734 49.4004 792.845 -6.25552 934.763 2.11323C1076.68 10.482 1082.11 91.5104 1179.81 203.918C1277.51 316.326 1441.5 371.5 1441.5 371.5"
+        stroke="#6D762C" stroke-width="2" stroke-dasharray="12 12" />
+    </svg>
+    <div class="group-stroke">
+      <div class="story">
+        <ul class="story__list">
+          <li class="story__title">Plantin</a></li>
+        </ul>
+        <svg class="story__background" width="307" height="64" viewBox="0 0 307 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_d_282_4366)">
+            <path
+              d="M36.6225 24.0062C36.6225 46.9359 28.617 64 3 64H304C268.243 64 268.243 46.9359 268.243 24.0061C268.243 1.07624 36.6225 -1.05665 36.6225 24.0062Z"
+              fill="#DEDBD4" />
+          </g>
+          <defs>
+            <filter id="filter0_d_282_4366" x="0" y="0" width="307" height="64" filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dy="-3" />
+              <feGaussianBlur stdDeviation="1.5" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.354281 0 0 0 0 0.338583 0 0 0 0 0.304708 0 0 0 0.81 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_282_4366" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_282_4366" result="shape" />
+            </filter>
+          </defs>
+        </svg>
+      </div>
+      <h1 class="visually-hidden">Christophe Plantin</h1>
+      <div class="header__hero">
+        <p class="hero__title">Christophe</p>
+        <p class="hero__title">Plantin</p>
+        <p class="hero__p">And how to start a business in the 16th century</p>
+        <p class="hero__note note">Follow in the footsteps of Plantin as the Plantin-Moretus Museum brings his eventful
+          journey back alive!</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="extra-height"></div>
+  </main>
+
+  <!-- <canvas class="animation"></canvas> -->
+  <div class="overlay"></div>
+  <script type="module" src="/src/js/animations.js"></script>
+  <script src="/src/js/script.js"></script>
 </body>
 
 </html>
-
-<body>
-  <header>
-    <h1 class="visually-hidden">Discover new stories</h1>
-    <div class="header__title">
-      <p class="title">Discover</p>
-      <p class="header__p">Get to know our museum through interactive storytelling!</p>
-      <p class="title">new</p>
-      <p class="title">Stories</p>
-    </div>
-  </header>
-  <div class="overlay"></div>
-</body>
