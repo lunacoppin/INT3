@@ -6,7 +6,7 @@
     --color-beige-light: #BCB7AD;
     --color-beige-dark: #8E887D;
     --color-highlights: #C35171;
-    --color-black: #131212;
+    --color-black: #231F20;
 
     --whitespace-xs: .5rem;
     --whitespace-s: 1.2rem;
@@ -17,11 +17,13 @@
     --whitespace-xxl: 7rem;
 
     --font-size-xs: .75rem;
-    --font-size-s: 1rem;
+    --font-size-s: 1.05rem;
     --font-size-base: 1.125rem;
-    --font-size-m: 1.25rem;
+    --font-size-m: clamp(1rem, 0.5rem + 1vw, 2rem);
     --font-size-l: 1.5rem;
     --font-size-xl: 2rem;
+    --font-size-xxl: 3.125rem;
+    --font-size-xxxl: 5rem;
 
     --font-family-playfair: Playfair Display, Georgia, serif;
     --font-family-inconsolata: Inconsolata, Helvetica, Arial, sans-serif;
@@ -62,30 +64,31 @@ html {
 }
 
 .animation {
-    max-width: 100vw;
-    min-height: 100vh;
+    max-inline-size: 100vw;
+    min-block-size: 100vh;
 }
 
 path {
-    width: 100%;
-    height: auto;
+    inline-size: 100%;
+    block-size: auto;
 }
 
 .extra-height {
-    min-height: 100vh;
+    min-block-size: 100vh;
 }
 
 .overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-repeat: repeat;
     pointer-events: none;
-    background-image: url("../assets/img/beige-paper.png");
-    opacity: 100%;
+    background-image: url("../assets/img/background.png");
+    opacity: 40%;
     z-index: 10;
+    margin: 0;
 }
 
 body {
@@ -104,11 +107,15 @@ body {
 .visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
-    height: 1px;
+    block-size: 1px;
     overflow: hidden;
     position: absolute;
     white-space: nowrap;
-    width: 1px;
+    inline-size: 1px;
+}
+
+.container--s {
+    margin-inline: var(--whitespace-s);
 }
 
 img,
@@ -128,8 +135,8 @@ picture {
     z-index: -10;
 }
 
-.group-stroke {
-    height: 100%;
+.header__content {
+    block-size: 100%;
     display: grid;
     place-items: center;
 }
@@ -147,6 +154,7 @@ button {
 
 .nav__button--left {
     position: fixed;
+    z-index: 20;
     left: var(--whitespace-base);
     top: var(--whitespace-base);
 }
@@ -155,12 +163,12 @@ button {
     position: fixed;
     right: var(--whitespace-base);
     top: var(--whitespace-base);
-    z-index: 5;
+    z-index: 20;
 }
 
 .nav__button svg {
-    width: 4rem;
-    height: 4rem;
+    inline-size: 3.5rem;
+    block-size: 3.5rem;
 }
 
 .nav__list {
@@ -169,8 +177,8 @@ button {
     justify-content: space-evenly; */
     padding-block: 15vh;
     padding-inline: var(--whitespace-m);
-    height: 100vh;
-    width: 100vw;
+    block-size: 100vh;
+    inline-size: 100vw;
     position: fixed;
     background-color: var(--color-background);
 }
@@ -194,34 +202,197 @@ button {
 /* ------------------------------------- HEADER ------------------------------------- */
 
 .story {
-    padding-block-start: var(--whitespace-l);
+    padding-block-start: var(--whitespace-m);
     background-color: var(--color-beige-light);
-    width: 100%;
+    inline-size: 100%;
     display: grid;
+    grid-template-columns: repeat(6, 1fr);
     place-items: center;
 }
 
-.story__list, .story__background {
+.story__title {
+    font-family: var(--font-family-inconsolata);
+    font-weight: 600;
+    color: var(--color-red-primary);
+    font-size: var(--font-size-m);
+}
+
+.story li {
+    width: 18rem;
+      height: auto;
+        margin-inline-start: -6rem;
+        transition: all 0.3s ease;
+}
+
+.story li:nth-child(1) {
+    z-index: 6;
+}
+
+.story li:nth-child(2) {
+    z-index: 5;
+}
+
+.story li:nth-child(3) {
+    z-index: 4;
+}
+
+.story li:nth-child(4) {
+    z-index: 3;
+}
+
+.story li:nth-child(5) {
+    z-index: 2;
+}
+
+.story li:nth-child(6) {
+    z-index: 1;
+}
+
+.header__hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+}
+
+.hero__title {
+    font-family: var(--font-family-playfair);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: clamp(3.125rem, 13vw, 9rem);
+}
+
+.hero__title--top {
+    margin-block-end: -10vh;
+    margin-block-end: clamp(-10rem, -17vw, -6rem);
+}
+
+.hero__title--bottom {
+/* font-size: var(--font-size-xxxl); */
+    font-size: clamp(5rem, 16vw, 10rem);
+    margin-block-start: clamp(-13rem, -20vw, -7rem);
+}
+
+.hero__graphic {
+    place-self: center;
+}
+
+.overlap{
+    display: grid;
+    place-items: center;
+    overflow:hidden;
+}
+
+.overlap__item{
     grid-column: 1;
     grid-row: 1;
 }
 
-.story__title {
+.hero__graphic {
+    max-inline-size: 28rem;
 }
+
+.hero__graphic--fg {
+    inline-size: 80%;
+}
+
+.hero__graphic--bg {
+    max-inline-size: 140%;
+    inline-size: 140%;
+    margin-inline-start: -1.5rem;
+    margin-block-end: -3rem;
+    z-index: -5;
+}
+
+.hero__subtitle {
+    display: grid;
+    place-items: center;
+    margin-block-start: -2rem;
+}
+
+.subtitle__p, .subtitle__svg {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.subtitle__p {
+    font-family: var(--font-family-inconsolata);
+    font-size: var(--font-size-m);
+    font-weight: 600;
+    line-height: 1.4;
+    padding-inline: 2rem;
+    max-inline-size: 35ch;
+    color: var(--color-white);
+    margin-block-start: clamp(-4rem, -10vw, -1rem);
+}
+
+.subtitle__svg {
+    content: url('/src/assets/svg/background-subtitle.svg');
+    inline-size: 100%;
+    max-inline-size: 26rem;
+    block-size: auto
+}
+
+.hero__note{
+    rotate: -5deg;
+    z-index: -2;
+}
+
+.note__p {
+    font-family: var(--font-family-inconsolata);;
+    color: var(--color-red-primary);
+    font-weight: 500;
+    font-size: var(--font-size-s);
+    padding: var(--whitespace-s);
+    max-inline-size: 45ch;
+}
+
+.note__svg {
+    inline-size: 23rem;
+    block-size: auto;
+}
+
 
 @media screen and (min-width: 30em) {
     .nav__list {
             padding-inline: var(--whitespace-xl);
-        }
+    }
     .nav__link {
         margin-block-end: var(--whitespace-m);
         margin-block-start: var(--whitespace-xs);
     }
 
     .nav__button svg {
-        width: 3.5rem;
-        height: 3.5rem;
+        inline-size: 3.5rem;
+        block-size: 3.5rem;
     }
+}
+
+@media screen and (min-width: 40em) {
+    .story{
+        padding-block-start: var(--whitespace-s);
+    }
+    .hero__title, .subtitle__p, .story__title{
+        font-weight: 500;
+    }
+
+    .hero__subtitle {
+        margin-block-start: -3rem;
+    }
+
+    .subtitle__p {
+            max-inline-size: 70ch;
+            margin-block-start: -1.7rem;
+    }
+    .subtitle__svg {
+        max-inline-size: 100%;
+        content: url('/src/assets/svg/background-subtitle-2.svg');
+    }
+
+    .hide-on-mobile {
+        
+    }
+    
 }
 
 @media screen and (min-width: 65em) {

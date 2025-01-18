@@ -1,50 +1,66 @@
-const init = () => {
-    const $navButton = document.querySelector('.nav__button--menu');
-    const $navList = document.querySelector('.nav__list');
-    const $iconLink = document.querySelector('#iconlink');
-    const listItems = $navList.querySelectorAll("li a");
+const $navButton = document.querySelector('.nav__button--menu');
+const $navList = document.querySelector('.nav__list');
+const $iconLink = document.querySelector('#iconlink');
+const listItems = document.querySelectorAll('.nav__list li a');
 
+const openNavigation = () => {
+    $navButton.setAttribute("aria-expanded", "true");
+    $iconLink.setAttribute("xlink:href", "#close");
+    $navList.classList.remove("hidden");
+};
+
+const closeNavigation = () => {
+    $navButton.setAttribute("aria-expanded", "false");
+    $iconLink.setAttribute("xlink:href", "#navicon");
+    $navList.classList.add("hidden");
+};
+
+const toggleNavigation = () => {
+    const open = $navButton.getAttribute("aria-expanded");
+    open === "false" ? openNavigation() : closeNavigation();
+};
+
+const handleBlur = () => {
+    closeNavigation();
+};
+
+const handleEscapeKey = (e) => {
+    if (e.key === "Escape") {
+        $navButton.focus();
+        closeNavigation();
+    }
+};
+
+const initNavigation = () => {
     $navButton.classList.remove('hidden');
     $navList.classList.add("hidden");
 
-    const openNavigation = () => {
-        $navButton.setAttribute("aria-expanded", "true");
-        $iconLink.setAttribute("xlink:href", "#close");
-        $navList.classList.remove("hidden");
-    }
-
-    const closeNavigation = () => {
-        $navButton.setAttribute("aria-expanded", "false");
-        $iconLink.setAttribute("xlink:href", "#navicon");
-        $navList.classList.add("hidden");
-    }
-
-    const toggleNavigation = () => {
-        const open = $navButton.getAttribute("aria-expanded");
-        open === "false" ? openNavigation() : closeNavigation();
-    }
-
-
-    const handleBlur = () => {
-        //if (!event.relatedTarget || !$navList.contains(event.relatedTarget)) {
-        closeNavigation();
-        //}
-    }
-
     $navButton.addEventListener("click", toggleNavigation);
 
-    // add event to the last item in the nav list to trigger the disclosure to close if the user tabs out of the disclosure
-    listItems[listItems.length - 1].addEventListener("blur", handleBlur);
+    const lastItem = listItems[listItems.length - 1];
+    lastItem.addEventListener("blur", handleBlur);
 
-    // Close the disclosure if a user presses the escape key
-    window.addEventListener("keyup", (e) => {
-        if (e.key === "Escape") {
-            $navButton.focus();
-            closeNavigation();
-        }
-    });
+    window.addEventListener("keyup", handleEscapeKey);
+};
+function revealHiddenStories() {
+    const hiddenStories = document.querySelectorAll('.story-hidden');
+
+    if (window.innerWidth < 1200) {
+        hiddenStories.forEach(story => {
+            story.classList.add('visually-hidden');
+        });
+    } else if (window.innerWidth >= 1200) { 
+        hiddenStories.forEach(story => {
+            story.classList.remove('visually-hidden');
+        });
+    }
 }
+window.addEventListener('resize', revealHiddenStories);
 
 
+const init = () => {
+    initNavigation();
+    revealHiddenStories();
+};
 
 init();
