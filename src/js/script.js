@@ -45,11 +45,11 @@ const initNavigation = () => {
 function revealHiddenStories() {
     const hiddenStories = document.querySelectorAll('.story-hidden');
 
-    if (window.innerWidth < 1200) {
+    if (window.innerWidth < 1120) {
         hiddenStories.forEach(story => {
             story.classList.add('visually-hidden');
         });
-    } else if (window.innerWidth >= 1200) { 
+    } else if (window.innerWidth >= 1120) { 
         hiddenStories.forEach(story => {
             story.classList.remove('visually-hidden');
         });
