@@ -250,6 +250,12 @@ button {
     z-index: 1;
 }
 
+.story-hidden p {
+    color: var(--color-black);
+    opacity: 50%;
+    font-weight: normal;
+}
+
 .header__hero {
     display: grid;
     grid-template-columns: 1fr;
