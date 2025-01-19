@@ -395,7 +395,9 @@ button {
 }
 
 .intro__year {
-    block-size: 70vh;
+    block-size: 30vh;
+    align-items: center;
+    margin-block-start: 5rem;
 }
 
 .year__p {
@@ -418,14 +420,18 @@ button {
             "intro__map intro__map"
             "intro__p--1 intro__p--1"
             "intro__p--2 intro__bell"
-            "intro__p--3 intro__p--3";
-
+            "intro__p--3 intro__p--3"
+            ". intro__splash";
     place-items: center;
-    
 }
 
 .big-letter {
     display: none;
+}
+
+.intro__splash {
+    margin-block-start: -4rem;
+    grid-area: intro__splash;
 }
 
 .intro__p {
@@ -487,11 +493,12 @@ button {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-areas:
-            "intro__map "
+            "intro__map"
             "intro__p--1"
             "intro__p--2 "
             "intro__p--3"
-            "intro__bell";
+            "intro__bell"
+            ;
 
         place-items: center;
 
@@ -500,6 +507,13 @@ button {
     .intro__bell {
         margin-block-start: -2.5rem;
         margin-inline-end: var(--whitespace-base);
+    }
+
+    .intro__splash {
+        grid-row: 1;
+        grid-column: 1;
+        align-self: end;
+        justify-self: end;
     }
 
     .intro__p--3{
@@ -591,6 +605,12 @@ button {
         justify-self: end;
     }
 
+    .intro__year {
+        block-size: 40vh;
+        align-items: center;
+        margin-block-start: 8rem;
+    }
+
     .note__svg {
         inline-size: clamp(20rem, 9vw, 21rem);
     }
@@ -624,11 +644,12 @@ button {
 
     .intro__splash {
         grid-area: intro__splash;
+        justify-self: start;
     }
 
     .intro__content {
         display: grid;
-        grid-template-columns: 2fr auto 3fr 1.5fr;
+        grid-template-columns: 2.5fr auto 3fr 1.5fr;
         grid-template-rows: 0.7fr 1fr 0.5fr 1fr;
         grid-template-areas:
             "intro__map . . intro__splash"
@@ -668,7 +689,7 @@ button {
     }
 
     .intro__p--2, .letter-i {
-        margin-inline-start: var(--whitespace-xl);
+        margin-inline-start: var(--whitespace-l);
     }
 
 
