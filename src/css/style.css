@@ -8,13 +8,14 @@
     --color-highlights: #C35171;
     --color-black: #231F20;
 
-    --whitespace-xs: .5rem;
-    --whitespace-s: 1.2rem;
-    --whitespace-base: clamp(.5rem, .5rem + 1vw, 6rem);
-    --whitespace-m: 2rem;
-    --whitespace-l: 3rem;
-    --whitespace-xl: 5rem;
-    --whitespace-xxl: 7rem;
+    --whitespace-xxs: clamp(.15rem, .3rem + 0.3vw, 0.5rem);
+    --whitespace-xs: clamp(.25rem, .5rem + 0.5vw, 1rem);
+    --whitespace-s: clamp(.5rem, 0.5rem + 1vw, 2rem);
+    --whitespace-base: clamp(.5rem, 1rem + 1vw, 6rem);
+    --whitespace-m: clamp(1rem, 2rem + 1vw, 3rem);
+    --whitespace-l: clamp(1.5rem, 3rem + 1vw, 4rem);
+    --whitespace-xl: clamp(2rem, 5rem + 1vw, 6rem);
+    --whitespace-xxl: clamp(3rem, 7rem + 1vw, 8rem);
 
     --font-size-xs: .9rem;
     --font-size-s: 1.05rem;
@@ -55,6 +56,11 @@
 
 html {
     box-sizing: border-box;
+}
+
+html, body {
+    inline-size: 100vw;
+    /* overflow-x: hidden; */
 }
 
 *,
@@ -137,7 +143,7 @@ path {
 }
 
 .container--s {
-    margin-inline: var(--whitespace-s);
+    margin-inline: var(--whitespace-base);
 }
 
 img,
@@ -145,6 +151,13 @@ picture {
     max-inline-size: 100%;
     block-size: auto;
     object-fit: contain;
+}
+
+.highlight {
+    background-color: var(--color-highlights);
+    padding: 0.25rem var(--whitespace-xxs);
+    color: var(--color-white);
+    /* background-image: url("../assets/svg/highlight.svg"); */
 }
 
 .path {
@@ -269,7 +282,7 @@ button {
 .story-hidden p {
     color: var(--color-black);
     opacity: 50%;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 .header__hero {
@@ -299,12 +312,12 @@ button {
 
 .hero__graphic {
     place-self: center;
+    overflow: hidden;
 }
 
 .overlap{
     display: grid;
     place-items: center;
-    overflow:hidden;
 }
 
 .overlap__item{
@@ -372,11 +385,90 @@ button {
 }
 
 .note__svg {
-    inline-size: 23rem;
+    inline-size: 25rem;
     block-size: auto;
 }
 
+/* ------------------------------------- INTRO ------------------------------------- */
+.intro {
+  inline-size: 100vw;
+}
 
+.intro__year {
+    block-size: 70vh;
+}
+
+.year__p {
+    text-align: center;
+    font-family: var(--font-family-playfair);
+    font-weight: bold;
+    font-size: clamp(12rem, 25vw, 19rem);
+    line-height: 1;
+    margin-block-end: clamp(10rem, 20vw, 15rem);
+}
+
+.year__svg {
+
+}
+
+.intro__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+            "intro__map intro__map"
+            "intro__p--1 intro__p--1"
+            "intro__p--2 intro__bell"
+            "intro__p--3 intro__p--3";
+
+    place-items: center;
+    
+}
+
+.big-letter {
+    display: none;
+}
+
+.intro__p {
+    margin-block-end: var(--whitespace-s);
+    max-inline-size: 65ch;
+}
+
+.intro__map {
+    grid-area: intro__map;
+    margin-block-start: -2rem;
+    margin-block-end: var(--whitespace-s);
+}
+
+.intro__p--1 {
+    grid-area: intro__p--1;
+}
+
+.intro__p--2 {
+    grid-area: intro__p--2;
+}
+
+.intro__p--3 {
+    grid-area: intro__p--3;
+}
+
+.intro__bell {
+    grid-area: intro__bell;
+    justify-self: end;
+}
+
+.map__img {
+    inline-size: 28rem;
+    block-size: auto;
+    margin-block: var(--whitespace-base);
+    align-self: end;
+}
+
+.bell__img {
+    inline-size: 16.25rem;
+    block-size: auto;
+}
+
+/* ------------------------------------- MEDIA QUERIES ------------------------------------- */
 @media screen and (min-width: 30em) {
     .nav__list {
             padding-inline: var(--whitespace-xl);
@@ -390,9 +482,44 @@ button {
         inline-size: 3.5rem;
         block-size: 3.5rem;
     }
+
+    .intro__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "intro__map "
+            "intro__p--1"
+            "intro__p--2 "
+            "intro__p--3"
+            "intro__bell";
+
+        place-items: center;
+
+    }
+
+    .intro__bell {
+        margin-block-start: -2.5rem;
+        margin-inline-end: var(--whitespace-base);
+    }
+
+    .intro__p--3{
+        display: none;
+    }
+
+    .intro__p--2::after{
+        content:"But the rewards? They could set you up for life. With ambition and determination, you’re ready to build a printing empire. Will you succeed? Or fall into the dangers of this high-stakes business?"
+    }
+    
+}
+
+@media screen and (min-width: 32em) {
 }
 
 @media screen and (min-width: 40em) {
+    body {
+        font-weight: 300;
+    }
+
     .story{
         padding-block-start: var(--whitespace-s);
         padding-inline-start: 12rem;
@@ -467,6 +594,10 @@ button {
     .note__svg {
         inline-size: clamp(20rem, 9vw, 21rem);
     }
+
+    .intro__map {
+        justify-self: start;
+    }
 }
 
 @media screen and (min-width: 70em) {
@@ -482,8 +613,69 @@ button {
     }
 }
 
+@media screen and (min-width: 80em) {
+    .container--s{
+        margin-inline: var(--whitespace-m);
+    }
+
+    .big-letter {
+        display: block;
+    }
+
+    .intro__splash {
+        grid-area: intro__splash;
+    }
+
+    .intro__content {
+        display: grid;
+        grid-template-columns: 2fr auto 3fr 1.5fr;
+        grid-template-rows: 0.7fr 1fr 0.5fr 1fr;
+        grid-template-areas:
+            "intro__map . . intro__splash"
+            "intro__map letter-i intro__p--1 intro__splash"
+            ". intro__p--2 intro__p--2 intro__bell"
+            ". . . intro__bell";
+
+        place-items: center
+    }
+
+    .big-letter {
+            font-size: 12rem;
+            font-family: var(--font-family-playfair);
+            font-weight: 600;
+    }
+
+    .replace-letter {
+        display: none;
+    }
+
+    .letter-i {
+        grid-area: letter-i;
+        align-self: end;
+        margin-block-end: var(--whitespace-base);
+        line-height: 0.8;
+    }
+
+    .map__img {
+        margin-block-start: 12rem;
+        margin-inline-start: var(--whitespace-m);
+    }
+
+    .intro__p--1 {
+        align-self: end;
+        justify-self: start;
+        max-inline-size: 46ch;
+    }
+
+    .intro__p--2, .letter-i {
+        margin-inline-start: var(--whitespace-xl);
+    }
+
+
+}
+
 @media screen and (min-width: 85em) {
     .hero__note {
-        margin-inline-end: -6rem;
-    }
+            margin-inline-end: -6rem;
+        }
 }
