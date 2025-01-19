@@ -63,19 +63,11 @@ html {
     box-sizing: inherit;
 }
 
-.animation {
+/* .animation {
     max-inline-size: 100vw;
     min-block-size: 100vh;
-}
+} */
 
-path {
-    inline-size: 100%;
-    block-size: auto;
-}
-
-.extra-height {
-    min-block-size: 100vh;
-}
 
 .overlay {
     position: fixed;
@@ -91,6 +83,27 @@ path {
     margin: 0;
 }
 
+.progress--bg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: var(--color-beige-dark);
+    transform-origin: 0%;
+}
+
+.progress--fg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: var(--color-red-primary);
+    transform-origin: 0%;
+    width: 0%;
+}
+
 body {
     font-family: var(--font-family-public);
     font-size: var(--font-size-base);
@@ -98,6 +111,15 @@ body {
     background-color: var(--color-background);
     position: relative;
     line-height: 1.6;
+}
+
+path {
+    inline-size: auto;
+    block-size: auto;
+}
+
+.extra-height {
+    min-block-size: 100vh;
 }
 
 .hidden {
@@ -123,12 +145,6 @@ picture {
     max-inline-size: 100%;
     block-size: auto;
     object-fit: contain;
-}
-
-.group-stroke,
-.path {
-    grid-column: 1;
-    grid-row: 1;
 }
 
 .path {
