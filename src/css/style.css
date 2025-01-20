@@ -166,6 +166,11 @@ picture {
     object-fit: contain;
 }
 
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .highlight {
     background-color: var(--color-highlights);
     padding: 0.25rem var(--whitespace-xxs);
@@ -338,6 +343,7 @@ button {
 .overlap{
     display: grid;
     place-items: center;
+    /* inline-size: 100%; */
 }
 
 .overlap__item{
@@ -444,7 +450,8 @@ button {
             "intro__p--2 intro__bell"
             "intro__p--3 intro__p--3"
             ". intro__splash";
-    place-items: center;
+    
+    inline-size: 100%
 }
 
 .big-letter {
@@ -564,7 +571,66 @@ h4 {
     margin-inline: var(--whitespace-base);
 }
 
+/* ------------------------------------- HUMANISTS ------------------------------------- */
+.humanists {
+    margin-top : var(--whitespace-l);
+}
 
+.overlap--box {
+    overflow: hidden;
+}
+
+.humanists__img {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 43rem;
+}
+
+.humanists__lipsius {
+    max-inline-size: 95%;
+    block-size: auto;
+    grid-column: 1/3;
+    grid-row: 1;
+}
+
+.humanists__davinci {
+    max-inline-size: 95%;
+    block-size: auto;
+    grid-column: 2/4;
+    grid-row: 1;
+}
+
+.humanists__note .note__p {
+    max-inline-size: 42ch;
+}
+
+.note--arrow {
+    
+}
+
+.note--arrow::after{
+    content: url('/src/assets/svg/menu-next.svg');
+    margin-block-start: -1.5rem;
+    margin-inline-start: 12rem;
+}
+
+.humanists__note{
+    rotate: -5deg;
+    padding-block-start: var(--whitespace-base);
+}
+
+.humanists__text{
+    margin-block-start: var(--whitespace-m);
+}
+
+.humanists__p {
+    margin-block-end: var(--whitespace-s);
+    max-inline-size: 65ch;
+}
+
+.humanists__ideas {
+    block-size: 100vh;
+}
 
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
 @media screen and (min-width: 30em) {
@@ -655,6 +721,10 @@ h4 {
 }
 
 @media screen and (min-width: 40em) {
+    .container--s {
+            margin-inline: var(--whitespace-m);
+        }
+
     body {
         font-weight: 300;
     }
@@ -688,13 +758,34 @@ h4 {
         display: block;
     }
 
-    .intro__path {
-        
+    .intro__path, .humanists__path {
         display: none;
     }
 
     .profile__content {
         grid-template-columns: 1fr 1.2fr;
+    }
+
+    .humanists__lipsius {
+        /* max-width: 24.2rem; */
+    }
+
+    .humanists__davinci {
+        /* max-width: 23.9rem; */
+    }
+
+    .humanists {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .humanists__note {
+        justify-self: end;
+    }
+
+    .humanists__text {
+        margin-inline: 0;
     }
 }
 
@@ -728,6 +819,13 @@ h4 {
 }
 
 @media (min-width: 60em) {
+    section {
+            max-width: 85rem;
+        }
+    .profile {
+        margin: 0 auto;
+    }
+
     .header__hero {
         grid-template-columns: 1fr auto 1fr;
         grid-template-areas:
@@ -780,6 +878,32 @@ h4 {
 
     .intro__map {
         justify-self: start;
+    }
+
+    .humanists {
+        margin: 0 auto;
+    }
+
+    .humanists__group {
+        margin-top: var(--whitespace-l);
+        padding-inline: var(--whitespace-l);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .humanists__content{
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .humanists__graphic {
+        grid-column: 2;
+        grid-row: 1;
+        
+    }
+
+    .humanists__text {
+        max-inline-size: 65ch;
     }
 }
 
@@ -845,12 +969,13 @@ h4 {
 }
 
 @media screen and (min-width: 80em) {
-    .container--s{
+    /* .container--s{
         margin-inline: var(--whitespace-m);
-    }
+    } */
 
     .big-letter {
         display: block;
+        line-height: 0.8;
     }
 
     .intro__splash {
@@ -858,22 +983,26 @@ h4 {
         justify-self: start;
     }
 
-    .intro__path {
-        margin-block-start: var(--whitespace-xl);
+    .intro__path, .humanists__path {
         display: block;
+    }
+
+    .intro__path{
+        margin-block-start: var(--whitespace-xl);
     }
 
     .intro__content {
         display: grid;
         grid-template-columns: 2.5fr auto 3fr 1.5fr;
-        grid-template-rows: 0.7fr 1fr 0.5fr 1fr;
+        grid-template-rows: 0.7fr 1fr 0.5fr 0.8fr;
         grid-template-areas:
             "intro__map . . intro__splash"
             "intro__map letter-i intro__p--1 intro__splash"
             ". intro__p--2 intro__p--2 intro__bell"
             ". . . intro__bell";
 
-        place-items: center
+        place-items: center;
+        margin-block: 0;
     }
 
     .big-letter {
@@ -908,9 +1037,45 @@ h4 {
         margin-inline-start: var(--whitespace-l);
     }
 
+    .profile {
+        margin-block-start: -3rem;
+    }
     .profile__content {
         padding-inline: clamp(5rem, 12vw, 12rem);
         max-inline-size: 89rem;
+    }
+
+    .humanists__text {
+        margin-inline-end: 0;
+        min-inline-size: 30rem;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: var(--whitespace-xs);
+        grid-template-areas:
+            "letter-e humanists__p--1"
+            "humanists__p--2 humanists__p--2";
+    }
+
+    .humanists__p--1 {
+        grid-area: humanists__p--1;
+        margin-block-end: 0;
+    }
+
+    .humanists__p--2 {
+        grid-area: humanists__p--2;
+    }
+
+    .letter-e {
+        grid-area: letter-e;
+    }
+
+    .humanists__text {
+        margin-inline-end: 0;
+    }
+
+    .humanists__note {
+        justify-self: start;
+        margin-block-start: var(--whitespace-m);
     }
 }
 

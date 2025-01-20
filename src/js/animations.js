@@ -49,7 +49,6 @@ const animateProgress = () => {
     const progressBar = document.querySelector(".progress--fg");
     gsap.to(progressBar, {
         width: "100%",
-        // ease: "power1.inOut",
         scrollTrigger: {
             trigger: document.body,
             start: "top top",
