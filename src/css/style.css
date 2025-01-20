@@ -161,6 +161,14 @@ picture {
 }
 
 .path {
+    inline-size: clamp(40rem, 100vw, 120rem);
+}
+
+.path-hidden {
+    display: none;
+}
+
+.path {
     z-index: -10;
 }
 
@@ -558,6 +566,15 @@ button {
         max-inline-size: 100%;
         content: url('/src/assets/svg/background-subtitle-2.svg');
     }
+
+    .path-hidden {
+        display: block;
+    }
+
+    .intro__path {
+        
+        display: none;
+    }
 }
 
 @media (min-width: 60em) {
@@ -645,6 +662,11 @@ button {
     .intro__splash {
         grid-area: intro__splash;
         justify-self: start;
+    }
+
+    .intro__path {
+        margin-block-start: var(--whitespace-xl);
+        display: block;
     }
 
     .intro__content {
