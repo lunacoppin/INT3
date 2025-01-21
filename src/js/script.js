@@ -170,6 +170,8 @@ const animateBubbles = () => {
     });
 };
 
+// window.addEventListener('resize', animateBubbles);
+
 
 //Initialization
 const init = () => {
