@@ -316,6 +316,7 @@ button {
     grid-template-columns: 1fr;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
 
 .hero__title {
@@ -338,6 +339,7 @@ button {
 .hero__graphic {
     place-self: center;
     overflow: hidden;
+    max-inline-size: 28rem;
 }
 
 .overlap{
@@ -351,17 +353,14 @@ button {
     grid-row: 1;
 }
 
-.hero__graphic {
-    max-inline-size: 28rem;
-}
 
 .hero__graphic--fg {
     inline-size: 80%;
 }
 
 .hero__graphic--bg {
-    /* max-inline-size: 140%;
-    inline-size: 140%;   */
+    max-inline-size: 140%;
+    inline-size: 140%;  
     height: auto;
     margin-inline-start: -1.5rem;
     margin-block-end: -3rem;
@@ -681,6 +680,19 @@ h4 {
     color: var(--color-white);
 }
 
+/* ------------------------------------- REFORMATION ------------------------------------- */
+.reformation {
+    inline-size: 100%;
+    overflow-x: hidden;
+}
+
+.circle__dark {
+    max-inline-size: 130%;
+    inline-size: 130%;
+    height: auto;
+        
+}
+
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
 @media screen and (min-width: 30em) {
     .nav__list {
@@ -771,12 +783,16 @@ h4 {
 
 @media screen and (min-width: 40em) {
     .container--s {
-            margin-inline: var(--whitespace-m);
+            padding-inline: var(--whitespace-m);
         }
 
     body {
         font-weight: 300;
     }
+
+        .header__hero {
+            overflow:visible;
+        }
 
     .story{
         padding-block-start: var(--whitespace-s);
@@ -899,10 +915,11 @@ h4 {
 }
 
 @media (min-width: 60em) {
-    section {
-            max-width: 85rem;
-        }
+    /* .section{
+        max-width: 85rem;
+    } */
     .profile {
+        max-width: 85rem;
         margin: 0 auto;
     }
 
