@@ -110,7 +110,7 @@ const animateBubble = (bubble, containerWidth, containerHeight, placedBubbles, o
 
         setTimeout(() => {
             bubble.style.transition = 'transform 2s ease-in-out, opacity 2s ease-in-out';
-            bubble.style.transform = 'scale(1)';
+            bubble.style.transform = 'scale(0.9)';
             bubble.style.opacity = '1';
         }, Math.random() * 8000); 
     }
@@ -124,7 +124,7 @@ const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeigh
     const originalText = bubble.dataset.originalText; 
     bubbleText.textContent = 'You cannot stop the ideas of Humanism from spreading...';
     bubble.style.backgroundImage = 'url("/src/assets/svg/background-bubble-after.svg")';
-    bubble.style.transition = 'opacity 7s ease-in';
+    bubble.style.transition = 'opacity 5s ease-in';
     bubble.style.opacity = '0';
     bubble.style.transform = 'scale(1.2)'
     bubbleText.style.transform = 'scale(1)';
