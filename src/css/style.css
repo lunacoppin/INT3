@@ -627,6 +627,10 @@ h4 {
     max-inline-size: 65ch;
 }
 
+p {
+    max-inline-size: 65ch;
+}
+
 .humanists__ideas {
     block-size: 90vh;
     position: relative;
@@ -689,8 +693,61 @@ h4 {
 .circle__dark {
     max-inline-size: 130%;
     inline-size: 130%;
-    height: auto;
-        
+    height: auto;       
+}
+
+.background {
+    background-color: var(--color-beige-light);
+}
+
+.reformation__content {
+    margin-block-start: -2px;
+    padding-block-end: var(--whitespace-l);
+}
+
+.reformation__graphic {
+    margin-block-end: var(--whitespace-base);
+}
+
+.reformation__imgs {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    max-inline-size: 36rem;
+    z-index: 4;
+}
+
+.reformation__svg{
+    inline-size: 32rem;
+}
+
+.reformation__pope {
+    inline-size: 95%;
+    block-size: auto;
+    grid-column: 1/3;
+    grid-row: 1;
+}
+
+.reformation__chalice {
+    max-inline-size: 70%;
+    block-size: auto;
+    grid-column: 2/4;
+    place-self: end;
+    grid-row: 1;
+}
+
+.reformation__text {
+    margin-block: var(--whitespace-m);
+}
+
+.reformation__p {
+    margin-block-end: var(--whitespace-s);
+}
+
+.reformation__path {
+    z-index: 3;
+    margin-inline-start: 0rem;
+    margin-block-start: 3rem;
+    scale: 1.2;
 }
 
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
@@ -844,7 +901,7 @@ h4 {
         /* max-width: 23.9rem; */
     }
 
-    .humanists {
+    .humanists, .reformation__content {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -988,12 +1045,21 @@ h4 {
         grid-template-columns: 1fr 1fr;
     }
 
-    .humanists__content{
+    .reformation__content {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        padding-inline: var(--whitespace-xl);
+        max-inline-size: 85rem;
+        margin: 0 auto;
+        margin-block-start: -2px;
+    }
+
+    .humanists__content, .reformation__graphic {
         grid-column: 1;
         grid-row: 1;
     }
 
-    .humanists__graphic {
+    .humanists__graphic, .reformation__text {
         grid-column: 2;
         grid-row: 1;
         
@@ -1001,6 +1067,11 @@ h4 {
 
     .humanists__text {
         max-inline-size: 65ch;
+    }
+
+    .reformation__text {
+        padding-inline: 0rem;
+        max-width: 50ch;
     }
 }
 
