@@ -29,7 +29,7 @@ paths.forEach((path) => {
     const pathLength = path.getTotalLength();
 
     // Set initial strokeDasharray and strokeDashoffset
-    path.style.strokeDasharray = "12, 12";
+    path.style.strokeDasharray = "30, 20";
     path.style.strokeDashoffset = pathLength;
 
     // GSAP ScrollTrigger animation

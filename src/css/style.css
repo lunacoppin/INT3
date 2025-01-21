@@ -25,8 +25,8 @@
     --font-size-xl: 2rem;
     --font-size-xxl: 3.125rem;
     --font-size-xxxl: 5rem; */
-    --font-size-xs: clamp(0.8rem, 0.6rem + 0.2vw, 1rem);
-    --font-size-s: clamp(0.9rem, 0.75rem + 0.4vw, 1.1rem);
+    --font-size-xs: clamp(0.8rem, 0.6rem + 0.2vw, 0.9rem);
+    --font-size-s: clamp(0.9rem, 0.75rem + 0.4vw, 1rem);
     --font-size-base: clamp(1.05rem, 0.85rem + 0.5vw, 1.1rem);
     --font-size-m: clamp(1.25rem, 1rem + 0.6vw, 1.4rem);
     --font-size-l: clamp(1.5rem, 1.25rem + 0.8vw, 2rem);
@@ -171,6 +171,25 @@ a {
     cursor: pointer;
 }
 
+.cta {
+    background-image : url("../assets/svg/background-cta.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+    padding: var(--whitespace-m);
+}
+
+.cta__p {
+    font-size: var(--font-size-s);
+    font-family: var(--font-family-inconsolata);
+    font-weight: 600;
+    max-inline-size: 10ch;
+    line-height: 1.2;
+    color: var(--color-white);
+    text-align: center;
+}
+
 .highlight {
     background-color: var(--color-highlights);
     padding: 0.25rem var(--whitespace-xxs);
@@ -205,6 +224,10 @@ button {
     background: transparent;
     appearance: none;
     color: var(--text-color);
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .nav__button--left {
@@ -660,6 +683,15 @@ p {
     order: 1;
 }
 
+.ideas__cta {
+    align-self: start;
+        justify-self: center;
+        grid-row: 1;
+        grid-column: 1;
+        margin-block-start: -3rem;
+        margin-inline-start: -2rem;
+}
+
 .bubble {
     position: absolute;
     transform-origin: center;
@@ -748,6 +780,126 @@ p {
     margin-inline-start: 0rem;
     margin-block-start: 3rem;
     scale: 1.2;
+}
+
+/* ------------------------------------- STRATEGY ------------------------------------- */
+.strategy__cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-inline-size: 90rem;
+    margin: 0 auto;
+}
+
+.card__content {
+    inline-size: 90%;
+    block-size: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: var(--whitespace-m);
+    
+}
+
+.card__title {
+    font-family: var(--font-family-inconsolata);
+    font-size: var(--font-size-l);
+    font-weight: 450;
+    justify-self: start;
+    line-height: 1.3;
+    inline-size: 80%;
+}
+
+.striped{
+    text-decoration: line-through;
+}
+
+.card__title--long{
+    inline-size: 100%;
+
+}
+
+.title__lower {
+
+}
+
+.card__img {
+    justify-self: end;
+}
+
+.img__church {
+    max-inline-size: 8.5rem;
+    block-size: auto;
+}
+
+.img__science {
+    max-inline-size: 13.5rem;
+    block-size: auto;
+}
+
+.img__both{
+    max-inline-size: 10.3rem;
+    block-size: auto;
+}
+
+.card {
+width: 26rem;
+    /* Set the size of the card */
+    height: 26rem;
+    perspective: 1000px;
+    /* Allows the 3D effect */
+}
+
+.card__plantin {
+    display: flex;
+    flex-direction: column;
+}
+
+.card__p {
+    font-size: var(--font-size-s);
+}
+
+.card__p--plantin {
+    justify-self: end;
+    color: var(--color-green-primary);
+    font-weight: 600;
+    font-family: var(--font-family-inconsolata);
+    padding: var(--whitespace-xs);
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    /* Smooth flipping animation */
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* Hide the back when flipped */
+}
+
+.card-front {
+    transform: rotateY(0deg);
+    /* Default position */
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    /* Flipped position */
+    /* background-color: #eee; */
+    /* Optional: Add a fallback background */
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+    /* Perform the flip */
 }
 
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
@@ -876,11 +1028,11 @@ p {
         content: url('/src/assets/svg/background-subtitle-2.svg');
     }
 
-    .path-hidden {
+    .header__path {
         display: block;
     }
 
-    .intro__path, .humanists__path {
+    .intro__path, .humanists__path .reformation__path {
         display: none;
     }
 
@@ -926,8 +1078,8 @@ p {
 
     .ideas__title {
         font-family: var(--font-family-playfair);
-        font-size: 18vw;
-        font-weight: 600;
+        font-size: 20vw;
+        font-weight: 500;
         writing-mode:horizontal-tb;
         line-height: 1;
     }
@@ -1164,7 +1316,7 @@ p {
         justify-self: start;
     }
 
-    .intro__path, .humanists__path {
+    .intro__path, .humanists__path, .reformation__path{
         display: block;
     }
 
@@ -1240,6 +1392,7 @@ p {
     .humanists__p--1 {
         grid-area: humanists__p--1;
         margin-block-end: 0;
+        align-self: end;
     }
 
     .humanists__p--2 {
@@ -1257,6 +1410,38 @@ p {
     .humanists__note {
         justify-self: start;
         margin-block-start: var(--whitespace-m);
+    }
+
+    .reformation__text {
+        display: grid;
+        grid-template-columns: auto 2fr;
+        gap: var(--whitespace-xs);
+        grid-template-areas:
+            "letter-b reformation__p--1"
+            "reformation__p--2 reformation__p--2";
+    }
+
+    .reformation__text {
+        padding-inline: 0rem;
+        max-width: 55ch;
+    }
+
+    .reformation__p {
+        margin-block-end: 0;
+    }
+
+    .reformation__p--1 {
+        grid-area: reformation__p--1;
+        margin-block-end: 0;
+        align-self: end;
+    }
+
+    .reformation__p--2 {
+        grid-area: reformation__p--2;
+    }
+
+    .letter-b {
+        grid-area: letter-b;
     }
 }
 
