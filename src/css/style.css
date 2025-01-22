@@ -797,9 +797,10 @@ p {
 }
 
 .strategy__p {
-    margin-block-end: var(--whitespace-m);
     text-align: center;
+    margin: 0 auto;
     max-inline-size: 35ch;
+    margin-block-end: var(--whitespace-m);
 }
 
 .strategy {
@@ -818,7 +819,7 @@ p {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -ms-overflow-style: none;
-        scrollbar-width: none;
+    scrollbar-width: none;
 }
 
 .strategy__cards::-webkit-scrollbar {
@@ -828,13 +829,6 @@ p {
 .card-hidden {
     display: none;
 }
-
-/* .card-1 {
-    background-image: url('/src/assets/svg/background-card-1.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-} */
 
  .card {
     background-color: var(--color-white);
@@ -911,6 +905,7 @@ p {
     display: flex;
     justify-content: space-around;
     margin-block-start: -1rem;
+    inline-size: 100%;
 }
 
 
@@ -1007,6 +1002,13 @@ p {
 
         .strategy__p {
             text-align: start;
+            margin: 0;
+            margin-block-end: var(--whitespace-m);
+        }
+
+        .strategy__title,
+        .strategy__p {
+            margin-inline-start: var(--whitespace-l);
         }
 }
 
@@ -1052,7 +1054,7 @@ p {
         display: block;
     }
 
-    .intro__path, .humanists__path .reformation__path {
+    .intro__path, .humanists__path .reformation__path, .strategy__path {
         display: none;
     }
 
@@ -1273,6 +1275,12 @@ p {
         scroll-snap-align: none;
     }
 
+    .card::before {
+        content: url('/src/assets/svg/splash-big.svg');
+        position: absolute;
+        /* z-index: -1; */
+    }
+
     .card__svg {
         inline-size: 26rem;
         block-size: auto;
@@ -1437,7 +1445,7 @@ p {
         justify-self: start;
     }
 
-    .intro__path, .humanists__path, .reformation__path{
+    .intro__path, .humanists__path, .reformation__path, .strategy__path{
         display: block;
     }
 
@@ -1571,4 +1579,16 @@ p {
     .hero__note {
             margin-inline-end: -6rem;
         }
+}
+
+@media screen and (min-width: 87.5em) {
+    .card::before {
+        position: absolute;
+        bottom: -4rem;
+        left: 16rem;
+    }
+
+    .card:last-child::before {
+        display: none;
+    }
 }
