@@ -106,6 +106,7 @@ html, body {
     inline-size: 100%;
     background: var(--color-beige-dark);
     transform-origin: 0%;
+    z-index: 100;
 }
 
 .progress--fg {
@@ -117,6 +118,7 @@ html, body {
     background: var(--color-red-primary);
     transform-origin: 0%;
     inline-size: 0%;
+    z-index: 100;
 }
 
 body {
@@ -805,7 +807,8 @@ p {
 }
 
 .strategy {
-    block-size: 100vh;
+    /* block-size: 100vh; */
+    margin-block-end: var(--whitespace-l);
 }
 
 .strategy__cards {
@@ -910,6 +913,26 @@ p {
 }
 
 /* ------------------------------------- PRINTING ------------------------------------- */
+.printing__group {
+    max-inline-size: 90rem;
+    margin: 0 auto;
+}
+
+.printing__p {
+    max-inline-size: 42rem;
+    margin-block-end: var(--whitespace-s);
+}
+
+.printing__p--2{
+
+}
+
+.printing__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .printing__p--1 {
     font-family: var(--font-family-inconsolata);
     block-size: 100%;
@@ -924,6 +947,56 @@ p {
     color: var(--color-black);
     font-weight: 700;
     opacity: 0;
+}
+
+.printing__imgs {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    max-inline-size: 36rem;
+}
+
+.printing__svg {
+    /* inline-size: 32rem; */
+}
+
+.printing__stamp {
+    inline-size: 90%;
+    block-size: auto;
+    grid-column: 2/4;
+    grid-row: 1;
+    justify-self: end;
+    align-self: center;
+}
+
+.printing__press {
+    max-inline-size: 95%;
+    block-size: auto;
+    grid-column: 1/3;
+    place-self: end;
+    grid-row: 1;
+}
+
+.printing__imgs {
+
+}
+
+/* .printing__graphic {
+    inline-size: fit-content;
+} */
+
+.printing__button {
+    align-self: end;
+    justify-self: center;
+    padding-block-end: var(--whitespace-l);
+    padding-inline-start: var(--whitespace-xl);
+}
+
+.printing__cta {
+    padding: var(--whitespace-m);
+}
+
+.printing__cta--p {
+    font-size: var(--font-size-base);
 }
 
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
@@ -1137,10 +1210,40 @@ p {
     }
 }
 
+@media (min-width: 50em) {
+    .profile__content {
+        grid-template-columns: auto auto;
+        grid-template-areas:
+            "profile__graphic profile__name"
+            "profile__graphic profile__goals"
+            "profile__basics profile__bio";
+        padding-inline: var(--whitespace-l);
+    }
+
+    .profile__basics {
+        margin-block-start: 0;
+        margin-inline-start: var(--whitespace-m);
+    }
+
+    .goals__list {
+        flex-direction: column;
+    }
+
+    .profile__name {
+        align-self: end;
+        text-align: start;
+    }
+
+    .profile__bio {
+        align-self: center;
+    }
+}
+
 @media (min-width: 60em) {
     /* .section{
         max-width: 85rem;
     } */
+
     .profile {
         max-width: 85rem;
         margin: 0 auto;
@@ -1204,11 +1307,12 @@ p {
         margin: 0 auto;
     }
 
-    .humanists__group {
+    .humanists__group{
         margin-top: var(--whitespace-l);
         padding-inline: var(--whitespace-l);
         display: grid;
         grid-template-columns: 1fr 1fr;
+        place-items: center;
     }
 
     .reformation__content {
@@ -1218,6 +1322,7 @@ p {
         max-inline-size: 85rem;
         margin: 0 auto;
         margin-block-start: -2px;
+        place-items: center;
     }
 
     .humanists__content, .reformation__graphic {
@@ -1227,8 +1332,7 @@ p {
 
     .humanists__graphic, .reformation__text {
         grid-column: 2;
-        grid-row: 1;
-        
+        grid-row: 1; 
     }
 
     .humanists__text {
@@ -1242,6 +1346,10 @@ p {
 
     .card-hidden{
         display: block;
+    }
+
+    .strategy {
+        margin-block-end: var(--whitespace-xl);
     }
 
     .strategy__cards {
@@ -1344,32 +1452,31 @@ p {
     }
 }
 
-@media (min-width: 50em) {
-    .profile__content {
-        grid-template-columns: auto auto;
-            grid-template-areas:
-                "profile__graphic profile__name"
-                "profile__graphic profile__goals"
-                "profile__basics profile__bio";
-            padding-inline: var(--whitespace-l);
+@media screen and (min-width: 65em) {
+    .printing__group {
+        margin-top: var(--whitespace-l);
+        padding-inline: var(--whitespace-l);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
     }
 
-    .profile__basics {
-        margin-block-start: 0;
-        margin-inline-start: var(--whitespace-m);
+    .printing__text {
+        grid-column: 1;
+        grid-row: 1;
     }
 
-    .goals__list {
-        flex-direction: column;
+    .printing__graphic {
+        grid-column: 2;
+        grid-row: 1;
     }
 
-    .profile__name{
-        align-self: end;
-        text-align: start;
-    }
-
-    .profile__bio {
+    .printing__button {
+        justify-self: start;
         align-self: center;
+        margin-block-start: -10rem;
+        margin-inline-start: -3rem;
+        padding: 0;
     }
 }
 
@@ -1445,6 +1552,10 @@ p {
     .profile__goals {
         max-inline-size: max-content;
     }
+
+    .strategy__path {
+        display: block;
+    }
 }
 
 @media screen and (min-width: 80em) {
@@ -1462,7 +1573,7 @@ p {
         justify-self: start;
     }
 
-    .intro__path, .humanists__path, .reformation__path, .strategy__path{
+    .intro__path, .humanists__path, .reformation__path{
         display: block;
     }
 
