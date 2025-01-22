@@ -178,6 +178,7 @@ a {
     background-position: center;
     z-index: 5;
     padding: var(--whitespace-m);
+    inline-size: fit-content;
 }
 
 .cta__p {
@@ -908,6 +909,22 @@ p {
     inline-size: 100%;
 }
 
+/* ------------------------------------- PRINTING ------------------------------------- */
+.printing__p--1 {
+    font-family: var(--font-family-inconsolata);
+    block-size: 100%;
+    inline-size: 100%;
+}
+
+.printing__p--before {
+    color: var(--color-beige-dark);
+}
+
+.printing__p--after {
+    color: var(--color-black);
+    font-weight: 700;
+    opacity: 0;
+}
 
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
 @media screen and (min-width: 30em) {

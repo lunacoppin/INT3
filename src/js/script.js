@@ -3,7 +3,6 @@ const $navButton = document.querySelector('.nav__button--menu');
 const $navList = document.querySelector('.nav__list');
 const $iconLink = document.querySelector('#iconlink');
 const listItems = document.querySelectorAll('.nav__list li a');
-
 // Cards Carroussel
 const $list = document.querySelector('.strategy__cards');
 const $cards = document.querySelectorAll('.card');
@@ -13,6 +12,12 @@ const itemWidth = $cards[0].offsetWidth;
 const gap = parseInt(getComputedStyle($list).gap) || 0;
 const cardCount = $cards.length; 
 let currentIndex = 0; 
+// Printing
+const $ctaButton = document.getElementById("cta-button");
+const $afterText = document.querySelector(".printing__p--after");
+const $fullText = $afterText.innerText.trim();
+let progress = 0;
+let interval;
 
 
 // Hamburger
@@ -182,9 +187,38 @@ const animateBubbles = () => {
 
 
 // Carousel
-function updateScrollPosition() {
+const updateScrollPosition = () => {
     $list.scrollLeft = currentIndex * (itemWidth + gap);
 }
+
+// Printing
+const updateText = () => {
+    progress += 1;
+    const sliceIndex = Math.ceil((progress / 100) * $fullText.length);
+    $afterText.innerText = $fullText.slice(0, sliceIndex);
+    $afterText.style.opacity = "1";
+
+    if (sliceIndex >= $fullText.length) {
+        clearInterval(interval);
+    }
+}
+const pressText = () => {
+    $ctaButton.addEventListener("mousedown", () => {
+        interval = setInterval(updateText, 50);
+    });
+
+    $ctaButton.addEventListener("mouseup", () => {
+        clearInterval(interval);
+    });
+
+    $ctaButton.addEventListener("touchstart", () => {
+        interval = setInterval(updateText, 50);
+    });
+
+    $ctaButton.addEventListener("touchend", () => {
+        clearInterval(interval);
+    });
+};
 
 
 //Initialization
@@ -202,7 +236,8 @@ const init = () => {
         currentIndex = (currentIndex + 1) % cardCount;
         updateScrollPosition();
     });
-    
+
+    pressText();
 };
 
 init();
