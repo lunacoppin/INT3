@@ -976,8 +976,10 @@ p {
     grid-row: 1;
 }
 
-.printing__imgs {
 
+.printing__graphic img {
+    pointer-events: none;
+    -webkit-user-drag: none;
 }
 
 /* .printing__graphic {
@@ -989,6 +991,12 @@ p {
     justify-self: center;
     padding-block-end: var(--whitespace-l);
     padding-inline-start: var(--whitespace-xl);
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .printing__cta {

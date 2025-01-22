@@ -20,6 +20,8 @@ const $afterText = document.querySelector(".printing__p--after");
 const $fullText = $afterText.innerText.trim();
 let progress = 0;
 let interval;
+let vibrationInterval;
+
 
 
 // Hamburger
@@ -203,16 +205,34 @@ const updateText = () => {
 
     if (sliceIndex >= $fullText.length) {
         clearInterval(interval);
+        clearInterval(vibrationInterval); 
+        stopVibration();
+    }
+}
+const startVibration = () => {
+    if (navigator.vibrate) {
+        vibrationInterval = setInterval(() => {
+            navigator.vibrate(50); 
+        }, 100);
+    }
+}
+
+const stopVibration = () => {
+    if (navigator.vibrate) {
+        navigator.vibrate(0);
+        clearInterval(vibrationInterval); 
     }
 }
 const pressPrint = () => {
     const startPrinting = () => {
         clearInterval(interval); 
         interval = setInterval(updateText, 50);
+        startVibration();
     };
 
     const stopPrinting = () => {
         clearInterval(interval); 
+        stopVibration();
     };
 
     $ctaButton.addEventListener("pointerdown", startPrinting);
