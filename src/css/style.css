@@ -1012,17 +1012,47 @@ p {
 }
 
 /* ------------------------------------- HERETICS ------------------------------------- */
-
+.heretics {
+    margin-block-start: var(--whitespace-m);
+}
 .heretics__warning {
     overflow: hidden;
 }
 
-.heretics__p {
-    font-size: clamp(9rem, 30vw, 20rem);
+.warning__p {
+    font-size: clamp(9rem, 30vw, 18rem);
     font-family: var(--font-family-playfair);
     font-weight: 600;
     inline-size: max-content;
     line-height: 1;
+    letter-spacing: 0.7rem;
+}
+
+.heretics__group {
+    margin-block-start: var(--whitespace-m);
+}
+
+.heretics__subtitle {
+    font-family: var(--font-family-inconsolata);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.heretics__p {
+    max-inline-size: 65ch;
+    margin-block-end: var(--whitespace-s);
+}
+
+.heretics__svg {
+    inline-size: min-content;
+}
+
+.heretics__img {
+    inline-size: 26rem;
+    block-size: auto;
+    margin-block-start: -4rem;
+    /* margin-inline-end: -2rem; */
 }
 
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
@@ -1073,6 +1103,11 @@ p {
 
     .intro__p--2::after{
         content:"But the rewards? They could set you up for life. With ambition and determination, you’re ready to build a printing empire. Will you succeed? Or fall into the dangers of this high-stakes business?"
+    }
+
+    .heretics__img {
+        margin-inline-end: -2rem;
+        
     }
 }
 

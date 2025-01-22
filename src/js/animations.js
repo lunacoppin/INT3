@@ -59,34 +59,20 @@ const animateProgress = () => {
     });
 };
 
-// const horizontalTextAnimation = () => {
-//     const $warning = document.querySelector(".heretics__p");
-//     gsap.from($warning, {
-//         x: "100vw",
-//         scrollTrigger: {
-//             trigger: ".heretics",
-//             scrub: 0.5,
-//             markers: false,
-//             start: "top bottom",
-//             end: "top top"
-//         }
-//     });
-// };
-
 const horizontalTextAnimation = () => {
-    const $warning = document.querySelector(".heretics__p");
+    const $warning = document.querySelector(".warning__p");
     const warningWidth = $warning.offsetWidth; 
 
     gsap.fromTo(
         $warning,
-        { x: "105vw" },
+        { x: "101vw" },
         {
             x: `-${warningWidth}px`,
             ease: "none", 
             scrollTrigger: {
                 trigger: ".heretics",
                 scrub: 0.5, 
-                markers: true, 
+                markers: false, 
                 start: "top center+=20%", 
                 end: "bottom+=300% top", 
             },
