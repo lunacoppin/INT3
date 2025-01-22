@@ -1007,6 +1007,24 @@ p {
     font-size: var(--font-size-base);
 }
 
+.printing__books {
+    
+}
+
+/* ------------------------------------- HERETICS ------------------------------------- */
+
+.heretics__warning {
+    overflow: hidden;
+}
+
+.heretics__p {
+    font-size: clamp(9rem, 30vw, 20rem);
+    font-family: var(--font-family-playfair);
+    font-weight: 600;
+    inline-size: max-content;
+    line-height: 1;
+}
+
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
 @media screen and (min-width: 30em) {
     .nav__list {
@@ -1152,7 +1170,7 @@ p {
         display: block;
     }
 
-    .intro__path, .humanists__path .reformation__path, .strategy__path {
+    .intro__path, .humanists__path .reformation__path, .strategy__path, .printing__path {
         display: none;
     }
 
@@ -1160,6 +1178,10 @@ p {
         margin-block-end: -3rem;
         margin-inline-end: -4rem;
     }
+
+    /* .printing__path {
+        margin-inline-end: -2rem;
+    } */
 
     .profile__content {
         grid-template-columns: 1fr 1.2fr;
@@ -1561,7 +1583,7 @@ p {
         max-inline-size: max-content;
     }
 
-    .strategy__path {
+    .strategy__path, .printing__path {
         display: block;
     }
 }
