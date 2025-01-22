@@ -73,8 +73,8 @@ const horizontalTextAnimation = () => {
                 trigger: ".heretics",
                 scrub: 0.5, 
                 markers: false, 
-                start: "top center+=20%", 
-                end: "bottom+=300% top", 
+                start: "top center+=40%", 
+                end: "bottom+=20% top", 
             },
         }
     );

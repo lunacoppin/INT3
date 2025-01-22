@@ -927,7 +927,7 @@ p {
 
 }
 
-.printing__text {
+.printing__text, .heretics__content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1032,11 +1032,18 @@ p {
     margin-block-start: var(--whitespace-m);
 }
 
+.heretics__content {
+    max-inline-size: max-content;
+    margin: 0 auto;
+}
+
 .heretics__subtitle {
     font-family: var(--font-family-inconsolata);
     font-size: var(--font-size-m);
     font-weight: 700;
     line-height: 1.3;
+    align-self: start;
+
 }
 
 .heretics__p {
@@ -1053,6 +1060,10 @@ p {
     block-size: auto;
     margin-block-start: -4rem;
     /* margin-inline-end: -2rem; */
+}
+
+.heretics__choice {
+    block-size: 80vh;
 }
 
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
@@ -1205,13 +1216,18 @@ p {
         display: block;
     }
 
-    .intro__path, .humanists__path .reformation__path, .strategy__path, .printing__path {
+    .intro__path, .humanists__path .reformation__path, .strategy__path, .printing__path, .heretics__path {
         display: none;
     }
 
     .humanists__path {
         margin-block-end: -3rem;
         margin-inline-end: -4rem;
+    }
+
+    .heretics__path {
+        padding-inline-start: 3rem;
+        transform: scaleY(1.2);
     }
 
     /* .printing__path {
@@ -1390,6 +1406,19 @@ p {
         place-items: center;
     }
 
+    .heretics__content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 0.3fr auto auto 1fr;
+        column-gap: var(--whitespace-m);
+        grid-template-areas: 
+        "heretics__graphic ."
+        "heretics__graphic heretics__subtitle" 
+        "heretics__graphic heretics__p--1"
+        "heretics__graphic heretics__p--2";
+        max-inline-size: fit-content;
+    }
+
     .humanists__content, .reformation__graphic {
         grid-column: 1;
         grid-row: 1;
@@ -1398,6 +1427,26 @@ p {
     .humanists__graphic, .reformation__text {
         grid-column: 2;
         grid-row: 1; 
+    }
+
+    .heretics__graphic {
+        grid-area: heretics__graphic;
+    }
+
+    .heretics__subtitle {
+        grid-area: heretics__subtitle;
+        align-self: end;
+    }
+
+    .heretics__p--1 {
+        grid-area: heretics__p--1;
+        margin-block-end: var(--whitespace-xxs);
+        align-self: end;
+    }
+
+    .heretics__p--2 {
+        grid-area: heretics__p--2;
+        align-self: start;
     }
 
     .humanists__text {
@@ -1563,6 +1612,10 @@ p {
     .ideas__title:nth-child(2) {
         margin-block-start: -2rem;
     }
+
+    .heretics__content {
+        grid-template-columns: max-content auto;
+    }
 }
 
 @media screen and (min-width: 75em) {
@@ -1618,7 +1671,7 @@ p {
         max-inline-size: max-content;
     }
 
-    .strategy__path, .printing__path {
+    .strategy__path, .printing__path, .heretics__path {
         display: block;
     }
 }
