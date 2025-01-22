@@ -205,22 +205,38 @@ const updateText = () => {
         clearInterval(interval);
     }
 }
+// const pressPrint = () => {
+//     $ctaButton.addEventListener("mousedown", () => {
+//         interval = setInterval(updateText, 50);
+//     });
+
+//     $ctaButton.addEventListener("mouseup", () => {
+//         clearInterval(interval);
+//     });
+
+//     $ctaButton.addEventListener("touchstart", () => {
+//         interval = setInterval(updateText, 50);
+//     });
+
+//     $ctaButton.addEventListener("touchend", () => {
+//         clearInterval(interval);
+//     });
+    
+// };
+
 const pressPrint = () => {
-    $ctaButton.addEventListener("mousedown", () => {
+    const startPrinting = () => {
+        clearInterval(interval); 
         interval = setInterval(updateText, 50);
-    });
+    };
 
-    $ctaButton.addEventListener("mouseup", () => {
-        clearInterval(interval);
-    });
+    const stopPrinting = () => {
+        clearInterval(interval); 
+    };
 
-    $ctaButton.addEventListener("touchstart", () => {
-        interval = setInterval(updateText, 50);
-    });
-
-    $ctaButton.addEventListener("touchend", () => {
-        clearInterval(interval);
-    });
+    $ctaButton.addEventListener("pointerdown", startPrinting);
+    $ctaButton.addEventListener("pointerup", stopPrinting);
+    $ctaButton.addEventListener("pointercancel", stopPrinting);
 };
 
 
