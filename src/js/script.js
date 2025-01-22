@@ -4,6 +4,16 @@ const $navList = document.querySelector('.nav__list');
 const $iconLink = document.querySelector('#iconlink');
 const listItems = document.querySelectorAll('.nav__list li a');
 
+// Cards Carroussel
+const $list = document.querySelector('.strategy__cards');
+const $cards = document.querySelectorAll('.card');
+const $prev = document.querySelector('.button-prev'); 
+const $next = document.querySelector('.button-next'); 
+const itemWidth = $cards[0].offsetWidth; 
+const gap = parseInt(getComputedStyle($list).gap) || 0;
+const cardCount = $cards.length; 
+let currentIndex = 0; 
+
 
 // Hamburger
 const openNavigation = () => {
@@ -170,7 +180,11 @@ const animateBubbles = () => {
     });
 };
 
-// window.addEventListener('resize', animateBubbles);
+
+// Carousel
+function updateScrollPosition() {
+    $list.scrollLeft = currentIndex * (itemWidth + gap);
+}
 
 
 //Initialization
@@ -178,6 +192,17 @@ const init = () => {
     initNavigation();
     revealHiddenStories();
     animateBubbles();
+
+    $prev.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cardCount) % cardCount;
+        updateScrollPosition();
+    });
+
+    $next.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cardCount;
+        updateScrollPosition();
+    });
+    
 };
 
 init();
