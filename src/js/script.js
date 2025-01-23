@@ -241,7 +241,6 @@ const pressPrint = () => {
 
 // Dropdown
 const $options = document.querySelectorAll('.choice__option');
-
 $options.forEach((option) => {
     const $optionP = option.querySelector('.option__p');
     option.addEventListener('click', () => {
@@ -249,6 +248,19 @@ $options.forEach((option) => {
         $optionP.classList.toggle('hidden');
     });
 });
+
+// Light in the Dark
+const light = document.querySelector('.light');
+window.addEventListener('pointermove', (e) => {
+    const { clientX, clientY } = e;
+    console.log(clientX, clientY)
+    // blob.style.left=`${clientX}px`;
+    // blob.style.top=`${clientY}px`;
+    light.animate({
+        left: `${clientX}px`,
+        top: `${clientY}px`
+    }, { duration: 3000, fill: "forwards" })
+})
 
 
 // Initialization

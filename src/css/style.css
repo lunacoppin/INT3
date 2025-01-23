@@ -1149,9 +1149,43 @@ p {
     margin-block-start: var(--whitespace-s);
 }
 /* ------------------------------------- HIDING ------------------------------------- */
+.light {
+    height: 250px;
+    background-color: white;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    background: linear-gradient(to right, white, var(--color-beige-dark));
+    animation: rotate 4s ease-in-out infinite;
+    z-index: -1;
+    filter: blur(10px);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.2 1.2;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        scale: 1
+    }
+}
+
 .hiding {
     margin-block-start: var(--whitespace-m);
     block-size: 100vh;
+    inline-size: 100%;
+    z-index: 2;
+    position: absolute;
 }
 
 .black-background {
@@ -1162,7 +1196,7 @@ p {
     height: 0;
     /* transform: translateY(-50%); */
     background-color: var(--color-black);
-    z-index: -1;
+    z-index: -2;
 }
 
 .globe__img {
