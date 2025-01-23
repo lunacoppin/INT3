@@ -108,7 +108,7 @@ const animateHidingSection = () => {
                 start: "top-=50% center",
                 end: "center-=10% center",
                 scrub: 0.5,
-                markers: true,
+                markers: false,
             }
          });
 
@@ -123,7 +123,7 @@ const animateHidingSection = () => {
                 start: "center+=10% center",
                 end: "bottom+=50% top",
                 scrub: 0.5,
-                markers: true,
+                markers: false,
             }
         });
 }

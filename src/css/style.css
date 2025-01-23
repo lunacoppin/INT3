@@ -1158,26 +1158,8 @@ p {
     left: 50%;
     top: 50%;
     translate: -50% -50%;
-    background: linear-gradient(to right, white, var(--color-beige-dark));
-    animation: rotate 4s ease-in-out infinite;
     z-index: -1;
     filter: blur(10px);
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-        scale: 1;
-    }
-
-    50% {
-        scale: 1.2 1.2;
-    }
-
-    100% {
-        transform: rotate(360deg);
-        scale: 1
-    }
 }
 
 .hiding {
@@ -1185,7 +1167,8 @@ p {
     block-size: 100vh;
     inline-size: 100%;
     z-index: 2;
-    position: absolute;
+    position: relative;
+    /* overflow-x: hidden; */
 }
 
 .black-background {
@@ -1943,6 +1926,27 @@ p {
     .strategy__path, .printing__path, .heretics__path {
         display: block;
     }
+
+    .light {
+        animation: rotate 4s ease-in-out infinite;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+            scale: 1;
+        }
+
+        50% {
+            scale: 1.2 1.2;
+        }
+
+        100% {
+            transform: rotate(360deg);
+            scale: 1
+        }
+    }
+
 }
 
 @media screen and (min-width: 80em) {
