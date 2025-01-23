@@ -276,69 +276,25 @@ if (window.PointerEvent) {
             );
         });
     }
+} else if (window.DeviceOrientationEvent) {
+    // Device Orientation for devices without pointer events
+    window.addEventListener('deviceorientation', (e) => {
+        const { beta, gamma } = e; // beta: front-back tilt, gamma: left-right tilt
+
+        // Map beta (front-back tilt) to vertical movement
+        const y = clamp(window.innerHeight / 2 + beta * 5, 0, window.innerHeight);
+
+        // Map gamma (left-right tilt) to horizontal movement
+        const x = clamp(window.innerWidth / 2 + gamma * 5, 0, window.innerWidth);
+
+        // Update light position
+        light.style.left = `${x}px`;
+        light.style.top = `${y}px`;
+    });
+} else {
+    console.warn('Neither PointerEvent nor DeviceOrientationEvent is supported on this device.');
 }
 
-
-// if (window.PointerEvent) {
-// window.addEventListener('pointermove', (e) => {
-//     const { clientX, clientY } = e;
-//     console.log(clientX, clientY)
-//     light.animate({
-//         left: `${clientX}px`,
-//         top: `${clientY}px`
-//     }, { duration: 3000, fill: "forwards" })
-// }) 
-// }
-
-//  else if (window.DeviceOrientationEvent) {
-//     window.addEventListener('deviceorientation', (e) => {
-//         const { beta, gamma } = e; // beta: front-back tilt, gamma: left-right tilt
-
-//         // Map beta (front-back tilt) to vertical movement
-//         const y = window.innerHeight / 2 + (beta - 50) * 10; // Adjust scaling for better responsiveness
-
-//         // Map gamma (left-right tilt) to horizontal movement
-//         const x = window.innerWidth / 2 + gamma * 10;
-
-//         // Update light position
-//         light.style.left = `${x}px`;
-//         light.style.top = `${y}px`;
-//     });
-// } else {
-//     console.warn('Device Orientation not supported on this device.');
-// }
-
-// const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-
-// Pointer (Mouse or Touch) Event for PC/Laptop
-// if (window.PointerEvent) {
-//     window.addEventListener('pointermove', (e) => {
-//         const { clientX, clientY } = e;
-//         light.style.left = `${clamp(clientX, 0, window.innerWidth)}px`;
-//         light.style.top = `${clamp(clientY, 0, window.innerHeight)}px`;
-//     });
-// }
-
-// Device Orientation for Mobile
-// if (window.DeviceOrientationEvent) {
-//     window.addEventListener('deviceorientation', (e) => {
-//         const { beta, gamma } = e; // beta: front-back tilt, gamma: left-right tilt
-
-//         // Map beta and gamma to x and y positions
-//         const y = window.innerHeight / 2 + (beta - 50) * 10; // Adjust scaling for tilt sensitivity
-//         const x = window.innerWidth / 2 + gamma * 10;
-
-//         // Clamp values to keep the light within the screen boundaries
-//         const clampedX = clamp(x, 0, window.innerWidth);
-//         const clampedY = clamp(y, 0, window.innerHeight);
-
-//         // Update light position
-//         light.style.left = `${clampedX}px`;
-//         light.style.top = `${clampedY}px`;
-//     });
-// } else {
-//     console.warn('Device Orientation not supported on this device.');
-// }
 
 
 // Initialization

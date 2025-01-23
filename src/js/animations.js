@@ -84,6 +84,8 @@ const horizontalTextAnimation = () => {
 
 const animateHidingSection = () => {
     const $hidingSection = document.querySelector(".hiding");
+    const sectionHeight = Math.max($hidingSection.scrollHeight, $hidingSection.offsetHeight) + "px";
+
 
     // gsap.to(
     //     $hidingSection,
@@ -100,9 +102,10 @@ const animateHidingSection = () => {
     // );
 
     gsap.fromTo(".black-background", 
-        { height: 0
+        { height: '0' 
          }, 
-        { height: "110vh",
+        {
+            height: sectionHeight,
             scrollTrigger: {
                 trigger: $hidingSection,
                 start: "top-=50% center",
@@ -114,7 +117,7 @@ const animateHidingSection = () => {
 
     gsap.fromTo(".black-background",
         {
-            height: '110vh'
+            height: sectionHeight
         },
         {
             height: 0,

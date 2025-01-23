@@ -227,6 +227,7 @@ button {
     background: transparent;
     appearance: none;
     color: var(--text-color);
+    -webkit-tap-highlight-color: transparent;
 }
 
 button:hover {
@@ -1110,6 +1111,7 @@ p {
     max-inline-size: 35rem;
     transition: padding 0.6s;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .choice__option.active {
@@ -1164,11 +1166,11 @@ p {
 
 .hiding {
     margin-block-start: var(--whitespace-m);
-    block-size: 100vh;
+    block-size: max-content;
     inline-size: 100%;
     z-index: 2;
     position: relative;
-    /* overflow-x: hidden; */
+    overflow-x: hidden; 
 }
 
 .black-background {
