@@ -250,32 +250,33 @@ $options.forEach((option) => {
 });
 
 // Light in the Dark
-const light = document.querySelector('.light');
+const $light = document.querySelector('.light');
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+const $debugOutput = document.getElementById('debug');
 
-if (window.PointerEvent) {
-    if (isSafari) {
-        // Fallback to simpler animation for Safari
-        window.addEventListener('pointermove', (e) => {
-            const { clientX, clientY } = e;
-            light.style.left = `${clientX}px`;
-            light.style.top = `${clientY}px`;
-        });
-    } else {
-        // Use smooth animation for other browsers
-        window.addEventListener('pointermove', (e) => {
-            const { clientX, clientY } = e;
-            light.animate(
-                {
-                    left: `${clientX}px`,
-                    top: `${clientY}px`,
-                },
-                { duration: 3000, fill: 'forwards' }
-            );
-        });
-    }
-} else 
+// if (window.PointerEvent) {
+//     if (isSafari) {
+//         // Fallback to simpler animation for Safari
+//         window.addEventListener('pointermove', (e) => {
+//             const { clientX, clientY } = e;
+//             $light.style.left = `${clientX}px`;
+//             $light.style.top = `${clientY}px`;
+//         });
+//     } else {
+//         // Use smooth animation for other browsers
+//         window.addEventListener('pointermove', (e) => {
+//             const { clientX, clientY } = e;
+//             $light.animate(
+//                 {
+//                     left: `${clientX}px`,
+//                     top: `${clientY}px`,
+//                 },
+//                 { duration: 3000, fill: 'forwards' }
+//             );
+//         });
+//     }
+// } else 
 if (window.DeviceOrientationEvent) {
     // Device Orientation for devices without pointer events
     window.addEventListener('deviceorientation', (e) => {
@@ -288,11 +289,11 @@ if (window.DeviceOrientationEvent) {
         const x = clamp(window.innerWidth / 2 + gamma * 5, 0, window.innerWidth);
 
         // Update light position
-        light.style.left = `${x}px`;
-        light.style.top = `${y}px`;
+        $light.style.left = `${x}px`;
+        $light.style.top = `${y}px`;
     });
 } else {
-    console.warn('Neither PointerEvent nor DeviceOrientationEvent is supported on this device.');
+    $debugOutput.innerHTML = 'DeviceOrientationEvent is not supported on this device.';
 }
 
 
