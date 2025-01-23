@@ -10,8 +10,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/src/css/reset.css">
-  <link rel="stylesheet" href="/src/css/style.css">
+  <link rel="stylesheet" href="src/css/reset.css">
+  <link rel="stylesheet" href="src/css/style.css">
   <title>Plantin Story</title>
 </head>
 
@@ -60,32 +60,32 @@
     <div class="header__content">
       <ul class="story">
         <li class="overlap">
-          <img class="overlap__item" src="/src/assets/svg/bookmark.svg" alt="bookmark" class="story__background"
+          <img class="overlap__item" src="src/assets/svg/bookmark.svg" alt="bookmark" class="story__background"
             width="307" height="64">
           <p class="overlap__item story__title">I. Plantin</p>
         </li>
         <li class="overlap story-hidden visually-hidden">
-          <img class="overlap__item" src="/src/assets/svg/bookmark-2.svg" alt="bookmark" class="story__background"
+          <img class="overlap__item" src="src/assets/svg/bookmark-2.svg" alt="bookmark" class="story__background"
             width="307" height="64">
           <p class="overlap__item story__title">II. 01/03/2025</p>
         </li>
         <li class="overlap story-hidden visually-hidden">
-          <img class="overlap__item" src="/src/assets/svg/bookmark-3.svg" alt="bookmark" class="story__background"
+          <img class="overlap__item" src="src/assets/svg/bookmark-3.svg" alt="bookmark" class="story__background"
             width="307" height="64">
           <p class="overlap__item story__title">III. 01/05/2025</p>
         </li>
         <li class="overlap story-hidden visually-hidden">
-          <img class="overlap__item" src="/src/assets/svg/bookmark-4.svg" alt="bookmark" class="story__background"
+          <img class="overlap__item" src="src/assets/svg/bookmark-4.svg" alt="bookmark" class="story__background"
             width="307" height="64">
           <p class="overlap__item story__title">IV. 01/07/2025</p>
         </li>
         <li class="overlap story-hidden visually-hidden">
-          <img class="overlap__item" src="/src/assets/svg/bookmark-5.svg" alt="bookmark" class="story__background"
+          <img class="overlap__item" src="src/assets/svg/bookmark-5.svg" alt="bookmark" class="story__background"
             width="307" height="64">
           <p class="overlap__item story__title">V. 01/09/2025</p>
         </li>
         <li class="overlap story-hidden visually-hidden">
-          <img class="overlap__item" src="/src/assets/svg/bookmark-6.svg" alt="bookmark" class="story__background"
+          <img class="overlap__item" src="src/assets/svg/bookmark-6.svg" alt="bookmark" class="story__background"
             width="307" height="64">
           <p class="overlap__item story__title">VI. 01/11/2025</p>
         </li>
@@ -101,17 +101,17 @@
         <div class="header__hero overlap__item">
           <p class="hero__title hero__title--top container--s">Christophe</p>
           <div class="hero__graphic graphic overlap">
-            <img class="graphic__svg hero__graphic--bg overlap__item" src="/src/assets/svg/background-hero.svg">
-            <img class="graphic__img hero__graphic--fg overlap__item" src="/src/assets/img/plantin-buste.png"
+            <img class="graphic__svg hero__graphic--bg overlap__item" src="src/assets/svg/background-hero.svg">
+            <img class="graphic__img hero__graphic--fg overlap__item" src="src/assets/img/plantin-buste.png"
               alt="Christophe Plantin Buste">
           </div>
           <p class="hero__title hero__title--bottom container--s">Plantin</p>
           <div class="hero__subtitle container--s overlap">
-            <img class="subtitle__svg overlap__item" src="/src/assets/svg/background-subtitle.svg">
+            <img class="subtitle__svg overlap__item" src="src/assets/svg/background-subtitle.svg">
             <p class="subtitle__p overlap__item">And how to start a business in the 16th century</p>
           </div>
           <div class="hero__note note container--s overlap">
-            <img class="note__svg overlap__item" src="/src/assets/svg/background-note.svg">
+            <img class="note__svg overlap__item" src="src/assets/svg/background-note.svg">
             <p class="note__p overlap__item">Follow in the footsteps of Plantin as the Plantin-Moretus Museum
               brings his eventful
               journey back alive!</p>
@@ -121,10 +121,14 @@
     </div>
   </header>
   <main>
+    <div id="debug"
+      style="position: fixed; top: 10px; left: 10px; background: black; color: lime; padding: 10px; font-family: monospace; z-index: 1000;">
+      Debug info will appear here...
+    </div>
     <section class="intro">
       <h2 class="visually-hidden">Introduction</h2>
       <div class="intro__year overlap">
-        <img class="year__svg overlap__item" src="/src/assets/svg/background-year.svg">
+        <img class="year__svg overlap__item" src="src/assets/svg/background-year.svg">
         <p class="year__p overlap__item">1550</p>
       </div>
       <div class="overlap">
@@ -136,8 +140,8 @@
         </svg>
         <div class="intro__content container--s overlap__item">
           <div class="intro__map overlap">
-            <img class="map__svg overlap__item" src="/src/assets/svg/background-map.svg">
-            <img class="map__img overlap__item" src="/src/assets/img/map.png" alt="Map of Antwerp" width="1032"
+            <img class="map__svg overlap__item" src="src/assets/svg/background-map.svg">
+            <img class="map__img overlap__item" src="src/assets/img/map.png" alt="Map of Antwerp" width="1032"
               height="600">
           </div>
           <div class="big-letter letter-i-1">I</div>
@@ -161,8 +165,8 @@
             high-stakes
             business?</p>
           <div class="intro__bell overlap">
-            <img class="bell__svg overlap__item" src="/src/assets/svg/background-bell.svg">
-            <img class="bell__img overlap__item" src="/src/assets/img/bell.png" alt="Bell" width="1000" height="780">
+            <img class="bell__svg overlap__item" src="src/assets/svg/background-bell.svg" alt="Bell background">
+            <img class="bell__img overlap__item" src="src/assets/img/bell.png" alt="Bell" width="1000" height="780">
           </div>
           <img class="splash intro__splash" src="src/assets/svg/splash-1.svg">
         </div>
@@ -190,8 +194,8 @@
             </li>
           </ul>
           <div class="profile__graphic overlap">
-            <img class="profile__svg overlap__item" src="/src/assets/svg/background-profile.svg">
-            <img class="profile__img overlap__item" src="/src/assets/img/plantin-profile.png" alt="Christophe Plantin"
+            <img class="profile__svg overlap__item" src="src/assets/svg/background-profile.svg">
+            <img class="profile__img overlap__item" src="src/assets/img/plantin-profile.png" alt="Christophe Plantin"
               width="550" height="617">
           </div>
           <div class="profile__goals">
@@ -268,7 +272,7 @@
             </div>
             <a href="https://museumplantinmoretus.be/en/printing-office"
               class="humanists__note note--arrow container--s overlap">
-              <img class="note__svg overlap__item" src="/src/assets/svg/background-note-2.svg">
+              <img class="note__svg overlap__item" src="src/assets/svg/background-note-2.svg">
               <p class="note__p overlap__item">Curious about the humanist works that started it all? You can see these
                 up
                 close at the Plantin-Moretus Museum</p>
@@ -471,10 +475,10 @@
         </ul>
         <div class="strategy__buttons buttons-hidden">
           <button class="button-prev" aria-label="Previous">
-            <img src="/src/assets/svg/menu-back.svg" alt="arrow left">
+            <img src="src/assets/svg/menu-back.svg" alt="arrow left">
           </button>
           <button class="button-next" aria-label="Next">
-            <img src="/src/assets/svg/menu-next.svg" alt="arrow right">
+            <img src="src/assets/svg/menu-next.svg" alt="arrow right">
           </button>
         </div>
       </div>
@@ -664,8 +668,8 @@
   <div class="progress--bg"></div>
   <div class="progress--fg"></div>
   <div class="overlay"></div>
-  <script type="module" src="/src/js/animations.js"></script>
-  <script src="/src/js/script.js"></script>
+  <script type="module" src="src/js/animations.js"></script>
+  <script src="src/js/script.js"></script>
 
 
 </body>

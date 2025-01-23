@@ -417,7 +417,7 @@ button:hover {
 }
 
 .subtitle__svg {
-    content: url('/src/assets/svg/background-subtitle.svg');
+    content: url('../assets/svg/background-subtitle.svg');
     inline-size: 100%;
     max-inline-size: 26rem;
     block-size: auto
@@ -635,7 +635,7 @@ h4 {
 }
 
 .note--arrow::after{
-    content: url('/src/assets/svg/menu-next.svg');
+    content: url('..//assets/svg/menu-next.svg');
     margin-block-start: -1.5rem;
     margin-inline-start: 12rem;
 }
@@ -699,7 +699,7 @@ p {
 .bubble {
     position: absolute;
     transform-origin: center;
-    background-image: url('/src/assets/svg/background-bubble-before.svg');
+    background-image: url('../assets/svg/background-bubble-before.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -1166,11 +1166,12 @@ p {
 
 .hiding {
     margin-block-start: var(--whitespace-m);
-    block-size: max-content;
+    min-block-size: 100vh;
+    max-block-size: max-content;
     inline-size: 100%;
     z-index: 2;
     position: relative;
-    overflow-x: hidden; 
+    overflow: hidden; 
 }
 
 .black-background {
@@ -1373,7 +1374,7 @@ p {
     }
     .subtitle__svg {
         max-inline-size: 100%;
-        content: url('/src/assets/svg/background-subtitle-2.svg');
+        content: url('../assets/svg/background-subtitle-2.svg');
     }
 
     .header__path {
@@ -1688,7 +1689,7 @@ p {
     }
 
     .card::before {
-        content: url('/src/assets/svg/splash-big.svg');
+        content: url('../assets/svg/splash-big.svg');
         position: absolute;
         /* z-index: -1; */
     }
