@@ -1,4 +1,3 @@
-import { DotLottie } from '@lottiefiles/dotlottie-web';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
