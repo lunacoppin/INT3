@@ -257,8 +257,9 @@ $options.forEach((option) => {
 });
 
 // Light in the Dark
-function lightInteraction() {
+const lightInteraction = () => {
     if (!isMobile && window.PointerEvent) {
+        // Handle pointer events (desktop)
         if (isSafari) {
             window.addEventListener('pointermove', (e) => {
                 const { clientX, clientY } = e;
@@ -273,7 +274,7 @@ function lightInteraction() {
                         left: `${clientX}px`,
                         top: `${clientY}px`,
                     },
-                    { duration: 3000, fill: 'forwards' }
+                    { duration: 1000, fill: 'forwards' }
                 );
             });
         }
@@ -281,16 +282,29 @@ function lightInteraction() {
     else if (window.DeviceOrientationEvent) {
         window.addEventListener('deviceorientation', (e) => {
             const { beta, gamma } = e; // beta: front-back tilt, gamma: left-right tilt
+
+            // Map beta (front-back tilt) and gamma (left-right tilt) to screen coordinates
             const y = clamp(window.innerHeight / 4 + beta * 5, 0, window.innerHeight);
             const x = clamp(window.innerWidth / 2 + gamma * 5, 0, window.innerWidth);
 
-            $light.style.left = `${x}px`;
-            $light.style.top = `${y}px`;
+            // Apply a smooth animation to the light using the animate() method
+            $light.animate(
+                {
+                    left: `${x}px`,
+                    top: `${y}px`,
+                },
+                {
+                    duration: 1000, // Set the duration of the animation (adjust as needed)
+                    easing: 'ease-out', // Apply smooth easing
+                    fill: 'forwards', // Ensure the final position is retained
+                }
+            );
         });
     } else {
         $debugOutput.innerHTML = 'DeviceOrientationEvent or PointerEvent is not supported on this device.';
     }
-}
+};
+
 
 
 
