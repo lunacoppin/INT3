@@ -142,7 +142,7 @@ const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeigh
 
     const originalText = bubble.dataset.originalText; 
     bubbleText.textContent = 'You cannot stop the ideas of Humanism from spreading...';
-    bubble.style.backgroundImage = 'url("../assets/svg/background-bubble-after.svg")';
+    bubble.style.backgroundImage = 'url("src/assets/svg/background-bubble-after.svg")';
     bubble.style.transition = 'opacity 5s ease-in';
     bubble.style.opacity = '0';
     bubble.style.transform = 'scale(1.2)'
@@ -159,7 +159,7 @@ const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeigh
         bubble.style.transition = 'none';
         bubble.style.transform = 'scale(0)';
         bubble.style.opacity = '0.5';
-        bubble.style.backgroundImage = 'url("../src/assets/svg/background-bubble-before.svg")';
+        bubble.style.backgroundImage = 'url("src/assets/svg/background-bubble-before.svg")';
         bubbleText.textContent = originalText; 
 
         // console.log('Current placed bubbles:', placedBubbles);
