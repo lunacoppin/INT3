@@ -82,10 +82,57 @@ const horizontalTextAnimation = () => {
     );
 };
 
+const animateHidingSection = () => {
+    const $hidingSection = document.querySelector(".hiding");
+
+    // gsap.to(
+    //     $hidingSection,
+    //     {
+    //         height: '100vh',
+    //         scrollTrigger: {
+    //             trigger: $hidingSection,
+    //             start: "top center",
+    //             end: "bottom center",
+    //             scrub: 0.5,
+    //             markers: true,
+    //         },
+    //     }
+    // );
+
+    gsap.fromTo(".black-background", 
+        { height: 0
+         }, 
+        { height: "110vh",
+            scrollTrigger: {
+                trigger: $hidingSection,
+                start: "top-=50% center",
+                end: "center-=10% center",
+                scrub: 0.5,
+                markers: true,
+            }
+         });
+
+    gsap.fromTo(".black-background",
+        {
+            height: '110vh'
+        },
+        {
+            height: 0,
+            scrollTrigger: {
+                trigger: $hidingSection,
+                start: "center+=10% center",
+                end: "bottom+=50% top",
+                scrub: 0.5,
+                markers: true,
+            }
+        });
+}
+
 
 const animate = () => {
     animateProgress();
     horizontalTextAnimation();
+    animateHidingSection();
 };
 
 animate();
