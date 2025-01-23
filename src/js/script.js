@@ -22,6 +22,13 @@ let progress = 0;
 let interval;
 let vibrationInterval;
 
+// Light 
+const $light = document.querySelector('.light');
+const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+const $debugOutput = document.getElementById('debug');
+const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
 
 
 // Hamburger
@@ -250,51 +257,39 @@ $options.forEach((option) => {
 });
 
 // Light in the Dark
-const $light = document.querySelector('.light');
-const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-const $debugOutput = document.getElementById('debug');
-const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+function lightInteraction() {
+    if (!isMobile && window.PointerEvent) {
+        if (isSafari) {
+            window.addEventListener('pointermove', (e) => {
+                const { clientX, clientY } = e;
+                $light.style.left = `${clientX}px`;
+                $light.style.top = `${clientY}px`;
+            });
+        } else {
+            window.addEventListener('pointermove', (e) => {
+                const { clientX, clientY } = e;
+                $light.animate(
+                    {
+                        left: `${clientX}px`,
+                        top: `${clientY}px`,
+                    },
+                    { duration: 3000, fill: 'forwards' }
+                );
+            });
+        }
+    }
+    else if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', (e) => {
+            const { beta, gamma } = e; // beta: front-back tilt, gamma: left-right tilt
+            const y = clamp(window.innerHeight / 4 + beta * 5, 0, window.innerHeight);
+            const x = clamp(window.innerWidth / 2 + gamma * 5, 0, window.innerWidth);
 
-if (!isMobile && window.PointerEvent) {
-    if (isSafari) {
-        // Fallback to simpler animation for Safari
-        window.addEventListener('pointermove', (e) => {
-            const { clientX, clientY } = e;
-            $light.style.left = `${clientX}px`;
-            $light.style.top = `${clientY}px`;
+            $light.style.left = `${x}px`;
+            $light.style.top = `${y}px`;
         });
     } else {
-        // Use smooth animation for other browsers
-        window.addEventListener('pointermove', (e) => {
-            const { clientX, clientY } = e;
-            $light.animate(
-                {
-                    left: `${clientX}px`,
-                    top: `${clientY}px`,
-                },
-                { duration: 3000, fill: 'forwards' }
-            );
-        });
+        $debugOutput.innerHTML = 'DeviceOrientationEvent or PointerEvent is not supported on this device.';
     }
-} else 
-if (window.DeviceOrientationEvent) {
-    // Device Orientation for devices without pointer events
-    window.addEventListener('deviceorientation', (e) => {
-        const { beta, gamma } = e; // beta: front-back tilt, gamma: left-right tilt
-
-        // Map beta (front-back tilt) to vertical movement
-        const y = clamp(window.innerHeight / 2 + beta * 10, 0, window.innerHeight);
-
-        // Map gamma (left-right tilt) to horizontal movement
-        const x = clamp(window.innerWidth / 2 + gamma * 5, 0, window.innerWidth);
-
-        // Update light position
-        $light.style.left = `${x}px`;
-        $light.style.top = `${y}px`;
-    });
-} else {
-    $debugOutput.innerHTML = 'DeviceOrientationEvent or PointerEvent is not supported on this device.';
 }
 
 
@@ -316,6 +311,9 @@ const init = () => {
     });
     
     pressPrint();
+    lightInteraction();
 };
 
 init();
+
+
