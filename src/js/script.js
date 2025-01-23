@@ -277,13 +277,42 @@ const $debugOutput = document.getElementById('debug');
 //         });
 //     }
 // } else 
+// if (window.DeviceOrientationEvent) {
+//     // Device Orientation for devices without pointer events
+//     window.addEventListener('deviceorientation', (e) => {
+//         const { beta, gamma } = e; // beta: front-back tilt, gamma: left-right tilt
+
+//         // Map beta (front-back tilt) to vertical movement
+//         const y = clamp(window.innerHeight / 2 + beta * 5, 0, window.innerHeight);
+
+//         // Map gamma (left-right tilt) to horizontal movement
+//         const x = clamp(window.innerWidth / 2 + gamma * 5, 0, window.innerWidth);
+
+//         // Update light position
+//         $light.style.left = `${x}px`;
+//         $light.style.top = `${y}px`;
+//     });
+// } else {
+//     $debugOutput.innerHTML = 'DeviceOrientationEvent is not supported on this device.';
+// }
+
 if (window.DeviceOrientationEvent) {
-    // Device Orientation for devices without pointer events
+    // Handle device orientation (mobile)
     window.addEventListener('deviceorientation', (e) => {
         const { beta, gamma } = e; // beta: front-back tilt, gamma: left-right tilt
 
         // Map beta (front-back tilt) to vertical movement
-        const y = clamp(window.innerHeight / 2 + beta * 5, 0, window.innerHeight);
+        // This scales the beta tilt into a value between 0 and sectionHeight
+        let y = clamp(window.innerHeight / 2 + beta * 5, 0, window.innerHeight);
+
+        // If the device is laying flat (beta == 0), position it at the top
+        if (Math.abs(beta) < 10) {
+            y = 0;  // Position at the top of the section
+        }
+        // If the device is upright (beta == 90 or -90), position it at the bottom
+        else if (Math.abs(beta) >= 70) {
+            y = window.innerHeight;  // Position at the bottom of the section
+        }
 
         // Map gamma (left-right tilt) to horizontal movement
         const x = clamp(window.innerWidth / 2 + gamma * 5, 0, window.innerWidth);
@@ -293,7 +322,7 @@ if (window.DeviceOrientationEvent) {
         $light.style.top = `${y}px`;
     });
 } else {
-    $debugOutput.innerHTML = 'DeviceOrientationEvent is not supported on this device.';
+    $debugOutput.innerHTML = 'DeviceOrientationEvent or PointerEvent is not supported on this device.';
 }
 
 
