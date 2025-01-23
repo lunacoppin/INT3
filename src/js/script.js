@@ -216,7 +216,6 @@ const startVibration = () => {
         }, 100);
     }
 }
-
 const stopVibration = () => {
     if (navigator.vibrate) {
         navigator.vibrate(0);
@@ -239,6 +238,17 @@ const pressPrint = () => {
     $ctaButton.addEventListener("pointerup", stopPrinting);
     $ctaButton.addEventListener("pointercancel", stopPrinting);
 };
+
+// Dropdown
+const $options = document.querySelectorAll('.choice__option');
+
+$options.forEach((option) => {
+    const $optionP = option.querySelector('.option__p');
+    option.addEventListener('click', () => {
+        option.classList.toggle('active');
+        $optionP.classList.toggle('hidden');
+    });
+});
 
 
 // Initialization

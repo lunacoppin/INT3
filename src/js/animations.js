@@ -49,12 +49,14 @@ const animateProgress = () => {
     const progressBar = document.querySelector(".progress--fg");
     gsap.to(progressBar, {
         width: "100%",
+        ease: "none",
         scrollTrigger: {
             trigger: document.body,
             start: "top top",
             end: "bottom bottom",
             scrub: true,
             markers: false,
+
         },
     });
 };
