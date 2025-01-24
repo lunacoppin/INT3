@@ -101,17 +101,27 @@
         <div class="header__hero overlap__item">
           <p class="hero__title hero__title--top container--s">Christophe</p>
           <div class="hero__graphic graphic overlap">
-            <img class="graphic__svg hero__graphic--bg overlap__item" src="src/assets/svg/background-hero.svg" alt="Plantin buste background" width="390" height="372">
-            <img class="graphic__img hero__graphic--fg overlap__item" src="src/assets/img/fallback/plantin-buste.png " 
-              alt="Christophe Plantin buste" width="1190" height="1435">
+            <img class="graphic__svg hero__graphic--bg overlap__item" src="src/assets/svg/background-hero.svg"
+              alt="Plantin buste background" width="390" height="372">
+            <picture class="graphic__img hero__graphic--fg overlap__item">
+              <source sizes="(min-width: 440px) 320px, calc(57.5vw + 79px)" type="image/avif" srcset="
+                  src/assets/img/avif/plantin-buste_svqk1e_c_scale,w_100.avif 100w,
+                  src/assets/img/avif/plantin-buste_svqk1e_c_scale,w_380.avif 380w,
+                  src/assets/img/avif/plantin-buste_svqk1e_c_scale,w_626.avif 626w,
+                  src/assets/img/avif/plantin-buste_svqk1e_c_scale,w_797.avif 797w">
+              <img src="src/assets/img/fallback/plantin-buste.png " alt="Christophe Plantin buste" width="1190"
+                height="1435">
+            </picture>
           </div>
           <p class="hero__title hero__title--bottom container--s">Plantin</p>
           <div class="hero__subtitle container--s overlap">
-            <img class="subtitle__svg overlap__item" src="src/assets/svg/background-subtitle.svg" alt="paint stroke" width="379" height="213">
+            <img class="subtitle__svg overlap__item" src="src/assets/svg/background-subtitle.svg" alt="paint stroke"
+              width="379" height="213">
             <p class="subtitle__p overlap__item">And how to start a business in the 16th century</p>
           </div>
           <div class="hero__note note container--s overlap">
-            <img class="note__svg overlap__item" src="src/assets/svg/background-note.svg" alt="paper note" width="336" height="107">
+            <img class="note__svg overlap__item" src="src/assets/svg/background-note.svg" alt="paper note" width="336"
+              height="107">
             <p class="note__p overlap__item">Follow in the footsteps of Plantin as the Plantin-Moretus Museum
               brings his eventful
               journey back alive!</p>
@@ -128,7 +138,8 @@
     <section class="intro" id="intro">
       <h2 class="visually-hidden">Introduction</h2>
       <div class="intro__year overlap">
-        <img class="year__svg overlap__item" src="src/assets/svg/background-year.svg" alt="fluent brush stroke" width="800" height="405">
+        <img class="year__svg overlap__item" src="src/assets/svg/background-year.svg" alt="fluent brush stroke"
+          width="800" height="405">
         <p class="year__p overlap__item">1550</p>
       </div>
       <div class="overlap">
@@ -140,7 +151,17 @@
         </svg>
         <div class="intro__content container--s overlap__item">
           <div class="intro__map overlap">
-            <img class="map__svg overlap__item" src="src/assets/svg/background-map.svg" alt="paper background" width="529" height="506">
+            <img class="map__svg overlap__item" src="src/assets/svg/background-map.svg" alt="paper background"
+              width="529" height="506">
+            <picture class="map__img overlap__item">
+              <source sizes="448px" type="image/avif" srcset="
+                              src/assets/img/avif/map_vhapaw_c_scale,w_200.avif 200w,
+                              src/assets/img/avif/map_vhapaw_c_scale,w_497.avif 497w,
+                              src/assets/img/avif/map_vhapaw_c_scale,w_726.avif 726w,
+                              src/assets/img/avif/map_vhapaw_c_scale,w_926.avif 926w,
+                              src/assets/img/avif/map_vhapaw_c_scale,w_1000.avif 1000w">
+              <img src="src/assets/img/fallback/map.png" alt="Map of Antwerp" width="1032" height="600">
+            </picture>
             <img class="map__img overlap__item" src="src/assets/img/fallback/map.png" alt="Map of Antwerp" width="1032"
               height="600">
           </div>
@@ -165,10 +186,13 @@
             high-stakes
             business?</p>
           <div class="intro__bell overlap">
-            <img class="bell__svg overlap__item" src="src/assets/svg/background-bell.svg" alt="paper background bell" width="260" height="295">
-            <img class="bell__img overlap__item" src="src/assets/img/fallback/bell.png" alt="Big bell" width="1000" height="780">
+            <img class="bell__svg overlap__item" src="src/assets/svg/background-bell.svg" alt="paper background bell"
+              width="260" height="295">
+            <img class="bell__img overlap__item" src="src/assets/img/fallback/bell.png" alt="Big bell" width="1000"
+              height="780">
           </div>
-          <img class="splash intro__splash" src="src/assets/svg/splash-1.svg" alt="ink splashes" width="172" height="188">
+          <img class="splash intro__splash" src="src/assets/svg/splash-1.svg" alt="ink splashes" width="172"
+            height="188">
         </div>
       </div>
     </section>
@@ -176,7 +200,8 @@
       <h2 class="visually-hidden">Profile</h2>
       <img class="profile__card--top" src="src/assets/svg/big-card-top.svg" alt="rough paper" width="1241" height="70">
       <div class="overlap profile__overlap">
-        <img class="profile__card overlap__item" src="src/assets/svg/big-card.svg" alt="business card" width="1325" height="857">
+        <img class="profile__card overlap__item" src="src/assets/svg/big-card.svg" alt="business card" width="1325"
+          height="857">
         <div class="profile__content overlap__item container--s">
           <h3 class="profile__name">Christophe Plantin</h3>
           <ul class="profile__basics">
@@ -194,9 +219,10 @@
             </li>
           </ul>
           <div class="profile__graphic overlap">
-            <img class="profile__svg overlap__item" src="src/assets/svg/background-profile.svg" alt="painted background" width="319" height="355">
-            <img class="profile__img overlap__item" src="src/assets/img/fallback/plantin-profile.png" alt="Christophe Plantin portrait"
-              width="550" height="617">
+            <img class="profile__svg overlap__item" src="src/assets/svg/background-profile.svg" alt="painted background"
+              width="319" height="355">
+            <img class="profile__img overlap__item" src="src/assets/img/fallback/plantin-profile.png"
+              alt="Christophe Plantin portrait" width="550" height="617">
           </div>
           <div class="profile__goals">
             <h4 class="goals__title">Goals</h4>
@@ -229,7 +255,8 @@
           </div>
         </div>
       </div>
-      <img class="profile__card--bottom" src="src/assets/svg/big-card-bottom.svg" alt="rough paper" width="1241" height="88">
+      <img class="profile__card--bottom" src="src/assets/svg/big-card-bottom.svg" alt="rough paper" width="1241"
+        height="88">
     </section>
     <section class="humanists">
       <div class="overlap overlap--box">
@@ -240,7 +267,8 @@
             d="M1755 1C1735.95 126.978 1526.52 381.267 1272.26 405.317C954.451 435.38 850.401 268.526 572.493 213.282C445.951 188.127 276.256 165.043 124.638 227.393C-63.1147 304.602 -10.6525 643.981 107.727 724.967C201.36 789.024 293.75 800.431 426.706 800.431C573.075 800.431 849.486 812.536 849.486 1221.93C849.486 1347.21 939.65 1561.93 1148.17 1664.36C1314.38 1755.13 1351.86 1861.85 1702.42 1933"
             stroke="#6D762C" stroke-width="2" stroke-dasharray="12 12" />
         </svg> -->
-        <svg class="humanists__path path overlap__item path-hidden" width="1489" height="1291" viewBox="0 0 1489 1291" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="humanists__path path overlap__item path-hidden" width="1489" height="1291" viewBox="0 0 1489 1291"
+          fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="draw-path"
             d="M1488 35.4421C1472.46 135.281 1319.63 205.5 1124.5 205.5C864.15 205.5 822.648 79.224 596 35.4423C492.798 15.5068 329.184 -31 126.5 35.4424C-30.1909 86.8076 -27.5034 394.815 69.0408 458.998C145.404 509.764 220.752 518.804 329.184 518.804C448.556 518.804 673.983 528.397 673.983 852.845C673.983 952.132 747.516 1122.3 917.576 1203.48C1053.13 1275.42 1202.41 1290 1488 1290"
             stroke="#6D762C" stroke-width="2" stroke-dasharray="20 20" />
@@ -252,12 +280,13 @@
         </svg> -->
         <div class="humanists__group overlap__item">
           <div class="humanists__graphic overlap">
-            <img class="humanists__svg overlap__item" src="src/assets/svg/background-humanists.svg" alt="background paper" width="658" height="484">
+            <img class="humanists__svg overlap__item" src="src/assets/svg/background-humanists.svg"
+              alt="background paper" width="658" height="484">
             <div class="humanists__img overlap__item">
-              <img class="humanists__img humanists__davinci" src="src/assets/img/fallback/davinci.png" alt="Davinci drawing"
-                width="761" height="495">
-              <img class="humanists__img humanists__lipsius" src="src/assets/img/fallback/lipsius.png" alt="Justus Lipsius"
-                width="736" height="763">
+              <img class="humanists__img humanists__davinci" src="src/assets/img/fallback/davinci.png"
+                alt="Davinci drawing" width="761" height="495">
+              <img class="humanists__img humanists__lipsius" src="src/assets/img/fallback/lipsius.png"
+                alt="Justus Lipsius" width="736" height="763">
             </div>
           </div>
           <div class="humanists__content">
@@ -282,7 +311,8 @@
             </div>
             <a href="https://museumplantinmoretus.be/en/printing-office" hreflang="en"
               class="humanists__note note--arrow container--s overlap">
-              <img class="note__svg overlap__item" src="src/assets/svg/background-note-2.svg" alt="paper note" width="336" height="146">
+              <img class="note__svg overlap__item" src="src/assets/svg/background-note-2.svg" alt="paper note"
+                width="336" height="146">
               <p class="note__p overlap__item">Curious about the humanist works that started it all? You can see these
                 up
                 close at the Plantin-Moretus Museum</p>
@@ -338,12 +368,13 @@
         </svg>
         <div class="reformation__content overlap__item">
           <div class="reformation__graphic overlap">
-            <img class="reformation__svg overlap__item" src="src/assets/svg/background-church.svg" alt="background paper" width="524" height="487">
+            <img class="reformation__svg overlap__item" src="src/assets/svg/background-church.svg"
+              alt="background paper" width="524" height="487">
             <div class="reformation__imgs overlap__item container--s">
-              <img class="reformation__img reformation__pope" src="src/assets/img/fallback/pope.png" alt="Catholic Church"
-                width="661" height="765">
-              <img class="reformation__img reformation__chalice" src="src/assets/img/fallback/kelk.png" alt="chalice" width="291"
-                height="517">
+              <img class="reformation__img reformation__pope" src="src/assets/img/fallback/pope.png"
+                alt="Catholic Church" width="661" height="765">
+              <img class="reformation__img reformation__chalice" src="src/assets/img/fallback/kelk.png" alt="chalice"
+                width="291" height="517">
             </div>
           </div>
           <div class="reformation__text container--s">
@@ -384,8 +415,8 @@
                     fill="#ECEAE5" />
                 </svg>
                 <div class="card__content overlap__item">
-                  <img class="card__img img__church" src="src/assets/img/fallback/card-1-img.jpg" alt="holy angel" width="282"
-                    height="320">
+                  <img class="card__img img__church" src="src/assets/img/fallback/card-1-img.jpg" alt="holy angel"
+                    width="282" height="320">
                   <h3 class="card__title">In the Name of the Church (and Profit)</h3>
                 </div>
               </div>
@@ -415,8 +446,8 @@
                     fill="#ECEAE5" />
                 </svg>
                 <div class="card__content overlap__item">
-                  <img class="card__img img__science" src="src/assets/img/fallback/card-2-img.jpg" alt="scientific drawing"
-                    width="434" height="318">
+                  <img class="card__img img__science" src="src/assets/img/fallback/card-2-img.jpg"
+                    alt="scientific drawing" width="434" height="318">
                   <h3 class="card__title">Fuel the hungry brains</h3>
                 </div>
               </div>
@@ -505,11 +536,11 @@
         <article class="printing__group overlap__item">
           <h3 class="visually-hidden">Start Printing</h3>
           <div class="printing__graphic overlap">
-            <img class="printing__svg overlap__item" src="src/assets/svg/background-press.svg"
-              alt="paper background" width="555" height="664">
+            <img class="printing__svg overlap__item" src="src/assets/svg/background-press.svg" alt="paper background"
+              width="555" height="664">
             <div class="printing__imgs overlap__item container--s">
-              <img class="printing__img printing__stamp" src="src/assets/img/fallback/stamp.png" alt="old stamp" width="368"
-                height="248">
+              <img class="printing__img printing__stamp" src="src/assets/img/fallback/stamp.png" alt="old stamp"
+                width="368" height="248">
               <img class="printing__img printing__press" src="src/assets/img/fallback/prinitng-press.png"
                 alt="old printing press" width="672" height="906">
             </div>
@@ -586,8 +617,8 @@
             <div class="heretics__graphic overlap">
               <img class="heretics__svg overlap__item" src="src/assets/svg/background-heretics.svg"
                 alt="paper background" width="400" height="273">
-              <img class="heretics__img overlap__item" src="src/assets/img/fallback/heretics.png" alt="heretics" width="600"
-                height="350">
+              <img class="heretics__img overlap__item" src="src/assets/img/fallback/heretics.png" alt="heretics"
+                width="600" height="350">
               <img class="heretics__svg--foreground overlap__item" src="src/assets/svg/cross-foreground.svg"
                 alt="crossed out" width="369" height="404">
             </div>
@@ -600,8 +631,8 @@
           </div>
           <div class="heretics__choice">
             <div class="choice__graphic overlap">
-              <img class="choice__svg overlap__item" src="src/assets/svg/background-feet.svg" alt="paper background footsteps"
-                width="503" height="311">
+              <img class="choice__svg overlap__item" src="src/assets/svg/background-feet.svg"
+                alt="paper background footsteps" width="503" height="311">
               <img class="choice__img overlap__item" src="src/assets/img/fallback/feet.png" alt="footsteps" width="1006"
                 height="622">
             </div>
@@ -663,11 +694,13 @@
             width="451" height="518">
           <div class="hiding__imgs overlap__item">
             <div class="hiding__img hiding__globe overlap">
-              <img class="overlap__item globe__img" src="src/assets/img/fallback/globe.png" alt="globe" width="495" height="609">
+              <img class="overlap__item globe__img" src="src/assets/img/fallback/globe.png" alt="globe" width="495"
+                height="609">
               <img class="globe--foreground overlap__item" src="src/assets/svg/foreground-globe.svg"
                 alt="swirl around planet" width="450" height="144">
             </div>
-            <img class="hiding__img hiding__books" src="src/assets/img/fallback/books.png" alt="stack of books" width="344" height="283">
+            <img class="hiding__img hiding__books" src="src/assets/img/fallback/books.png" alt="stack of books"
+              width="344" height="283">
           </div>
         </div>
       </div>
@@ -681,7 +714,8 @@
             <div class="ending__text container--s">
               <p class="ending__p ending__subtitle subtitle">But, things aren’t over yet ...</p>
               <div class="big-letter letter-y">Y</div>
-              <p class="ending__p ending__p--2"><span class="replace-letter">Y</span>our journey as Plantin ends here, but his story
+              <p class="ending__p ending__p--2"><span class="replace-letter">Y</span>our journey as Plantin ends here,
+                but his story
                 is
                 far
                 from over. The Polyglot Bible
