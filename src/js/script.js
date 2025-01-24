@@ -136,7 +136,7 @@ const animateBubble = (bubble, containerWidth, containerHeight, placedBubbles, o
 
         setTimeout(() => {
             bubble.style.transition = 'transform 2s ease-in-out, opacity 2s ease-in-out';
-            bubble.style.transform = 'scale(0.9)';
+            bubble.style.transform = 'scale(0.8)';
             bubble.style.opacity = '1';
         }, Math.random() * 8000); 
     }
@@ -152,7 +152,7 @@ const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeigh
     bubble.style.backgroundImage = `url("src/assets/svg/background-bubble-after.svg")`;
     bubble.style.transition = 'opacity 5s ease-in';
     bubble.style.opacity = '0';
-    bubble.style.transform = 'scale(1.2)'
+    bubble.style.transform = 'scale(1)'
     bubbleText.style.transform = 'scale(1)';
     bubbleText.style.color = '#5A564E';
 

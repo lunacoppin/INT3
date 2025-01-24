@@ -72,7 +72,8 @@ html {
     scroll-snap-align: start;
 } */
 
-html, body {
+html,
+body {
     inline-size: 100vw;
     /* overflow-x: hidden; */
 }
@@ -177,10 +178,11 @@ picture {
 a {
     text-decoration: none;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .cta {
-    background-image : url('../assets/svg/background-cta.svg');
+    background-image: url('../assets/svg/background-cta.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -314,9 +316,9 @@ button:hover {
 
 .story li {
     width: 18rem;
-      height: auto;
-        margin-inline-start: -8rem;
-        transition: all 0.3s ease;
+    height: auto;
+    margin-inline-start: -8rem;
+    transition: all 0.3s ease;
 }
 
 .story li:nth-child(1) {
@@ -369,7 +371,7 @@ button:hover {
 }
 
 .hero__title--bottom {
-/* font-size: var(--font-size-xxxl); */
+    /* font-size: var(--font-size-xxxl); */
     font-size: clamp(4rem, 16vw, 10rem);
     margin-block-start: clamp(-11rem, -25vw, -4rem);
 }
@@ -380,13 +382,13 @@ button:hover {
     max-inline-size: 25rem;
 }
 
-.overlap{
+.overlap {
     display: grid;
     place-items: center;
     /* inline-size: 100%; */
 }
 
-.overlap__item{
+.overlap__item {
     grid-column: 1;
     grid-row: 1;
 }
@@ -398,7 +400,7 @@ button:hover {
 
 .hero__graphic--bg {
     max-inline-size: 140%;
-    inline-size: 140%;  
+    inline-size: 140%;
     height: auto;
     margin-inline-start: -1.5rem;
     margin-block-end: -3rem;
@@ -411,7 +413,8 @@ button:hover {
     margin-block-start: -1rem;
 }
 
-.subtitle__p, .subtitle__svg {
+.subtitle__p,
+.subtitle__svg {
     grid-column: 1;
     grid-row: 1;
 }
@@ -434,7 +437,7 @@ button:hover {
     block-size: auto
 }
 
-.hero__note{
+.hero__note {
     rotate: -5deg;
     z-index: -2;
     margin-block-start: -2rem;
@@ -456,7 +459,7 @@ button:hover {
 
 /* ------------------------------------- INTRO ------------------------------------- */
 .intro {
-  inline-size: 100vw;
+    inline-size: 100vw;
 }
 
 .intro__year {
@@ -475,20 +478,18 @@ button:hover {
     margin-block-end: clamp(10rem, 25vw, 15rem);
 }
 
-.year__svg {
-
-}
+.year__svg {}
 
 .intro__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-            "intro__map intro__map"
-            "intro__p--1 intro__p--1"
-            "intro__p--2 intro__bell"
-            "intro__p--3 intro__p--3"
-            ". intro__splash";
-    
+        "intro__map intro__map"
+        "intro__p--1 intro__p--1"
+        "intro__p--2 intro__bell"
+        "intro__p--3 intro__p--3"
+        ". intro__splash";
+
     inline-size: 100%
 }
 
@@ -530,14 +531,14 @@ button:hover {
 }
 
 .map__img {
-    inline-size: 28rem;
+    max-inline-size: 28rem;
     block-size: auto;
     margin-block: var(--whitespace-base);
     align-self: end;
 }
 
 .bell__img {
-    inline-size: 16.25rem;
+    max-inline-size: 16.25rem;
     block-size: auto;
 }
 
@@ -547,7 +548,8 @@ button:hover {
     display: none;
 }
 
-.profile__card--top, .profile__card--bottom {
+.profile__card--top,
+.profile__card--bottom {
     display: block;
 }
 
@@ -581,7 +583,7 @@ h4 {
 }
 
 .profile__img {
-    inline-size: 19.75rem;
+    max-inline-size: 19.75rem;
     block-size: auto;
 }
 
@@ -589,7 +591,7 @@ h4 {
     max-inline-size: 60ch;
 }
 
-.profile__content{
+.profile__content {
     inline-size: 100%;
 }
 
@@ -598,7 +600,7 @@ h4 {
 }
 
 .goals__list {
-    display:flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -611,7 +613,7 @@ h4 {
 
 /* ------------------------------------- HUMANISTS ------------------------------------- */
 .humanists {
-    margin-top : var(--whitespace-l);
+    margin-top: var(--whitespace-l);
 }
 
 /* .overlap--box {
@@ -625,14 +627,14 @@ h4 {
 }
 
 .humanists__lipsius {
-    /* max-inline-size: 95%; */
+    max-inline-size: 95%;
     block-size: auto;
     grid-column: 1/3;
     grid-row: 1;
 }
 
 .humanists__davinci {
-    /* max-inline-size: 95%; */
+    max-inline-size: 95%;
     block-size: auto;
     grid-column: 2/4;
     grid-row: 1;
@@ -642,22 +644,19 @@ h4 {
     max-inline-size: 42ch;
 }
 
-.note--arrow {
-    
-}
+.note--arrow {}
 
-.note--arrow::after{
+.note--arrow::after {
     content: url('..//assets/svg/menu-next.svg');
     margin-block-start: -1.5rem;
     margin-inline-start: 12rem;
 }
 
-.humanists__note{
-    rotate: -5deg;
+.humanists__note {
     padding-block-start: var(--whitespace-base);
 }
 
-.humanists__text{
+.humanists__text {
     margin-block-start: var(--whitespace-m);
 }
 
@@ -693,22 +692,21 @@ p {
     /* writing-mode: vertical-lr; */
 }
 
-.ideas__title:nth-child(2){
+.ideas__title:nth-child(2) {
     font-style: italic;
 }
 
-.ideas__title:nth-child(1) {
-}
+.ideas__title:nth-child(1) {}
 
 .ideas__cta {
     align-self: start;
-        justify-self: start;
-        transform: rotate(-5deg);
-        grid-row: 1;
-        grid-column: 1;
-        /* margin-block-start: -3rem; */
-        margin-inline-start: var(--whitespace-base);
-        z-index: 5;
+    justify-self: start;
+    transform: rotate(-5deg);
+    grid-row: 1;
+    grid-column: 1;
+    /* margin-block-start: -3rem; */
+    margin-inline-start: var(--whitespace-base);
+    z-index: 5;
 }
 
 .bubble {
@@ -745,7 +743,7 @@ p {
 .circle__dark {
     max-inline-size: 130%;
     inline-size: 130%;
-    height: auto;       
+    height: auto;
 }
 
 .background {
@@ -754,7 +752,7 @@ p {
 }
 
 .reformation__content {
-    padding-block-end: var(--whitespace-l);
+    padding-block-end: var(--whitespace-m);
 }
 
 .reformation__graphic {
@@ -768,7 +766,7 @@ p {
     z-index: 4;
 }
 
-.reformation__svg{
+.reformation__svg {
     inline-size: 32rem;
 }
 
@@ -807,7 +805,8 @@ p {
     margin-block-start: var(--whitespace-xl);
 }
 
-.strategy__title, .choice__title {
+.strategy__title,
+.choice__title {
     font-family: var(--font-family-playfair);
     font-size: var(--font-size-xxl);
     font-weight: 700;
@@ -851,30 +850,30 @@ p {
     display: none;
 }
 
- .card {
+.card {
     background-color: var(--color-white);
     padding: var(--whitespace-base);
     /* max-width: 50rem; */
     min-width: 100%;
     margin: 0 auto;
     scroll-snap-align: center;
- }
+}
 
- .card-inner {
+.card-inner {
     block-size: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: var(--whitespace-s);
- }
+}
 
- .card__content {
+.card__content {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: var(--whitespace-s);
- }
+}
 
 .card__title {
     font-family: var(--font-family-inconsolata);
@@ -883,13 +882,11 @@ p {
     max-inline-size: 22ch;
 }
 
-.striped{
+.striped {
     text-decoration: line-through;
 }
 
-.title__lower {
-
-}
+.title__lower {}
 
 .card__img {
     /* justify-self: end; */
@@ -905,7 +902,7 @@ p {
     block-size: auto;
 }
 
-.img__both{
+.img__both {
     max-inline-size: 10.3rem;
     block-size: auto;
 }
@@ -943,11 +940,10 @@ p {
     margin-block-end: var(--whitespace-s);
 }
 
-.printing__p--2{
+.printing__p--2 {}
 
-}
-
-.printing__text, .heretics__content {
+.printing__text,
+.heretics__content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1023,18 +1019,18 @@ p {
     padding: var(--whitespace-l);
 } */
 
-.printing__cta--p, .ending__cta--p {
+.printing__cta--p,
+.ending__cta--p {
     font-size: var(--font-size-base);
 }
 
-.printing__books {
-    
-}
+.printing__books {}
 
 /* ------------------------------------- HERETICS ------------------------------------- */
 .heretics {
     margin-block-start: var(--whitespace-m);
 }
+
 .heretics__warning {
     overflow: hidden;
 }
@@ -1052,7 +1048,8 @@ p {
     margin-block-start: var(--whitespace-m);
 }
 
-.heretics__content, .hiding__content {
+.heretics__content,
+.hiding__content {
     max-inline-size: max-content;
     margin: 0 auto;
 }
@@ -1068,7 +1065,8 @@ p {
     align-self: start;
 }
 
-.heretics__p, .hiding__p{
+.heretics__p,
+.hiding__p {
     max-inline-size: 65ch;
     margin-block-end: var(--whitespace-s);
 }
@@ -1078,7 +1076,7 @@ p {
 }
 
 .heretics__img {
-    inline-size: 26rem;
+    max-inline-size: 26rem;
     block-size: auto;
     margin-block-start: -4rem;
     /* margin-inline-end: -2rem; */
@@ -1097,7 +1095,7 @@ p {
 }
 
 .choice__img {
-    inline-size: 28rem;
+    max-inline-size: 28rem;
     block-size: auto;
 }
 
@@ -1144,7 +1142,7 @@ p {
     text-align: center;
 }
 
-.option__title::after{
+.option__title::after {
     margin-inline-start: var(--whitespace-s);
     content: url(../assets/svg/arrow-down.svg);
 }
@@ -1168,6 +1166,7 @@ p {
 .option__p--plantin {
     margin-block-start: var(--whitespace-s);
 }
+
 /* ------------------------------------- HIDING ------------------------------------- */
 .light {
     height: 250px;
@@ -1190,7 +1189,7 @@ p {
     inline-size: 100%;
     z-index: 2;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .black-background {
@@ -1205,11 +1204,11 @@ p {
 }
 
 .globe__img {
-    inline-size: 17rem;
+    max-inline-size: 17rem;
 }
 
 .hiding__books {
-    inline-size: 12rem;
+    max-inline-size: 12rem;
 }
 
 .hiding__graphic {
@@ -1256,17 +1255,17 @@ p {
     margin-block: var(--whitespace-m);
 }
 
-.ending__graphic {
-}
+.ending__graphic {}
 
 .ending__img {
-    inline-size: 26rem;
+    max-inline-size: 26rem;
     block-size: auto;
     margin-block-start: var(--whitespace-m);
 }
+
 .ending__p {
     max-inline-size: 42rem;
-    margin-block-end:  var(--whitespace-s);
+    margin-block-end: var(--whitespace-s);
 }
 
 .ending__cta {
@@ -1283,16 +1282,14 @@ p {
     max-inline-size: 50ch;
 }
 
-.ending__text {
-    
-}
+.ending__text {}
 
 .ending__content {
     max-inline-size: max-content;
     margin: 0 auto;
 }
 
-.footer__back{
+.footer__back {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1301,7 +1298,7 @@ p {
     margin-block-end: var(--whitespace-l);
 }
 
-.endnote{
+.endnote {
     color: var(--color-red-primary);
     font-family: var(--font-family-inconsolata);
     font-weight: 600;
@@ -1365,8 +1362,9 @@ p {
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
 @media screen and (min-width: 30em) {
     .nav__list {
-            padding-inline: var(--whitespace-xl);
+        padding-inline: var(--whitespace-xl);
     }
+
     .nav__link {
         margin-block-end: var(--whitespace-m);
         margin-block-start: var(--whitespace-xs);
@@ -1394,7 +1392,7 @@ p {
             "intro__p--2 "
             "intro__p--3"
             "intro__bell"
-            ;
+        ;
 
         place-items: center;
 
@@ -1412,17 +1410,17 @@ p {
         justify-self: end;
     }
 
-    .intro__p--3{
+    .intro__p--3 {
         display: none;
     }
 
-    .intro__p--2::after{
-        content:"But the rewards? They could set you up for life. With ambition and determination, you’re ready to build a printing empire. Will you succeed? Or fall into the dangers of this high-stakes business?"
+    .intro__p--2::after {
+        content: "But the rewards? They could set you up for life. With ambition and determination, you’re ready to build a printing empire. Will you succeed? Or fall into the dangers of this high-stakes business?"
     }
 
     .heretics__img {
         margin-inline-end: -2rem;
-        
+
     }
 
     .ending__cta {
@@ -1436,78 +1434,82 @@ p {
 
 @media screen and (min-width: 35em) {
     .profile__content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas:
-                "profile__name profile__name"
-                "profile__graphic profile__basics"
-                "profile__graphic profile__basics"
-                "profile__goals profile__goals"
-                "profile__bio profile__bio";
-        }
-    
-        .profile__name {
-            grid-area: profile__name;
-            justify-self: start;
-        }
-    
-        .profile__basics {
-            grid-area: profile__basics;
-            align-self: center;
-            margin-block-start: var(--whitespace-m);
-        }
-    
-        .profile__graphic {
-            grid-area: profile__graphic;
-            justify-self: start;
-        }
-    
-        .profile__goals {
-            grid-area: profile__goals;
-        }
-    
-        .profile__bio {
-            grid-area: profile__bio;
-        }
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "profile__name profile__name"
+            "profile__graphic profile__basics"
+            "profile__graphic profile__basics"
+            "profile__goals profile__goals"
+            "profile__bio profile__bio";
+    }
 
-        .strategy__title {
-            text-align: start;
-        }
+    .profile__name {
+        grid-area: profile__name;
+        justify-self: start;
+    }
 
-        .strategy__p {
-            text-align: start;
-            margin: 0;
-            margin-block-end: var(--whitespace-m);
-        }
+    .profile__basics {
+        grid-area: profile__basics;
+        align-self: center;
+        margin-block-start: var(--whitespace-m);
+    }
 
-        .strategy__title,
-        .strategy__p {
-            margin-inline-start: var(--whitespace-l);
-        }
+    .profile__graphic {
+        grid-area: profile__graphic;
+        justify-self: start;
+    }
+
+    .profile__goals {
+        grid-area: profile__goals;
+    }
+
+    .profile__bio {
+        grid-area: profile__bio;
+    }
+
+    .strategy__title {
+        text-align: start;
+    }
+
+    .strategy__p {
+        text-align: start;
+        margin: 0;
+        margin-block-end: var(--whitespace-m);
+    }
+
+    .strategy__title,
+    .strategy__p {
+        margin-inline-start: var(--whitespace-l);
+    }
 }
 
 @media screen and (min-width: 40em) {
     .container--s {
-            padding-inline: var(--whitespace-m);
-        }
+        padding-inline: var(--whitespace-m);
+    }
 
     body {
         font-weight: 300;
     }
 
-        .header__hero {
-            overflow:visible;
-        }
+    .header__hero {
+        overflow: visible;
+    }
 
-    .story{
+    .story {
         padding-block-start: var(--whitespace-s);
         padding-inline-start: 12rem;
         grid-template-columns: repeat(6, 1fr);
     }
+
     .story__title {
-        font-size: var(--font-size-base );
+        font-size: var(--font-size-base);
     }
-    .hero__title, .subtitle__p, .story__title{
+
+    .hero__title,
+    .subtitle__p,
+    .story__title {
         font-weight: 500;
     }
 
@@ -1516,9 +1518,10 @@ p {
     }
 
     .subtitle__p {
-            max-inline-size: 70ch;
-            margin-block-start: -1.7rem;
+        max-inline-size: 70ch;
+        margin-block-start: -1.7rem;
     }
+
     .subtitle__svg {
         max-inline-size: 100%;
         content: url('../assets/svg/background-subtitle-2.svg');
@@ -1528,7 +1531,11 @@ p {
         display: block;
     }
 
-    .intro__path, .humanists__path .reformation__path, .strategy__path, .printing__path, .heretics__path {
+    .intro__path,
+    .humanists__path .reformation__path,
+    .strategy__path,
+    .printing__path,
+    .heretics__path {
         display: none;
     }
 
@@ -1546,7 +1553,7 @@ p {
     }
 
     /* .printing__path {
-        margin-inline-end: -2rem;
+        transform: scaleY(0.9);
     } */
 
     .profile__content {
@@ -1561,7 +1568,8 @@ p {
         /* max-width: 23.9rem; */
     }
 
-    .humanists, .reformation__content {
+    .humanists,
+    .reformation__content {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1579,6 +1587,7 @@ p {
         block-size: 60vh;
         position: relative;
     }
+
     .ideas__titles {
         flex-direction: column;
         inline-size: 100%;
@@ -1588,7 +1597,7 @@ p {
         font-family: var(--font-family-playfair);
         font-size: 20vw;
         font-weight: 500;
-        writing-mode:horizontal-tb;
+        writing-mode: horizontal-tb;
         line-height: 1;
     }
 
@@ -1635,12 +1644,13 @@ p {
     }
 
     .choice__graphic {
-       padding-inline: var(--whitespace-xl);
+        padding-inline: var(--whitespace-xl);
     }
 
-     .choice__img, .choice__svg {
+    .choice__img,
+    .choice__svg {
         justify-self: end;
-     }
+    }
 }
 
 @media (min-width: 60em) {
@@ -1676,7 +1686,7 @@ p {
         grid-area: bottom-title;
     }
 
-    .hero__subtitle{
+    .hero__subtitle {
         grid-area: subtitle;
         justify-self: center;
         text-align: center;
@@ -1717,10 +1727,10 @@ p {
 
     .ideas__cta {
         justify-self: end;
-            transform: rotate(5deg);
+        transform: rotate(5deg);
     }
 
-    .humanists__group{
+    .humanists__group {
         margin-top: var(--whitespace-l);
         padding-inline: var(--whitespace-l);
         display: grid;
@@ -1735,16 +1745,22 @@ p {
         padding-inline: var(--whitespace-l);
         max-inline-size: 85rem;
         margin: 0 auto;
+        align-items: center;
+    }
+
+    .ending {
+        margin-block-start: 0rem;
     }
 
     .reformation__content {
         display: grid;
         grid-template-columns: 1fr 1.2fr;
         padding-inline: var(--whitespace-l);
-        max-inline-size: 85rem;
+        max-inline-size: 75rem;
         margin: 0 auto;
         margin-block-start: 0px;
         place-items: center;
+        padding-block-end: 7rem;
     }
 
     .heretics__content {
@@ -1752,22 +1768,31 @@ p {
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 0.3fr auto auto 1fr;
         column-gap: var(--whitespace-m);
-        grid-template-areas: 
-        "heretics__graphic ."
-        "heretics__graphic heretics__subtitle" 
-        "heretics__graphic heretics__p--1"
-        "heretics__graphic heretics__p--2";
+        grid-template-areas:
+            "heretics__graphic ."
+            "heretics__graphic heretics__subtitle"
+            "heretics__graphic heretics__p--1"
+            "heretics__graphic heretics__p--2";
         max-inline-size: fit-content;
+        /* margin-block-start: -5rem; */
     }
 
-    .humanists__content, .reformation__graphic, .ending__visuals {
+    .humanists__content,
+    .reformation__graphic,
+    .ending__visuals {
         grid-column: 1;
         grid-row: 1;
     }
 
-    .humanists__graphic, .reformation__text, .ending__text {
+    .humanists__graphic,
+    .reformation__text,
+    .ending__text {
         grid-column: 2;
-        grid-row: 1; 
+        grid-row: 1;
+    }
+
+    .reformation__text {
+        align-self: start;
     }
 
     .heretics__graphic {
@@ -1803,13 +1828,13 @@ p {
         padding: 0;
     }
 
-    .card-hidden{
+    .card-hidden {
         display: block;
     }
 
-    .strategy {
+    /* .strategy {
         margin-block-end: var(--whitespace-xl);
-    }
+    } */
 
     .strategy__cards {
         display: flex;
@@ -1919,9 +1944,7 @@ p {
         padding: var(--whitespace-base);
     }
 
-    .choice__list {
-        
-    }
+    .choice__list {}
 
     .choice__option {
         background-color: transparent;
@@ -1937,9 +1960,7 @@ p {
         padding: 2.5rem 3rem 2.5rem 3rem;
     }
 
-    .choice__option--1 {
-        
-    }
+    .choice__option--1 {}
 
     .choice__option--2 {
         background-position-y: top;
@@ -1970,7 +1991,7 @@ p {
         align-items: center;
     }
 
-    .hiding__text{
+    .hiding__text {
         grid-column: 1;
         grid-row: 1;
         /* align-self: start; */
@@ -1994,11 +2015,11 @@ p {
     .ending__footer {
         display: flex;
         align-items: start;
-        justify-content: space-around;
+        justify-content: space-between;
         margin-block: var(--whitespace-l);
     }
 
-    .footer__socials{
+    .footer__socials {
         order: 1;
         margin: 0;
     }
@@ -2006,6 +2027,10 @@ p {
     .footer__back {
         order: 2;
         margin: 0;
+    }
+
+    .socials__p {
+        text-align: start;
     }
 }
 
@@ -2039,7 +2064,7 @@ p {
 }
 
 @media screen and (min-width: 70em) {
-    .story{
+    .story {
         grid-template-columns: repeat(6, 1fr);
         padding-inline-start: 8rem;
     }
@@ -2094,16 +2119,16 @@ p {
         gap: var(--whitespace-xs);
         max-inline-size: fit-content;
         grid-template-rows: auto auto auto;
-        grid-template-areas: 
-        "profile__graphic profile__name"
-        "profile__graphic profile__goals"
-        "profile__basics profile__bio";
+        grid-template-areas:
+            "profile__graphic profile__name"
+            "profile__graphic profile__goals"
+            "profile__basics profile__bio";
         padding: 0;
         margin: 0 auto;
         /* background-image: url('/src/assets/svg/big-card.svg'); */
     }
 
-    .profile__basics{
+    .profile__basics {
         margin-block-start: 0;
         margin-inline-start: var(--whitespace-base);
     }
@@ -2116,8 +2141,23 @@ p {
         max-inline-size: max-content;
     }
 
-    .strategy__path, .printing__path, .heretics__path {
+    .strategy__path,
+    .printing__path,
+    .heretics__path {
         display: block;
+    }
+
+    .heretics {
+        margin-block-start: 0;
+    }
+
+    .heretics__warning {
+        margin-block-start: -3rem;
+        margin-block-end: 4rem;
+    }
+
+    .printing {
+        margin-block-start: -8rem;
     }
 
     .light {
@@ -2157,11 +2197,13 @@ p {
         justify-self: start;
     }
 
-    .intro__path, .humanists__path, .reformation__path{
+    .intro__path,
+    .humanists__path,
+    .reformation__path {
         display: block;
     }
 
-    .intro__path{
+    .intro__path {
         margin-block-end: -7rem;
     }
 
@@ -2180,9 +2222,9 @@ p {
     }
 
     .big-letter {
-            font-size: 12rem;
-            font-family: var(--font-family-playfair);
-            font-weight: 600;
+        font-size: 12rem;
+        font-family: var(--font-family-playfair);
+        font-weight: 600;
     }
 
     .replace-letter {
@@ -2208,13 +2250,15 @@ p {
         margin-block-start: -4rem;
     }
 
-    .intro__p--2, .letter-i-1 {
+    .intro__p--2,
+    .letter-i-1 {
         margin-inline-start: var(--whitespace-l);
     }
 
     .profile {
         margin-block-start: -3rem;
     }
+
     .profile__content {
         /* padding-inline: clamp(5rem, 12vw, 12rem); */
         max-inline-size: 60rem;
@@ -2319,7 +2363,7 @@ p {
         display: grid;
         grid-template-columns: auto 1fr;
         column-gap: var(--whitespace-s);
-        
+
         grid-template-rows: repeat(3, min-content);
         grid-template-areas:
             "letter-y ending__subtitle"
@@ -2351,13 +2395,13 @@ p {
     .letter-y {
         grid-area: letter-y;
     }
-    
+
 }
 
 @media screen and (min-width: 85em) {
     .hero__note {
-            margin-inline-end: -6rem;
-        }
+        margin-inline-end: -6rem;
+    }
 }
 
 @media screen and (min-width: 87.5em) {
@@ -2369,5 +2413,9 @@ p {
 
     .card:last-child::before {
         display: none;
+    }
+
+    .strategy__container {
+        margin-block-start: -7rem;
     }
 }
