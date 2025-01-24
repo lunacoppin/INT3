@@ -85,21 +85,6 @@ const animateHidingSection = () => {
     const $hidingSection = document.querySelector(".hiding");
     const sectionHeight = Math.max($hidingSection.scrollHeight, $hidingSection.offsetHeight) + "px";
 
-
-    // gsap.to(
-    //     $hidingSection,
-    //     {
-    //         height: '100vh',
-    //         scrollTrigger: {
-    //             trigger: $hidingSection,
-    //             start: "top center",
-    //             end: "bottom center",
-    //             scrub: 0.5,
-    //             markers: true,
-    //         },
-    //     }
-    // );
-
     gsap.fromTo(".black-background", 
         { height: '0' 
          }, 

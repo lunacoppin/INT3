@@ -64,7 +64,13 @@
 
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
+
+/* section {
+    scroll-snap-align: start;
+} */
 
 html, body {
     inline-size: 100vw;
@@ -188,7 +194,7 @@ a {
     font-family: var(--font-family-inconsolata);
     font-weight: 600;
     max-inline-size: 10ch;
-    line-height: 1.2;
+    line-height: 1.3;
     color: var(--color-white);
     text-align: center;
 }
@@ -292,6 +298,11 @@ button:hover {
     /* grid-template-columns: repeat(6, 1fr); */
     place-items: center;
     padding-inline-start: 8rem;
+}
+
+.story--end {
+    background-color: transparent;
+    margin-block-end: var(--whitespace-xxs);
 }
 
 .story__title {
@@ -1003,11 +1014,11 @@ p {
     -webkit-tap-highlight-color: transparent;
 }
 
-.printing__cta {
-    padding: var(--whitespace-m);
-}
+/* .printing__cta, .ending__cta{
+    padding: var(--whitespace-l);
+} */
 
-.printing__cta--p {
+.printing__cta--p, .ending__cta--p {
     font-size: var(--font-size-base);
 }
 
@@ -1041,13 +1052,15 @@ p {
     margin: 0 auto;
 }
 
-.heretics__subtitle {
+.subtitle {
     font-family: var(--font-family-inconsolata);
     font-size: var(--font-size-m);
     font-weight: 700;
     line-height: 1.3;
-    align-self: start;
+}
 
+.heretics__subtitle {
+    align-self: start;
 }
 
 .heretics__p, .hiding__p{
@@ -1153,13 +1166,14 @@ p {
 /* ------------------------------------- HIDING ------------------------------------- */
 .light {
     height: 250px;
-    background-color: white;
+    background-color: var(--color-white);
     aspect-ratio: 1;
     border-radius: 50%;
     position: absolute;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
+    background: linear-gradient(to right, var(--color-white), var(--color-beige-light));
     z-index: -1;
     filter: blur(10px);
 }
@@ -1231,6 +1245,116 @@ p {
     grid-row: 1/3;
 }
 
+/* ------------------------------------- HIDING ------------------------------------- */
+
+.ending {
+    margin-block: var(--whitespace-m);
+}
+
+.ending__graphic {
+}
+
+.ending__img {
+    inline-size: 26rem;
+    block-size: auto;
+    margin-block-start: var(--whitespace-m);
+}
+.ending__p {
+    max-inline-size: 42rem;
+    margin-block-end:  var(--whitespace-s);
+}
+
+.ending__cta {
+    display: block;
+    z-index: 3;
+    align-self: start;
+    justify-self: end;
+}
+
+.ending__shoutout {
+    color: var(--color-red-primary);
+    font-family: var(--font-family-inconsolata);
+    font-weight: 500;
+}
+
+.ending__text {
+    
+}
+
+.ending__content {
+    max-inline-size: max-content;
+    margin: 0 auto;
+}
+
+.footer__back{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-inline-size: max-content;
+    margin: var(--whitespace-base) auto;
+    margin-block-end: var(--whitespace-l);
+}
+
+.endnote{
+    color: var(--color-red-primary);
+    font-family: var(--font-family-inconsolata);
+    font-weight: 600;
+    margin-block: var(--whitespace-xxs);
+}
+
+.footer__arrow {
+    rotate: 90deg;
+}
+
+.footer__socials {
+    inline-size: max-content;
+    margin: 0 auto;
+}
+
+.socials__p {
+    text-align: center;
+}
+
+.socials__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--whitespace-xxs);
+}
+
+.social__link {
+    background-color: var(--color-beige-dark);
+    margin: 0;
+    display: inline-flex;
+    /* Use flexbox to center and size properly */
+    align-items: center;
+    justify-content: center;
+    block-size: 50px;
+    inline-size: 50px;
+    padding: var(--whitespace-xxs);
+    border-radius: 100%;
+}
+
+.social__path {
+    /* block-size: max-content; */
+    fill: var(--color-white);
+    transition: fill 0.3s;
+}
+
+.social__link:hover .social__path {
+    fill: var(--color-red-primary);
+}
+
+/* .story--end {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.end__story img, .end__story{
+    inline-size: 100vw;
+} */
+
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
 @media screen and (min-width: 30em) {
     .nav__list {
@@ -1284,6 +1408,14 @@ p {
     .heretics__img {
         margin-inline-end: -2rem;
         
+    }
+
+    .ending__cta {
+        display: block;
+        z-index: 3;
+        align-self: start;
+        justify-self: center;
+        margin-inline-start: 5rem;
     }
 }
 
