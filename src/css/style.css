@@ -97,7 +97,7 @@ html, body {
     right: 0;
     background-repeat: repeat;
     pointer-events: none;
-    background-image: url("../assets/img/background.png");
+    background-image: url("../assets/img/fallback/background.png");
     opacity: 40%;
     z-index: 10;
     margin: 0;
@@ -177,7 +177,6 @@ picture {
 a {
     text-decoration: none;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .cta {
@@ -654,6 +653,7 @@ h4 {
 }
 
 .humanists__note{
+    rotate: -5deg;
     padding-block-start: var(--whitespace-base);
 }
 
@@ -754,7 +754,7 @@ p {
 }
 
 .reformation__content {
-    padding-block-end: var(--whitespace-m);
+    padding-block-end: var(--whitespace-l);
 }
 
 .reformation__graphic {
@@ -1546,7 +1546,7 @@ p {
     }
 
     /* .printing__path {
-        transform: scaleY(0.9);
+        margin-inline-end: -2rem;
     } */
 
     .profile__content {
@@ -1568,7 +1568,7 @@ p {
     }
 
     .humanists__note {
-        justify-self: end;        
+        justify-self: end;
     }
 
     .humanists__text {
@@ -1735,22 +1735,16 @@ p {
         padding-inline: var(--whitespace-l);
         max-inline-size: 85rem;
         margin: 0 auto;
-        align-items: center;
-    }
-
-    .ending {
-        margin-block-start: 0rem;
     }
 
     .reformation__content {
         display: grid;
         grid-template-columns: 1fr 1.2fr;
         padding-inline: var(--whitespace-l);
-        max-inline-size: 75rem;
+        max-inline-size: 85rem;
         margin: 0 auto;
         margin-block-start: 0px;
         place-items: center;
-        padding-block-end: 7rem;
     }
 
     .heretics__content {
@@ -1764,7 +1758,6 @@ p {
         "heretics__graphic heretics__p--1"
         "heretics__graphic heretics__p--2";
         max-inline-size: fit-content;
-        /* margin-block-start: -5rem; */
     }
 
     .humanists__content, .reformation__graphic, .ending__visuals {
@@ -1775,10 +1768,6 @@ p {
     .humanists__graphic, .reformation__text, .ending__text {
         grid-column: 2;
         grid-row: 1; 
-    }
-
-    .reformation__text{
-        align-self: start;
     }
 
     .heretics__graphic {
@@ -1818,9 +1807,9 @@ p {
         display: block;
     }
 
-    /* .strategy {
+    .strategy {
         margin-block-end: var(--whitespace-xl);
-    } */
+    }
 
     .strategy__cards {
         display: flex;
@@ -2005,7 +1994,7 @@ p {
     .ending__footer {
         display: flex;
         align-items: start;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-block: var(--whitespace-l);
     }
 
@@ -2017,10 +2006,6 @@ p {
     .footer__back {
         order: 2;
         margin: 0;
-    }
-
-    .socials__p {
-        text-align: start;
     }
 }
 
@@ -2133,19 +2118,6 @@ p {
 
     .strategy__path, .printing__path, .heretics__path {
         display: block;
-    }
-
-    .heretics {
-        margin-block-start: 0;
-    }
-
-    .heretics__warning {
-        margin-block-start: -3rem;
-        margin-block-end: 4rem;
-    }
-
-    .printing {
-        margin-block-start: -8rem;
     }
 
     .light {
@@ -2397,9 +2369,5 @@ p {
 
     .card:last-child::before {
         display: none;
-    }
-
-    .strategy__container {
-        margin-block-start: -7rem;
     }
 }
