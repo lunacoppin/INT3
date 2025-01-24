@@ -177,6 +177,7 @@ picture {
 a {
     text-decoration: none;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .cta {
@@ -653,7 +654,6 @@ h4 {
 }
 
 .humanists__note{
-    rotate: -5deg;
     padding-block-start: var(--whitespace-base);
 }
 
@@ -1568,7 +1568,7 @@ p {
     }
 
     .humanists__note {
-        justify-self: end;
+        justify-self: end;        
     }
 
     .humanists__text {
@@ -1735,6 +1735,11 @@ p {
         padding-inline: var(--whitespace-l);
         max-inline-size: 85rem;
         margin: 0 auto;
+        align-items: center;
+    }
+
+    .ending {
+        margin-block-start: 0rem;
     }
 
     .reformation__content {
@@ -1759,7 +1764,7 @@ p {
         "heretics__graphic heretics__p--1"
         "heretics__graphic heretics__p--2";
         max-inline-size: fit-content;
-        margin-block-start: -5rem;
+        /* margin-block-start: -5rem; */
     }
 
     .humanists__content, .reformation__graphic, .ending__visuals {
@@ -2000,7 +2005,7 @@ p {
     .ending__footer {
         display: flex;
         align-items: start;
-        justify-content: space-around;
+        justify-content: space-between;
         margin-block: var(--whitespace-l);
     }
 
@@ -2012,6 +2017,10 @@ p {
     .footer__back {
         order: 2;
         margin: 0;
+    }
+
+    .socials__p {
+        text-align: start;
     }
 }
 
@@ -2124,6 +2133,15 @@ p {
 
     .strategy__path, .printing__path, .heretics__path {
         display: block;
+    }
+
+    .heretics {
+        margin-block-start: 0;
+    }
+
+    .heretics__warning {
+        margin-block-start: -3rem;
+        margin-block-end: 4rem;
     }
 
     .printing {
