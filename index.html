@@ -162,8 +162,6 @@
                               src/assets/img/avif/map_vhapaw_c_scale,w_1000.avif 1000w">
               <img src="src/assets/img/fallback/map.png" alt="Map of Antwerp" width="1032" height="600">
             </picture>
-            <img class="map__img overlap__item" src="src/assets/img/fallback/map.png" alt="Map of Antwerp" width="1032"
-              height="600">
           </div>
           <div class="big-letter letter-i-1">I</div>
           <p class="intro__p intro__p--1"><span class="replace-letter">I</span>t’s 1555 in Antwerp — a thriving hub
@@ -188,8 +186,14 @@
           <div class="intro__bell overlap">
             <img class="bell__svg overlap__item" src="src/assets/svg/background-bell.svg" alt="paper background bell"
               width="260" height="295">
-            <img class="bell__img overlap__item" src="src/assets/img/fallback/bell.png" alt="Big bell" width="1000"
-              height="780">
+            <picture class="bell__img overlap__item">
+              <source sizes="260px" type="image/avif" srcset="
+                            src/assets/img/avif/bell_cch36q_c_scale,w_200.avif 200w,
+                            src/assets/img/avif/bell_cch36q_c_scale,w_516.avif 516w,
+                            src/assets/img/avif/bell_cch36q_c_scale,w_733.avif 733w,
+                            src/assets/img/avif/bell_cch36q_c_scale,w_944.avif 944w">
+              <img src="src/assets/img/fallback/bell.png" alt="Big bell" width="1000" height="780">
+            </picture>
           </div>
           <img class="splash intro__splash" src="src/assets/svg/splash-1.svg" alt="ink splashes" width="172"
             height="188">
@@ -221,8 +225,13 @@
           <div class="profile__graphic overlap">
             <img class="profile__svg overlap__item" src="src/assets/svg/background-profile.svg" alt="painted background"
               width="319" height="355">
-            <img class="profile__img overlap__item" src="src/assets/img/fallback/plantin-profile.png"
-              alt="Christophe Plantin portrait" width="550" height="617">
+            <picture class="profile__img overlap__item">
+              <source sizes="316px" type="image/avif" srcset="
+                      src/assets/img/avif/plantin-profile_ncpbfe_c_scale,w_200.avif 200w,
+                      src/assets/img/avif/plantin-profile_ncpbfe_c_scale,w_570.avif 570w">
+              <img src="src/assets/img/fallback/plantin-profile.png" alt="Christophe Plantin portrait" width="550"
+                height="617">
+            </picture>
           </div>
           <div class="profile__goals">
             <h4 class="goals__title">Goals</h4>
@@ -261,32 +270,37 @@
     <section class="humanists">
       <div class="overlap overlap--box">
         <h2 class="visually-hidden">Humanists</h2>
-        <!-- <svg class="humanists__path path overlap__item path-hidden" width="1756" height="1934" viewBox="0 0 1756 1934"
-          fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="draw-path"
-            d="M1755 1C1735.95 126.978 1526.52 381.267 1272.26 405.317C954.451 435.38 850.401 268.526 572.493 213.282C445.951 188.127 276.256 165.043 124.638 227.393C-63.1147 304.602 -10.6525 643.981 107.727 724.967C201.36 789.024 293.75 800.431 426.706 800.431C573.075 800.431 849.486 812.536 849.486 1221.93C849.486 1347.21 939.65 1561.93 1148.17 1664.36C1314.38 1755.13 1351.86 1861.85 1702.42 1933"
-            stroke="#6D762C" stroke-width="2" stroke-dasharray="12 12" />
-        </svg> -->
         <svg class="humanists__path path overlap__item path-hidden" width="1489" height="1291" viewBox="0 0 1489 1291"
           fill="none" xmlns="http://www.w3.org/2000/svg">
           <path class="draw-path"
             d="M1488 35.4421C1472.46 135.281 1319.63 205.5 1124.5 205.5C864.15 205.5 822.648 79.224 596 35.4423C492.798 15.5068 329.184 -31 126.5 35.4424C-30.1909 86.8076 -27.5034 394.815 69.0408 458.998C145.404 509.764 220.752 518.804 329.184 518.804C448.556 518.804 673.983 528.397 673.983 852.845C673.983 952.132 747.516 1122.3 917.576 1203.48C1053.13 1275.42 1202.41 1290 1488 1290"
             stroke="#6D762C" stroke-width="2" stroke-dasharray="20 20" />
         </svg>
-        <!-- <svg class="humanists__path path overlap__item path-hidden" width="1508" height="1259" viewBox="0 0 1508 1259" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="draw-path"
-            d="M1507 3.44248C1491.46 103.282 1232.91 173.672 1037.78 173.672C777.43 173.672 693.729 65.2631 467.081 21.4813C363.88 1.54587 225.485 -16.7484 101.833 32.6647C-51.2888 93.8541 -8.50319 362.815 88.0411 426.998C164.404 477.764 239.752 486.804 348.184 486.804C467.556 486.804 692.983 496.397 692.983 820.845C692.983 920.132 766.516 1090.3 936.576 1171.48C1072.13 1243.42 1188.89 1258 1474.49 1258"
-            stroke="#6D762C" stroke-width="2" stroke-dasharray="20 20" />
-        </svg> -->
         <div class="humanists__group overlap__item">
           <div class="humanists__graphic overlap">
             <img class="humanists__svg overlap__item" src="src/assets/svg/background-humanists.svg"
               alt="background paper" width="658" height="484">
-            <div class="humanists__img overlap__item">
-              <img class="humanists__img humanists__davinci" src="src/assets/img/fallback/davinci.png"
-                alt="Davinci drawing" width="761" height="495">
-              <img class="humanists__img humanists__lipsius" src="src/assets/img/fallback/lipsius.png"
-                alt="Justus Lipsius" width="736" height="763">
+            <div class="humanists__imgs overlap__item">
+              <picture class="humanists__img humanists__davinci">
+                <source
+                  sizes="(min-width: 1600px) 459px, (min-width: 960px) 28.55vw, (min-width: 740px) 459px, calc(61.67vw + 15px)"
+                  type="image/avif" srcset="
+                                    src/assets/img/avif/davinci_u5m4cy_c_scale,w_200.avif 200w,
+                                    src/assets/img/avif/davinci_u5m4cy_c_scale,w_433.avif 433w,
+                                    src/assets/img/avif/davinci_u5m4cy_c_scale,w_599.avif 599w,
+                                    src/assets/img/avif/davinci_u5m4cy_c_scale,w_790.avif 790w,
+                                    src/assets/img/avif/davinci_u5m4cy_c_scale,w_865.avif 865w">
+                <img src="src/assets/img/fallback/davinci.png" alt="Davinci drawing" width="761" height="495">
+              </picture>
+              <picture class="humanists__img humanists__lipsius">
+                <source
+                  sizes="(min-width: 1600px) 458px, (min-width: 960px) 28.39vw, (min-width: 740px) 458px, calc(61.43vw + 16px)"
+                  type="image/avif" srcset="
+                                    src/assets/img/avif/lipsius_l6998x_c_scale,w_200.avif 200w,
+                                    src/assets/img/avif/lipsius_l6998x_c_scale,w_593.avif 593w,
+                                    src/assets/img/avif/lipsius_l6998x_c_scale,w_736.avif 736w">
+                <img src="src/assets/img/fallback/lipsius.png" alt="Justus Lipsius" width="736" height="763">
+              </picture>
             </div>
           </div>
           <div class="humanists__content">
@@ -371,10 +385,24 @@
             <img class="reformation__svg overlap__item" src="src/assets/svg/background-church.svg"
               alt="background paper" width="524" height="487">
             <div class="reformation__imgs overlap__item container--s">
-              <img class="reformation__img reformation__pope" src="src/assets/img/fallback/pope.png"
-                alt="Catholic Church" width="661" height="765">
-              <img class="reformation__img reformation__chalice" src="src/assets/img/fallback/kelk.png" alt="chalice"
-                width="291" height="517">
+              <picture class="reformation__img reformation__pope">
+                <source
+                  sizes="(min-width: 1440px) 359px, (min-width: 960px) calc(28.04vw - 41px), (min-width: 720px) 388px, (min-width: 620px) calc(-32.5vw + 606px), 68.33vw"
+                  type="image/avif" srcset="
+                                  src/assets/img/avif/pope_rbzbql_c_scale,w_200.avif 200w,
+                                  src/assets/img/avif/pope_rbzbql_c_scale,w_423.avif 423w,
+                                  src/assets/img/avif/pope_rbzbql_c_scale,w_571.avif 571w,
+                                  src/assets/img/avif/pope_rbzbql_c_scale,w_736.avif 736w">
+                <img src="src/assets/img/fallback/pope.png" alt="Catholic Church" width="661" height="765">
+              </picture>
+              <picture class="reformation__img reformation__chalice">
+                <source
+                  sizes="(min-width: 1420px) 199px, (min-width: 960px) calc(16.14vw - 29px), (min-width: 740px) 216px, (min-width: 620px) calc(-14vw + 310px), 37.67vw"
+                  type="image/avif" srcset="
+                                src/assets/img/avif/kelk_b3ubrf_c_scale,w_200.avif 200w,
+                                src/assets/img/avif/kelk_b3ubrf_c_scale,w_352.avif 352w">
+                <img src="src/assets/img/fallback/kelk.png" alt="chalice" width="291" height="517">
+              </picture>
             </div>
           </div>
           <div class="reformation__text container--s">
@@ -539,10 +567,25 @@
             <img class="printing__svg overlap__item" src="src/assets/svg/background-press.svg" alt="paper background"
               width="555" height="664">
             <div class="printing__imgs overlap__item container--s">
-              <img class="printing__img printing__stamp" src="src/assets/img/fallback/stamp.png" alt="old stamp"
-                width="368" height="248">
-              <img class="printing__img printing__press" src="src/assets/img/fallback/prinitng-press.png"
-                alt="old printing press" width="672" height="906">
+              <picture class="printing__img printing__stamp">
+                <source
+                  sizes="(min-width: 1360px) 264px, (min-width: 1040px) 19.67vw, (min-width: 700px) 278px, (min-width: 620px) calc(-30vw + 473px), 48.67vw"
+                  type="image/avif" srcset="
+                                  src/assets/img/avif/stamp_pessmk_c_scale,w_200.avif 200w,
+                                  src/assets/img/avif/stamp_pessmk_c_scale,w_430.avif 430w">
+                <img src="src/assets/img/fallback/stamp.png" alt="old stamp" width="368" height="248">
+              </picture>
+              <picture class="printing__img printing__press">
+                <source
+                  sizes="(min-width: 1360px) 370px, (min-width: 1040px) 28vw, (min-width: 720px) 388px, (min-width: 620px) calc(-32.5vw + 606px), 68.33vw"
+                  type="image/avif" srcset="
+                                          src/assets/img/avif/prinitng-press_wqvqkp_c_scale,w_200.avif 200w,
+                                          src/assets/img/avif/prinitng-press_wqvqkp_c_scale,w_360.avif 360w,
+                                          src/assets/img/avif/prinitng-press_wqvqkp_c_scale,w_479.avif 479w,
+                                          src/assets/img/avif/prinitng-press_wqvqkp_c_scale,w_608.avif 608w,
+                                          src/assets/img/avif/prinitng-press_wqvqkp_c_scale,w_672.avif 672w">
+                <img src="src/assets/img/fallback/prinitng-press.png" alt="old printing press" width="672" height="906">
+              </picture>
             </div>
             <button id="cta-button" class="printing__button overlap__item">
               <div class="printing__cta cta">
@@ -617,8 +660,12 @@
             <div class="heretics__graphic overlap">
               <img class="heretics__svg overlap__item" src="src/assets/svg/background-heretics.svg"
                 alt="paper background" width="400" height="273">
-              <img class="heretics__img overlap__item" src="src/assets/img/fallback/heretics.png" alt="heretics"
-                width="600" height="350">
+              <picture class="heretics__img overlap__item">
+                <source sizes="(min-width: 1120px) 416px, (min-width: 960px) 384px, 416px" type="image/avif" srcset="
+                        src/assets/img/avif/heretics_ttpd4b_c_scale,w_200.avif 200w,
+                        src/assets/img/avif/heretics_ttpd4b_c_scale,w_684.avif 684w">
+                <img src="src/assets/img/fallback/heretics.png" alt="heretics" width="600" height="350">
+              </picture>
               <img class="heretics__svg--foreground overlap__item" src="src/assets/svg/cross-foreground.svg"
                 alt="crossed out" width="369" height="404">
             </div>
@@ -633,8 +680,13 @@
             <div class="choice__graphic overlap">
               <img class="choice__svg overlap__item" src="src/assets/svg/background-feet.svg"
                 alt="paper background footsteps" width="503" height="311">
-              <img class="choice__img overlap__item" src="src/assets/img/fallback/feet.png" alt="footsteps" width="1006"
-                height="622">
+              <picture class="choice__img overlap__item">
+                <source sizes="(min-width: 1120px) 416px, (min-width: 960px) 384px, 416px" type="image/avif" srcset="
+                        src/assets/img/avif/feet_tmqqnh_c_scale,w_200.avif 200w,
+                        src/assets/img/avif/feet_tmqqnh_c_scale,w_1000.avif 1000w">
+                <img src="src/assets/img/fallback/feet.png" alt="footsteps" width="1006" height="622">
+              </picture>
+
             </div>
             <div class="choice__content container--s">
               <h2 class="choice__title">What do you do?</h2>
@@ -694,13 +746,24 @@
             width="451" height="518">
           <div class="hiding__imgs overlap__item">
             <div class="hiding__img hiding__globe overlap">
-              <img class="overlap__item globe__img" src="src/assets/img/fallback/globe.png" alt="globe" width="495"
-                height="609">
+              <picture class="overlap__item globe__img">
+                <source sizes="272px" type="image/avif" srcset="
+                        src/assets/img/avif/globe_f54d0a_c_scale,w_200.avif 200w,
+                        src/assets/img/avif/globe_f54d0a_c_scale,w_364.avif 364w,
+                        src/assets/img/avif/globe_f54d0a_c_scale,w_506.avif 506w,
+                        src/assets/img/avif/globe_f54d0a_c_scale,w_518.avif 518w">
+                <img src="src/assets/img/fallback/globe.png" alt="globe" width="495" height="609">
+              </picture>
               <img class="globe--foreground overlap__item" src="src/assets/svg/foreground-globe.svg"
                 alt="swirl around planet" width="450" height="144">
             </div>
-            <img class="hiding__img hiding__books" src="src/assets/img/fallback/books.png" alt="stack of books"
-              width="344" height="283">
+            <picture class="hiding__img hiding__books">
+              <source sizes="(min-width: 1360px) 217px, (min-width: 960px) calc(15vw + 12px), 192px" type="image/avif"
+                srcset="
+                        src/assets/img/avif/books_vmksa4_c_scale,w_200.avif 200w,
+                        src/assets/img/avif/books_vmksa4_c_scale,w_435.avif 435w">
+              <img src="src/assets/img/fallback/books.png" alt="stack of books" width="344" height="283">
+            </picture>
           </div>
         </div>
       </div>
@@ -736,8 +799,17 @@
               <div class="ending__graphic overlap overlap__item">
                 <img class="ending__svg overlap__item" src="src/assets/svg/background-ending.svg"
                   alt="background paper museum" width="457" height="324">
-                <img class="ending__img overlap__item" src="src/assets/img/fallback/museum-outside.png"
-                  alt="Plantin-Moretus Museum building" width="770" height="510">
+                <picture class="ending__img overlap__item">
+                  <source sizes="414px"
+                    type="image/avif" srcset="
+                          src/assets/img/avif/museum-outside_oyi0h5_c_scale,w_200.avif 200w,
+                          src/assets/img/avif/museum-outside_oyi0h5_c_scale,w_419.avif 419w,
+                          src/assets/img/avif/museum-outside_oyi0h5_c_scale,w_595.avif 595w,
+                          src/assets/img/avif/museum-outside_oyi0h5_c_scale,w_737.avif 737w,
+                          src/assets/img/avif/museum-outside_oyi0h5_c_scale,w_811.avif 811w">
+                  <img src="src/assets/img/fallback/museum-outside.png" alt="Plantin-Moretus Museum building"
+                    width="770" height="510">
+                </picture>
               </div>
             </div>
           </div>

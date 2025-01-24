@@ -618,21 +618,21 @@ h4 {
     overflow: hidden;
 } */
 
-.humanists__img {
+.humanists__imgs {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     max-inline-size: 43rem;
 }
 
 .humanists__lipsius {
-    max-inline-size: 95%;
+    /* max-inline-size: 95%; */
     block-size: auto;
     grid-column: 1/3;
     grid-row: 1;
 }
 
 .humanists__davinci {
-    max-inline-size: 95%;
+    /* max-inline-size: 95%; */
     block-size: auto;
     grid-column: 2/4;
     grid-row: 1;
