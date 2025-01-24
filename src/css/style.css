@@ -754,7 +754,7 @@ p {
 }
 
 .reformation__content {
-    padding-block-end: var(--whitespace-l);
+    padding-block-end: var(--whitespace-m);
 }
 
 .reformation__graphic {
@@ -1546,7 +1546,7 @@ p {
     }
 
     /* .printing__path {
-        margin-inline-end: -2rem;
+        transform: scaleY(0.9);
     } */
 
     .profile__content {
@@ -1741,10 +1741,11 @@ p {
         display: grid;
         grid-template-columns: 1fr 1.2fr;
         padding-inline: var(--whitespace-l);
-        max-inline-size: 85rem;
+        max-inline-size: 75rem;
         margin: 0 auto;
         margin-block-start: 0px;
         place-items: center;
+        padding-block-end: 7rem;
     }
 
     .heretics__content {
@@ -1758,6 +1759,7 @@ p {
         "heretics__graphic heretics__p--1"
         "heretics__graphic heretics__p--2";
         max-inline-size: fit-content;
+        margin-block-start: -5rem;
     }
 
     .humanists__content, .reformation__graphic, .ending__visuals {
@@ -1768,6 +1770,10 @@ p {
     .humanists__graphic, .reformation__text, .ending__text {
         grid-column: 2;
         grid-row: 1; 
+    }
+
+    .reformation__text{
+        align-self: start;
     }
 
     .heretics__graphic {
@@ -1807,9 +1813,9 @@ p {
         display: block;
     }
 
-    .strategy {
+    /* .strategy {
         margin-block-end: var(--whitespace-xl);
-    }
+    } */
 
     .strategy__cards {
         display: flex;
@@ -2120,6 +2126,10 @@ p {
         display: block;
     }
 
+    .printing {
+        margin-block-start: -8rem;
+    }
+
     .light {
         animation: rotate 4s ease-in-out infinite;
     }
@@ -2369,5 +2379,9 @@ p {
 
     .card:last-child::before {
         display: none;
+    }
+
+    .strategy__container {
+        margin-block-start: -7rem;
     }
 }
