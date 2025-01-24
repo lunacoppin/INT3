@@ -354,7 +354,7 @@ button:hover {
     grid-template-columns: 1fr;
     align-items: center;
     text-align: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .hero__title {
@@ -365,19 +365,19 @@ button:hover {
 }
 
 .hero__title--top {
-    margin-block-end: clamp(-7rem, -10vw, -3rem);
+    margin-block-end: clamp(-10rem, -10vw, -4.5rem);
 }
 
 .hero__title--bottom {
 /* font-size: var(--font-size-xxxl); */
     font-size: clamp(4rem, 16vw, 10rem);
-    margin-block-start: clamp(-12rem, -12vw, -4rem);
+    margin-block-start: clamp(-11rem, -25vw, -4rem);
 }
 
 .hero__graphic {
     place-self: center;
     overflow: hidden;
-    max-inline-size: 28rem;
+    max-inline-size: 25rem;
 }
 
 .overlap{
@@ -418,7 +418,7 @@ button:hover {
 
 .subtitle__p {
     font-family: var(--font-family-inconsolata);
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-base);
     font-weight: 600;
     line-height: 1.3;
     padding-inline: 2rem;
@@ -437,6 +437,7 @@ button:hover {
 .hero__note{
     rotate: -5deg;
     z-index: -2;
+    margin-block-start: -2rem;
 }
 
 .note__p {
@@ -459,17 +460,17 @@ button:hover {
 }
 
 .intro__year {
-    block-size: 30vh;
+    block-size: 25vh;
     align-items: center;
     margin-block-start: 5rem;
-    margin-block-end: clamp(1rem, 5vw, 10rem);
+    /* margin-block-end: clamp(1rem, 5vw, 10rem); */
 }
 
 .year__p {
     text-align: center;
     font-family: var(--font-family-playfair);
     font-weight: bold;
-    font-size: clamp(8rem, 30vw, 19rem);
+    font-size: clamp(8rem, 45vw, 19rem);
     line-height: 1;
     margin-block-end: clamp(10rem, 25vw, 15rem);
 }
@@ -568,12 +569,12 @@ button:hover {
 }
 
 h4 {
-    padding-inline: var(--whitespace-m);
+    padding-inline: var(--whitespace-s);
+    line-height: 1.3;
     font-family: var(--font-family-inconsolata);
     font-weight: 700;
     font-size: var(--font-size-m);
     background-color: var(--color-highlights);
-    padding: 0.05rem var(--whitespace-s);
     color: var(--color-white);
     max-width: fit-content;
     margin-bottom: var(--whitespace-xxs);
@@ -603,7 +604,7 @@ h4 {
 }
 
 .goals__item {
-    margin-block-start: var(--whitespace-xs);
+    margin-block-start: var(--whitespace-xxs);
     list-style: disc;
     margin-inline: var(--whitespace-base);
 }
@@ -613,9 +614,9 @@ h4 {
     margin-top : var(--whitespace-l);
 }
 
-.overlap--box {
+/* .overlap--box {
     overflow: hidden;
-}
+} */
 
 .humanists__img {
     display: grid;
@@ -677,34 +678,37 @@ p {
 }
 
 .ideas__titles {
-    display:flex;
+    /* display:flex; */
     align-items: end;
-    justify-self: end;
+    justify-self: center;
+    /* inline-size: 100%; */
 }
 
 .ideas__title {
     font-family: var(--font-family-playfair);
-    font-size: 8rem;
+    /* inline-size: 100%; */
+    font-size: 20vw;
     font-weight: 700;
-    writing-mode: vertical-lr;
+    line-height: 1.5;
+    /* writing-mode: vertical-lr; */
 }
 
 .ideas__title:nth-child(2){
     font-style: italic;
-    order: -1;
 }
 
 .ideas__title:nth-child(1) {
-    order: 1;
 }
 
 .ideas__cta {
     align-self: start;
-        justify-self: center;
+        justify-self: start;
+        transform: rotate(-5deg);
         grid-row: 1;
         grid-column: 1;
-        margin-block-start: -3rem;
-        margin-inline-start: -2rem;
+        /* margin-block-start: -3rem; */
+        margin-inline-start: var(--whitespace-base);
+        z-index: 5;
 }
 
 .bubble {
@@ -715,6 +719,7 @@ p {
     background-repeat: no-repeat;
     background-position: center;
     padding: var(--whitespace-l);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .bubble:hover {
@@ -1308,7 +1313,7 @@ p {
 }
 
 .footer__socials {
-    inline-size: max-content;
+    inline-size: fit-content;
     margin: 0 auto;
 }
 
@@ -1318,6 +1323,7 @@ p {
 
 .socials__list {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: var(--whitespace-xxs);
 }
@@ -1369,6 +1375,14 @@ p {
     .nav__button svg {
         inline-size: 3.5rem;
         block-size: 3.5rem;
+    }
+
+    .subtitle__p {
+        font-size: var(--font-size-m);
+    }
+
+    .intro__year {
+        block-size: 35vh;
     }
 
     .intro__content {
@@ -1519,8 +1533,10 @@ p {
     }
 
     .humanists__path {
-        margin-block-end: -3rem;
-        margin-inline-end: -4rem;
+        padding-block-start: 0rem;
+        padding-inline-start: 3rem;
+        transform: scaleX(1.05);
+        transform: scaleY(1)
     }
 
     .heretics__path {
@@ -1670,11 +1686,15 @@ p {
         font-size: var(--font-size-xs);
     }
 
+    .humanists__note {
+        justify-self: start;
+    }
+
     .hero__note {
         grid-area: note;
         grid-row: 2;
         grid-column: 2/4;
-        justify-self: end;
+        justify-self: start;
     }
 
     .intro__year {
@@ -1693,6 +1713,11 @@ p {
 
     .humanists {
         margin: 0 auto;
+    }
+
+    .ideas__cta {
+        justify-self: end;
+            transform: rotate(5deg);
     }
 
     .humanists__group{
@@ -2065,15 +2090,16 @@ p {
 
     .profile__content {
         background-color: transparent;
-        grid-template-columns: max-content max-content;
+        grid-template-columns: 1fr 2.2fr;
         gap: var(--whitespace-xs);
+        max-inline-size: fit-content;
         grid-template-rows: auto auto auto;
         grid-template-areas: 
         "profile__graphic profile__name"
         "profile__graphic profile__goals"
         "profile__basics profile__bio";
-        padding-inline: clamp(7rem, 5vw, 10rem);
-        
+        padding: 0;
+        margin: 0 auto;
         /* background-image: url('/src/assets/svg/big-card.svg'); */
     }
 
@@ -2136,7 +2162,7 @@ p {
     }
 
     .intro__path{
-        margin-block-start: var(--whitespace-xl);
+        margin-block-end: -7rem;
     }
 
     .intro__content {
@@ -2179,6 +2205,7 @@ p {
         align-self: end;
         justify-self: start;
         max-inline-size: 46ch;
+        margin-block-start: -4rem;
     }
 
     .intro__p--2, .letter-i-1 {
@@ -2190,7 +2217,7 @@ p {
     }
     .profile__content {
         /* padding-inline: clamp(5rem, 12vw, 12rem); */
-        max-inline-size: 89rem;
+        max-inline-size: 60rem;
     }
 
     .humanists__text {
