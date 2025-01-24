@@ -709,6 +709,10 @@ p {
     z-index: 5;
 }
 
+/* .ideas__bubbles {
+    overflow-x: hidden;
+} */
+
 .bubble {
     position: absolute;
     transform-origin: center;
