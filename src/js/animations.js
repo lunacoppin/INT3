@@ -197,24 +197,24 @@ const animateIntro = () => {
     introMapTl
         .fromTo(
             ".map__svg",
-            { y: "10%" },
-            { y: "30%", ease: "none", duration: 1 },
+            { y: "-10%" },
+            { y: "+10%", ease: "none", duration: 1 },
             "<"
         )
         .fromTo(
             ".map__img",
-            { y: "30%" },
-            { y: "10%", ease: "none", duration: 1 },
+            { y: "10%" },
+            { y: "-10%", ease: "none", duration: 1 },
             "<"
         );
 
     // Splash
     gsap.fromTo(".intro__splash",
         {
-            y: "15%"
+            y: "10%"
         },
         {
-            y: "-15%",
+            y: "-10%",
             ease: "none",
             scrollTrigger: {
                 trigger: ".intro__splash",
@@ -624,20 +624,23 @@ const animateHidingSection = () => {
     const $hidingSection = document.querySelector(".hiding");
     const sectionHeight = Math.max($hidingSection.scrollHeight, $hidingSection.offsetHeight) + "px";
 
-    gsap.fromTo(".black-background",
-        {
-            height: '0'
-        },
-        {
-            height: sectionHeight,
-            scrollTrigger: {
-                trigger: $hidingSection,
-                start: "top-=50% center",
-                end: "center-=10% center",
-                scrub: 0.5,
-                markers: false,
-            }
-        });
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 70em)", () => {
+        gsap.fromTo(".black-background",
+            {
+                height: 0
+            },
+            {
+                height: sectionHeight,
+                scrollTrigger: {
+                    trigger: $hidingSection,
+                    start: "top-=50% center",
+                    end: "center-=10% center",
+                    scrub: 0.5,
+                    markers: false,
+                }
+            });
+    });
 
     gsap.fromTo(".black-background",
         {
@@ -653,6 +656,8 @@ const animateHidingSection = () => {
                 markers: false,
             }
         });
+
+    
 
     // Img 
     gsap.fromTo(
@@ -738,7 +743,6 @@ const animateEndingSection = () => {
             "<"
         );
 }
-
 
 const animate = () => {
     animateBackgroundPaths();
