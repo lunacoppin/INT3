@@ -61,6 +61,13 @@ const initNavigation = () => {
 
     $navButton.addEventListener("click", toggleNavigation);
 
+    const navLinks = document.querySelectorAll('.nav__link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeNavigation();
+        });
+    });
+
     const lastItem = listItems[listItems.length - 1];
     lastItem.addEventListener("blur", handleBlur);
 

@@ -244,7 +244,7 @@ button:hover {
 
 .nav__button--left {
     position: fixed;
-    z-index: 20;
+    z-index: 10;
     left: var(--whitespace-base);
     top: var(--whitespace-base);
 }
@@ -1375,10 +1375,10 @@ p {
         padding-inline: var(--whitespace-xl);
     }
 
-    .nav__link {
-        margin-block-end: var(--whitespace-m);
+    /* .nav__link {
+        margin-block-end: var(--whitespace-base);
         margin-block-start: var(--whitespace-xs);
-    }
+    } */
 
     .nav__button svg {
         inline-size: 3.5rem;
