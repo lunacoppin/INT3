@@ -154,6 +154,7 @@ const animateBubble = (bubble, containerWidth, containerHeight, placedBubbles, o
     }
 };
 const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeight, overlapThreshold) => {
+    const bubbleScale = getBubbleScale();
     const $bubbleText = bubble.querySelector('.bubble__p');
     const $backgroundBefore = bubble.querySelector('.bubble--before');
     const $backgroundAfter = bubble.querySelector('.bubble--after');
@@ -166,10 +167,10 @@ const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeigh
     // bubble.style.backgroundImage = `url("src/assets/svg/background-bubble-after.svg")`;
     bubble.style.transition = 'opacity 5s ease-in';
     bubble.style.opacity = '0';
-    $bubbleText.style.transform = 'scale(1)';
     $bubbleText.style.color = '#5A564E';
-    $backgroundBefore.classList.toggle('visually-hidden');
-    $backgroundAfter.classList.toggle('visually-hidden');
+    $backgroundBefore.classList.add('visually-hidden');
+    $backgroundAfter.classList.remove('visually-hidden');
+    $backgroundAfter.style.transform = `scale(${bubbleScale + 0.4})`;
 
     removeBubblePosition(bubble, placedBubbles);
 
@@ -183,8 +184,8 @@ const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeigh
         bubble.style.opacity = '0.5';
         // bubble.style.backgroundImage = `url('../assets/svg/background-bubble-bfore.svg')`;
         $bubbleText.textContent = originalText; 
-        $backgroundBefore.classList.toggle('visually-hidden');
-        $backgroundAfter.classList.toggle('visually-hidden');
+        $backgroundBefore.classList.remove('visually-hidden');
+        $backgroundAfter.classList.add('visually-hidden');
 
         // console.log('Current placed bubbles:', placedBubbles);
 

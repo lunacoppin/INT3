@@ -724,6 +724,11 @@ p {
     -webkit-tap-highlight-color: transparent;
 }
 
+.bubble--after {
+    z-index: 1;
+    transform-origin: center;
+}
+
 .bubble:hover {
     cursor: pointer;
 }
@@ -736,6 +741,7 @@ p {
     text-align: center;
     line-height: 1.4;
     color: var(--color-white);
+    z-index: 2;
 }
 
 /* ------------------------------------- REFORMATION ------------------------------------- */
