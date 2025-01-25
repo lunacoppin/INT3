@@ -93,6 +93,17 @@ const checkPosition = (x, y, width, height, placedBubbles, overlapThreshold) => 
         return distance < (width + placed.width) / 2 - overlapThreshold; 
     });
 };
+const getBubbleScale = () => {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth < 768) {
+        return 0.8;
+    } else if (screenWidth >= 768 && screenWidth < 1200) {
+        return 0.9; 
+    } else {
+        return 1;
+    }
+};
 const removeBubblePosition = (bubble, placedBubbles) => {
     const bubbleLeft = parseFloat(bubble.style.left);
     const bubbleTop = parseFloat(bubble.style.top);
@@ -109,6 +120,7 @@ const removeBubblePosition = (bubble, placedBubbles) => {
 const animateBubble = (bubble, containerWidth, containerHeight, placedBubbles, overlapThreshold) => {
     const bubbleWidth = bubble.offsetWidth;
     const bubbleHeight = bubble.offsetHeight;
+    const bubbleScale = getBubbleScale();
 
     let randomX, randomY;
     let maxAttempts = 500;
@@ -136,25 +148,28 @@ const animateBubble = (bubble, containerWidth, containerHeight, placedBubbles, o
 
         setTimeout(() => {
             bubble.style.transition = 'transform 2s ease-in-out, opacity 2s ease-in-out';
-            bubble.style.transform = 'scale(0.8)';
+            bubble.style.transform = `scale(${bubbleScale})`;
             bubble.style.opacity = '1';
         }, Math.random() * 8000); 
     }
 };
 const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeight, overlapThreshold) => {
-    const bubbleText = bubble.querySelector('.bubble__p');
+    const $bubbleText = bubble.querySelector('.bubble__p');
+    const $backgroundBefore = bubble.querySelector('.bubble--before');
+    const $backgroundAfter = bubble.querySelector('.bubble--after');
     if (!bubble.dataset.originalText) {
-        bubble.dataset.originalText = bubbleText.textContent;
+        bubble.dataset.originalText = $bubbleText.textContent;
     }
 
     const originalText = bubble.dataset.originalText; 
-    bubbleText.textContent = 'You cannot stop the ideas of Humanism from spreading...';
-    bubble.style.backgroundImage = `url("src/assets/svg/background-bubble-after.svg")`;
+    $bubbleText.textContent = 'You cannot stop the ideas of Humanism from spreading...';
+    // bubble.style.backgroundImage = `url("src/assets/svg/background-bubble-after.svg")`;
     bubble.style.transition = 'opacity 5s ease-in';
     bubble.style.opacity = '0';
-    bubble.style.transform = 'scale(1)'
-    bubbleText.style.transform = 'scale(1)';
-    bubbleText.style.color = '#5A564E';
+    $bubbleText.style.transform = 'scale(1)';
+    $bubbleText.style.color = '#5A564E';
+    $backgroundBefore.classList.toggle('visually-hidden');
+    $backgroundAfter.classList.toggle('visually-hidden');
 
     removeBubblePosition(bubble, placedBubbles);
 
@@ -166,8 +181,10 @@ const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeigh
         bubble.style.transition = 'none';
         bubble.style.transform = 'scale(0)';
         bubble.style.opacity = '0.5';
-        bubble.style.backgroundImage = `url('../assets/svg/background-bubble-bfore.svg')`;
-        bubbleText.textContent = originalText; 
+        // bubble.style.backgroundImage = `url('../assets/svg/background-bubble-bfore.svg')`;
+        $bubbleText.textContent = originalText; 
+        $backgroundBefore.classList.toggle('visually-hidden');
+        $backgroundAfter.classList.toggle('visually-hidden');
 
         // console.log('Current placed bubbles:', placedBubbles);
 

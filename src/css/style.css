@@ -716,11 +716,11 @@ p {
 .bubble {
     position: absolute;
     transform-origin: center;
-    background-image: url('../assets/svg/background-bubble-before.svg');
+    /* background-image: url('../assets/svg/background-bubble-before.svg');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
-    padding: var(--whitespace-l);
+    background-position: center; */
+    /* padding: var(--whitespace-l); */
     -webkit-tap-highlight-color: transparent;
 }
 
