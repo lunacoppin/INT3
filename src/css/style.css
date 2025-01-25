@@ -75,7 +75,7 @@ html {
 html,
 body {
     inline-size: 100vw;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 *,
@@ -189,6 +189,25 @@ a {
     z-index: 5;
     padding: var(--whitespace-m);
     inline-size: fit-content;
+    animation: bounce 3s ease infinite;
+}
+
+@keyframes bounce {
+    0%,
+    10%,
+    30%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-30px);
+    }
+
+    40% {
+        transform: translateY(-15px);
+    }
 }
 
 .cta__p {
@@ -759,9 +778,13 @@ p {
 }
 
 /* ------------------------------------- REFORMATION ------------------------------------- */
+
 .reformation {
     inline-size: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
+    /* position: relative; */
+    /* z-index: 3; */
+
 }
 
 .circle__dark {
@@ -818,7 +841,7 @@ p {
 }
 
 .reformation__path {
-    z-index: 3;
+    z-index: 0;
     margin-inline-start: 0rem;
     margin-block-start: 3rem;
     scale: 1.2;
@@ -1097,6 +1120,10 @@ p {
 
 .heretics__svg {
     inline-size: min-content;
+}
+
+.heretics__svg--foreground {
+    z-index: 2;
 }
 
 .heretics__img {
@@ -1573,7 +1600,7 @@ p {
     .heretics__path {
         padding-inline-start: 3rem;
         max-inline-size: 87.5rem;
-        transform: scaleY(1.4);
+        transform: scaleY(1.4) scaleX(1.05);
     }
 
     /* .printing__path {

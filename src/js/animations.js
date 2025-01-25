@@ -22,83 +22,51 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 //     },
 // });
 
-const paths = document.querySelectorAll(".draw-path");
+const animateBackgroundPaths = () => {
+    const paths = document.querySelectorAll(".draw-path");
 
-paths.forEach((path) => {
-    // Get the length of the path
-    const pathLength = path.getTotalLength();
+    paths.forEach((path) => {
+        // Get the length of the path
+        const pathLength = path.getTotalLength();
 
-    // Set initial strokeDasharray and strokeDashoffset
-    path.style.strokeDasharray = "30, 20";
-    path.style.strokeDashoffset = pathLength;
+        // Set initial strokeDasharray and strokeDashoffset
+        path.style.strokeDasharray = "30, 20";
+        path.style.strokeDashoffset = pathLength;
 
-    // GSAP ScrollTrigger animation
-    gsap.to(path, {
-        strokeDashoffset: 0, // Animate to a strokeDashoffset of 0
-        scrollTrigger: {
-            trigger: path,          // Trigger the animation when the path comes into view
-            start: "top bottom",       // When the top of the path reaches 80% of the viewport height
-            end: "bottom top-=5000",      // When the bottom of the path reaches 20% of the viewport height
-            scrub: true,            // Smoothly animate as you scroll
-            markers: false,           // Show the start and end markers for debugging
-        }
+        // GSAP ScrollTrigger animation
+        gsap.to(path, {
+            strokeDashoffset: 0, // Animate to a strokeDashoffset of 0
+            scrollTrigger: {
+                trigger: path,          // Trigger the animation when the path comes into view
+                start: "top bottom",       // When the top of the path reaches 80% of the viewport height
+                end: "bottom top-=5000",      // When the bottom of the path reaches 20% of the viewport height
+                scrub: true,            // Smoothly animate as you scroll
+                markers: false,           // Show the start and end markers for debugging
+            }
+        });
     });
-});
+}
 
-// const animateHeader = () => {
-//     const $heroTitle = document.querySelector(".hero__title");
-//     const fullTitle = $heroTitle.innerText;
+const animateProgress = () => {
+    const progressBar = document.querySelector(".progress--fg");
+    gsap.to(progressBar, {
+        width: "100%",
+        ease: "none",
+        scrollTrigger: {
+            trigger: document.body,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+            markers: false,
 
-//     gsap.fromTo($heroTitle,
-//         {
-//             textContent: "",
-//             opacity: 0
-//         },
-//         {
-//             duration: 2,
-//             opacity: "100%",
-//             textContent: fullTitle, onUpdate: function () {
-//                 fullTitle.innerHTML = fullTitle.slice(0, Math.ceil(this.progress() * fullTitle.length));
-//             }
-//         });
-// }
+        },
+    });
+};
 
 const animateHeader = () => {
-    // const $heroTitleTop = document.querySelector(".hero__title--top");
-    // const fullTitleTop = $heroTitleTop.innerText;
-    // const $heroTitleBottom = document.querySelector(".hero__title--bottom");
-    // const fullTitleBottom = $heroTitleBottom.innerText;
+    const timelineHeader = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
 
-    // var tlHeader = gsap.timeline();
-
-
-    // tlHeader.fromTo(
-    //     $heroTitleTop,
-    //     {
-    //         text: "", // Start with empty text
-
-    //     },
-    //     {
-    //         duration: 1,
-    //         text: fullTitleTop, // Animate to the full title
-    //     }
-    // )
-    //     .fromTo(
-    //         $heroTitleBottom,
-    //         {
-    //             text: "", // Start with empty text
-
-    //         },
-    //         {
-    //             duration: 1,
-    //             text: fullTitleBottom, // Animate to the full title
-    //         }
-    //     );
-
-    const timeline = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
-
-    // Graphic Element
-    timeline
+    timelineHeader
         .fromTo(
             ".graphic__img",
             { scale: 0.8, opacity: 0 },
@@ -119,7 +87,7 @@ const animateHeader = () => {
         )
         .fromTo(
             ".hero__title--bottom",
-            { y: 100,  opacity: 0 },
+            { y: 100, opacity: 0 },
             { y: 0, opacity: 1 },
             "<0.4" // Slight overlap with the top title animation
         )
@@ -145,33 +113,7 @@ const animateHeader = () => {
             },
             "<1"
         );
-
-    // const $headerPath = document.querySelector(".draw-header-path");
-    // const headerPathLength = $headerPath.getTotalLength();
-
-    // // Set initial strokeDasharray and strokeDashoffset
-    // $headerPath.style.strokeDasharray = "30, 20";
-    // $headerPath.style.strokeDashoffset = headerPathLength;
-
-    // // GSAP ScrollTrigger animation
-    // timeline.fromTo($headerPath,
-    //     {
-    //         opacity: 0
-    //     },
-    //     {
-    //         opacity: 1,
-    //         duration: 2,
-    //     });
-
-    // timeline.to($headerPath, 
-    //     {
-    //     strokeDashoffset: 0, // Animate the strokeDashoffset from full length to 0
-    //     duration: 15,         // Duration of the animation
-    //     ease: , // Smooth easing
-    //     repeat: -1,          // Loop infinitely
-    // });
 };
-
 
 const changeYear = () => {
     const tlYear = gsap.timeline({
@@ -224,21 +166,324 @@ const changeYear = () => {
     });
 };
 
-const animateProgress = () => {
-    const progressBar = document.querySelector(".progress--fg");
-    gsap.to(progressBar, {
-        width: "100%",
-        ease: "none",
+const animateIntro = () => {
+    // Map
+    gsap.fromTo(
+        ".intro__map",
+        { x: "-130%" },
+        {
+            x: "0%",
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".intro__map",
+                start: "top center",
+                end: "+=1",
+                markers: false,
+            }
+        }
+    );
+
+    const introMapTl = gsap.timeline({
         scrollTrigger: {
-            trigger: document.body,
-            start: "top top",
-            end: "bottom bottom",
+            trigger: ".intro__map",
+            start: "top bottom",
+            end: "bottom top",
             scrub: true,
             markers: false,
-
         },
     });
+
+    introMapTl
+        .fromTo(
+            ".map__svg",
+            { y: "10%" },
+            { y: "30%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".map__img",
+            { y: "30%" },
+            { y: "10%", ease: "none", duration: 1 },
+            "<"
+        );
+
+    // Splash
+    gsap.fromTo(".intro__splash",
+        {
+            y: "15%"
+        },
+        {
+            y: "-15%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".intro__splash",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.5,
+            },
+        });
+
+    // Bell
+    gsap.fromTo(
+        ".intro__bell",
+        { x: "130%" },
+        {
+            x: "0%",
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".intro__bell",
+                start: "bottom bottom",
+                end: "+=1",
+                markers: false,
+            }
+        }
+    );
+
+    const introBellTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".intro__bell",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            markers: false,
+        },
+    });
+
+    introBellTl
+        .fromTo(
+            ".bell__svg",
+            { y: "-10%" },
+            { y: "10%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".bell__img",
+            { y: "10%" },
+            { y: "-10%", ease: "none", duration: 1 },
+            "<"
+        );
+
+}
+
+const animateProfile = () => {
+    const tlProfile = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".profile",
+            scrub: 0.5,
+            markers: false,
+        },
+    });
+
+    tlProfile.fromTo(
+        ".profile",
+        {
+            y: "15%",
+        },
+        {
+            y: '-5%',
+        }
+    )
+
+    const $profileName = document.querySelector(".profile__name");
+    const fullName = $profileName.innerText;
+
+    gsap.fromTo($profileName,
+        { text: "" },
+        {
+            duration: 3,
+            text: fullName,
+            scrollTrigger: {
+                trigger: ".profile",
+                start: "top center",
+                end: "+=1",
+                markers: false,
+            }
+        }
+    )
+}
+animateProfile();
+
+const animateHumanists = () => {
+
+    //Img
+    gsap.fromTo(
+        ".humanists__graphic",
+        { x: "130%" },
+        {
+            x: "0%",
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".humanists__graphic",
+                start: "center bottom",
+                end: "+=1",
+                markers: false,
+            }
+        }
+    );
+
+    const humanistsImgTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".humanists__graphic",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            markers: false,
+        },
+    });
+
+    humanistsImgTl
+        .fromTo(
+            ".humanists__svg",
+            { y: "-15%" },
+            { y: "5%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".humanists__imgs",
+            { y: "15%" },
+            { y: "-5%", ease: "none", duration: 1 },
+            "<"
+        );
 };
+animateHumanists();
+
+const animateReformation = () => {
+
+    // Circle
+    // const tlReformation = gsap.timeline({
+    //     scrollTrigger: {
+    //         trigger: ".reformation",
+    //         scrub: 0.5,
+    //         markers: true,
+    //     },
+    // });
+
+    // tlReformation.fromTo(
+    //     ".reformation",
+    //     {
+    //         marginBlockStart: "5%",
+    //     },
+    //     {
+    //         marginBlockStart: '-70%',
+
+    //     }
+    // )
+
+    //Img
+    gsap.fromTo(
+        ".reformation__graphic",
+        { x: "-150%" },
+        {
+            x: "0%",
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".reformation__graphic",
+                start: "center bottom",
+                end: "+=1",
+                markers: true,
+            }
+        }
+    );
+
+    const reformationImgTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".reformation__graphic",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            markers: false,
+        },
+    });
+
+    reformationImgTl
+        .fromTo(
+            ".reformation__svg",
+            { y: "-10%" },
+            { y: "10%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".reformation__imgs",
+            { y: "10%" },
+            { y: "-10%", ease: "none", duration: 1 },
+            "<"
+        );
+
+}
+animateReformation();
+
+const animateStrategy = () => {
+    const tlStrategy = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".strategy",
+            start: "center bottom",
+            markers: false,
+            duration: 2,
+        },
+    });
+
+    document.querySelectorAll(".card").forEach((card) => {
+        tlStrategy.fromTo(
+            card,
+            {
+                opacity: 0,
+                scale: 0.5,
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                ease: "power2.out",
+            }
+        );
+    });
+}
+
+const animatePrinting = () => {
+    //Img
+    gsap.fromTo(
+        ".printing__graphic",
+        { x: "150%" },
+        {
+            x: "0%",
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".printing__graphic",
+                start: "center bottom",
+                end: "+=1",
+                markers: false,
+            }
+        }
+    );
+
+    const printingImgTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".printing__graphic",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            markers: true,
+        },
+    });
+
+    printingImgTl
+        .fromTo(
+            ".printing__svg",
+            { y: "-10%" },
+            { y: "10%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".printing__img",
+            { y: "10%" },
+            { y: "-10%", ease: "none", duration: 1 },
+            "<"
+        );
+}
 
 const horizontalTextAnimation = () => {
     const $warning = document.querySelector(".warning__p");
@@ -261,7 +506,121 @@ const horizontalTextAnimation = () => {
     );
 };
 
+const animateHeretics = () => {
+    //Img
+    gsap.fromTo(
+        ".heretics__graphic",
+        { x: "-150%" },
+        {
+            x: "0%",
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".heretics__graphic",
+                start: "center bottom",
+                end: "+=1",
+                markers: true,
+            }
+        }
+    );
+
+    const hereticsImgTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".heretics__graphic",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            markers: false,
+        },
+    });
+
+    hereticsImgTl
+        .fromTo(
+            ".heretics__svg",
+            { y: "-10%" },
+            { y: "10%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".heretics__img",
+            { y: "10%" },
+            { y: "-10%", ease: "none", duration: 1 },
+            "<"
+        );
+}
+
+const animateChoiceSection = () => {
+    // Img
+    gsap.fromTo(
+        ".choice__graphic",
+        { opacity: "0", scale: "0.5" },
+        {
+            opacity: 1,
+            scale: 1,
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".choice__graphic",
+                start: "center bottom",
+                end: "+=1",
+                markers: true,
+            }
+        }
+    );
+
+    const choiceImgTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".choice__graphic",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            markers: false,
+        },
+    });
+
+    choiceImgTl
+        .fromTo(
+            ".choice__svg",
+            { y: "-10%" },
+            { y: "10%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".choice__img",
+            { y: "10%" },
+            { y: "-10%", ease: "none", duration: 1 },
+            "<"
+        );
+
+    // Options
+    const tlChoice = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".choice__list",
+            start: "center bottom",
+            markers: false,
+            duration: 2,
+        },
+    });
+
+    document.querySelectorAll(".choice__option").forEach((option) => {
+        tlChoice.fromTo(
+            option,
+            {
+                opacity: 0,
+                scale: 0.5,
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                ease: "power2.out",
+            }
+        );
+    });
+}
+
 const animateHidingSection = () => {
+
+    // Background
     const $hidingSection = document.querySelector(".hiding");
     const sectionHeight = Math.max($hidingSection.scrollHeight, $hidingSection.offsetHeight) + "px";
 
@@ -294,15 +653,110 @@ const animateHidingSection = () => {
                 markers: false,
             }
         });
+
+    // Img 
+    gsap.fromTo(
+        ".hiding__graphic",
+        { x: "150%" },
+        {
+            x: "0%",
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".hiding__graphic",
+                start: "center bottom",
+                end: "+=1",
+                markers: false,
+            }
+        }
+    );
+
+    const hidingImgTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".hiding__graphic",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            markers: true,
+        },
+    });
+
+    hidingImgTl
+        .fromTo(
+            ".hiding__svg",
+            { y: "-10%" },
+            { y: "10%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".hiding__imgs",
+            { y: "10%" },
+            { y: "-10%", ease: "none", duration: 1 },
+            "<"
+        );
+}
+
+const animateEndingSection = () => {
+    //Img
+    gsap.fromTo(
+        ".ending__graphic",
+        { x: "-150%" },
+        {
+            x: "0%",
+            duration: 2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".ending__graphic",
+                start: "center bottom",
+                end: "+=1",
+                markers: true,
+            }
+        }
+    );
+
+    const endingImgTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".ending__graphic",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            markers: false,
+        },
+    });
+
+    endingImgTl
+        .fromTo(
+            ".ending__svg",
+            { y: "-10%" },
+            { y: "10%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".ending__img",
+            { y: "10%" },
+            { y: "-10%", ease: "none", duration: 1 },
+            "<"
+        );
 }
 
 
 const animate = () => {
+    animateBackgroundPaths();
+    animateHeader();
+    animateIntro();
+    animateStrategy();
+    animatePrinting();
+    animateHeretics();
+    animateChoiceSection();
+    animateEndingSection();
     animateProgress();
+    animateIntro();
     horizontalTextAnimation();
     animateHidingSection();
     changeYear();
-    animateHeader();
+    // animateProfile();
+    // animateHumanists();
+    // animateReformation();
 };
 
 animate();
