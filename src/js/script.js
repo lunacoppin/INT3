@@ -157,7 +157,7 @@ const animateBubble = (bubble, containerWidth, containerHeight, placedBubbles, o
             bubble.style.transition = 'transform 2s ease-in-out, opacity 2s ease-in-out';
             bubble.style.transform = `scale(${bubbleScale})`;
             bubble.style.opacity = '1';
-        }, Math.random() * 8000); 
+        }, Math.random() * 5000); 
     }
 };
 const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeight, overlapThreshold) => {
@@ -335,6 +335,8 @@ const lightInteraction = () => {
 
 // Initialization
 const init = () => {
+    $navList.classList.remove('no-js');
+    $navButton.classList.remove('no-js');
     initNavigation();
     revealHiddenStories();
     animateBubbles();

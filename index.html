@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/logo-moretus-plantin-museum.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,10 +19,10 @@
   <header>
     <svg style="display:none">
       <symbol id="navicon" viewBox="0 0 56 56" fill="none">
-        <line x1="17" y1="21" x2="38" y2="21" stroke="#B10A3A" stroke-width="2" />
-        <line x1="17" y1="28" x2="38" y2="28" stroke="#B10A3A" stroke-width="2" />
-        <line x1="17" y1="35" x2="38" y2="35" stroke="#B10A3A" stroke-width="2" />
-        <circle cx="28" cy="28" r="27" stroke="#B10A3A" stroke-width="2" />
+        <line class="nav__path" x1="17" y1="21" x2="38" y2="21" stroke="#B10A3A" stroke-width="2" />
+        <line class="nav__path" x1="17" y1="28" x2="38" y2="28" stroke="#B10A3A" stroke-width="2" />
+        <line class="nav__path" x1="17" y1="35" x2="38" y2="35" stroke="#B10A3A" stroke-width="2" />
+        <circle class="nav__circle" cx="28" cy="28" r="27" stroke="#B10A3A" stroke-width="2" />
       </symbol>
       <symbol id="close" viewBox="0 0 56 56" fill="none">
         <rect x="1" y="1" width="54" height="54" rx="27" stroke="#B10A3A" stroke-width="2" />
@@ -33,14 +33,16 @@
     <nav class="nav">
       <div class="nav__buttons">
         <button class="nav__button nav__button--left">
-          <svg width="56" height="57" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="28" cy="28.1111" r="27" stroke="#B10A3A" stroke-width="2" />
-            <path
-              d="M38 29H39V27H38V29ZM18.2929 27.2929C17.9024 27.6834 17.9024 28.3166 18.2929 28.7071L24.6569 35.0711C25.0474 35.4616 25.6805 35.4616 26.0711 35.0711C26.4616 34.6805 26.4616 34.0474 26.0711 33.6569L20.4142 28L26.0711 22.3431C26.4616 21.9526 26.4616 21.3195 26.0711 20.9289C25.6805 20.5384 25.0474 20.5384 24.6569 20.9289L18.2929 27.2929ZM38 27L19 27V29L38 29V27Z"
-              fill="#B10A3A" />
-          </svg>
+          <a href="https://museumplantinmoretus.be/en" hreflang="en">
+            <svg width="56" height="57" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle class="nav__circle" cx="28" cy="28.1111" r="27" stroke="#B10A3A" stroke-width="2" />
+              <path class="nav__path"
+                d="M38 29H39V27H38V29ZM18.2929 27.2929C17.9024 27.6834 17.9024 28.3166 18.2929 28.7071L24.6569 35.0711C25.0474 35.4616 25.6805 35.4616 26.0711 35.0711C26.4616 34.6805 26.4616 34.0474 26.0711 33.6569L20.4142 28L26.0711 22.3431C26.4616 21.9526 26.4616 21.3195 26.0711 20.9289C25.6805 20.5384 25.0474 20.5384 24.6569 20.9289L18.2929 27.2929ZM38 27L19 27V29L38 29V27Z"
+                fill="#B10A3A" />
+            </svg>
+          </a>
         </button>
-        <button class="nav__button nav__button--menu nav__button--right hidden" aria-label="Navigation menu"
+        <button class="nav__button nav__button--menu nav__button--right hidden no-js" aria-label="Navigation menu"
           aria-expanded="false" aria-controls="nav__list">
           <svg role="img" aria-labelledby="svg-title" focusable="false">
             <title id="svg-title">Menu</title>
@@ -48,21 +50,23 @@
           </svg>
         </button>
       </div>
-      <ul class="nav__list" id="nav__list">
-        <li class="nav__item"><a class="nav__link" href="index.html#start">start</a></li>
-        <li class="nav__item"><a class="nav__link" href="index.html#intro">introduction</a></li>
-        <li class="nav__item"><a class="nav__link" href="index.html#business-plan">a business plan</a></li>
-        <li class="nav__item"><a class="nav__link" href="index.html#first-prints">first prints</a></li>
-        <li class="nav__item"><a class="nav__link" href="index.html#heretics">heretics</a></li>
-        <li class="nav__item"><a class="nav__link" href="index.html#closure">closure</a></li>
+      <ul class="nav__list no-js" id="nav__list">
+        <li class="nav__item"><a class="nav__link link-hover" href="index.html#start">start</a></li>
+        <li class="nav__item"><a class="nav__link link-hover" href="index.html#intro">introduction</a></li>
+        <li class="nav__item"><a class="nav__link link-hover" href="index.html#business-plan">a business plan</a></li>
+        <li class="nav__item"><a class="nav__link link-hover" href="index.html#first-prints">first prints</a></li>
+        <li class="nav__item"><a class="nav__link link-hover" href="index.html#heretics">heretics</a></li>
+        <li class="nav__item"><a class="nav__link link-hover" href="index.html#closure">closure</a></li>
       </ul>
     </nav>
     <div class="header__content" id="start">
       <ul class="story">
-        <li class="overlap">
-          <img class="overlap__item" src="src/assets/svg/bookmark.svg" alt="bookmark" class="story__background"
-            width="307" height="64">
-          <p class="overlap__item story__title">I. Plantin</p>
+        <li>
+          <a href="index.html" class="overlap">
+            <img class="overlap__item" src="src/assets/svg/bookmark.svg" alt="bookmark" class="story__background"
+              width="307" height="64">
+            <p class="overlap__item story__title link-hover">I. Plantin</p>
+          </a>
         </li>
         <li class="overlap story-hidden visually-hidden">
           <img class="overlap__item" src="src/assets/svg/bookmark-2.svg" alt="bookmark" class="story__background"
@@ -854,7 +858,7 @@
             </div>
           </div>
           <div class="ending__footer container--s">
-            <a class="footer__back" href="index.html">
+            <a class="footer__back" href="index.html#start">
               <p class="back__p endnote">Back to Top</p>
               <img class="footer__arrow" src="src/assets/svg/menu-back.svg" alt="arrow up" width="56" height="56">
             </a>

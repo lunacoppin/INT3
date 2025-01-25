@@ -150,7 +150,7 @@ path {
     display: none;
 }
 
-.visually-hidden {
+.visually-hidden, .no-js {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     block-size: 1px;
@@ -364,6 +364,10 @@ button:hover {
     z-index: 1;
 }
 
+.story-hidden {
+    cursor: not-allowed;
+}
+
 .story-hidden p {
     color: var(--color-black);
     opacity: 50%;
@@ -568,11 +572,42 @@ button:hover {
     block-size: auto;
     margin-block: var(--whitespace-base);
     align-self: end;
+    /* animation: float 3s ease-in-out infinite; */
 }
+
+/* .bell__svg {
+    animation: swing 3s ease-in-out infinite;
+} */
 
 .bell__img {
     max-inline-size: 16.25rem;
     block-size: auto;
+    transform-origin: top center;
+    animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* ------------------------------------- INTRO ------------------------------------- */
@@ -687,6 +722,11 @@ h4 {
 
 .humanists__note {
     padding-block-start: var(--whitespace-base);
+    transition: scale 0.3s ease-in-out;
+}
+
+.humanists__note:hover {
+    scale: 1.05;
 }
 
 .humanists__text {
@@ -1223,14 +1263,14 @@ p {
 /* ------------------------------------- HIDING ------------------------------------- */
 .light {
     height: 250px;
-    background-color: var(--color-white);
+    background-color: var(--color-background);
     aspect-ratio: 1;
     border-radius: 50%;
     position: absolute;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
-    background: linear-gradient(to right, var(--color-white), var(--color-beige-light));
+    /* background: linear-gradient(to right, var(--color-white), var(--color-beige-light)); */
     z-index: -1;
     filter: blur(10px);
 }
@@ -1243,6 +1283,7 @@ p {
     z-index: 2;
     position: relative;
     overflow: hidden;
+    cursor: default;
 }
 
 .black-background {
@@ -1269,7 +1310,7 @@ p {
 }
 
 .hiding__graphic {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     margin-block-start: var(--whitespace-m);
 }
 
@@ -1403,6 +1444,19 @@ p {
 
 .social__link:hover .social__path {
     fill: var(--color-red-primary);
+}
+
+.link-hover {
+    transition: font-weight 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+    transition: scale 0.3s ease-in-out;
+}
+
+
+.link-hover:hover {
+    color: var(--color-red-primary);
+    font-weight: 700;
+    scale: 1.05;
 }
 
 /* .story--end {
@@ -2142,6 +2196,10 @@ p {
 
     .heretics__content {
         grid-template-columns: max-content auto;
+    }
+
+    .hiding__content {
+        padding-block-start: var(--whitespace-s);
     }
 }
 

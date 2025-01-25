@@ -1,8 +1,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextPlugin } from 'gsap/TextPlugin';
-
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
 
 // const player = new DotLottie({
 //     canvas: document.querySelector(".animation"),
@@ -103,7 +103,7 @@ const animateHeader = () => {
             { x: 0, opacity: 1 },
             "<0.6"
         )
-        .fromTo(".draw-header-path",
+        .fromTo(".header__path",
             {
                 opacity: 0
             },
@@ -164,6 +164,31 @@ const changeYear = () => {
             index * 0.1 // Stagger animations
         );
     });
+
+    // parallax
+    const parallaxYearTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".intro__year",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+            markers: false,
+        },
+    });
+
+    parallaxYearTl
+        .fromTo(
+            ".year__svg",
+            { y: "-5%" },
+            { y: "15%", ease: "none", duration: 1 },
+            "<"
+        )
+        .fromTo(
+            ".year__mask",
+            { y: "15%" },
+            { y: "-5%", ease: "none", duration: 1 },
+            "<"
+        );
 };
 
 const animateIntro = () => {
@@ -302,6 +327,30 @@ const animateProfile = () => {
             }
         }
     )
+
+    const profileImgTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".profile__graphic",
+            start: "top bottom",
+            end: "center center",
+            scrub: true,
+            markers: false,
+        },
+    });
+
+    profileImgTl
+        // .fromTo(
+        //     ".profile__svg",
+        //     { y: "-10%" },
+        //     { y: "10%", ease: "none", duration: 1 },
+        //     "<"
+        // )
+        .fromTo(
+            ".profile__img",
+            { y: "-20%" },
+            { y: "0%", ease: "none", duration: 1 },
+            "<"
+        );
 }
 animateProfile();
 
@@ -384,7 +433,7 @@ const animateReformation = () => {
                 trigger: ".reformation__graphic",
                 start: "center bottom",
                 end: "+=1",
-                markers: true,
+                markers: false,
             }
         }
     );
@@ -466,7 +515,7 @@ const animatePrinting = () => {
             start: "top bottom",
             end: "bottom top",
             scrub: true,
-            markers: true,
+            markers: false,
         },
     });
 
@@ -563,7 +612,7 @@ const animateChoiceSection = () => {
                 trigger: ".choice__graphic",
                 start: "center bottom",
                 end: "+=1",
-                markers: true,
+                markers: false,
             }
         }
     );
@@ -651,13 +700,13 @@ const animateHidingSection = () => {
             scrollTrigger: {
                 trigger: $hidingSection,
                 start: "center+=10% center",
-                end: "bottom+=50% top",
+                end: "bottom+=60% top",
                 scrub: 0.5,
                 markers: false,
             }
         });
 
-    
+
 
     // Img 
     gsap.fromTo(
@@ -682,7 +731,7 @@ const animateHidingSection = () => {
             start: "top bottom",
             end: "bottom top",
             scrub: true,
-            markers: true,
+            markers: false,
         },
     });
 
@@ -714,7 +763,7 @@ const animateEndingSection = () => {
                 trigger: ".ending__graphic",
                 start: "center bottom",
                 end: "+=1",
-                markers: true,
+                markers: false,
             }
         }
     );
