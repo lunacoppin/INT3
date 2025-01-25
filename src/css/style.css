@@ -463,19 +463,31 @@ button:hover {
 }
 
 .intro__year {
-    block-size: 25vh;
+    /* block-size: 25vh; */
     align-items: center;
     margin-block-start: 5rem;
     /* margin-block-end: clamp(1rem, 5vw, 10rem); */
 }
 
+.year__mask {
+    overflow-y: hidden;
+    block-size: clamp(8rem, 45vw, 19rem);
+}
+
 .year__p {
+    display: flex;
+    justify-content: center;
     text-align: center;
     font-family: var(--font-family-playfair);
     font-weight: bold;
     font-size: clamp(8rem, 45vw, 19rem);
-    line-height: 1;
-    margin-block-end: clamp(10rem, 25vw, 15rem);
+    line-height: 0.8;
+}
+
+.digit {
+    display: inline-block;
+    position: relative;
+    transform-origin: center;
 }
 
 .year__svg {}
@@ -1390,7 +1402,7 @@ p {
     }
 
     .intro__year {
-        block-size: 35vh;
+        /* block-size: 35vh; */
     }
 
     .intro__content {

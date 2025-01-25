@@ -44,6 +44,83 @@ paths.forEach((path) => {
     });
 });
 
+// const changeYear = () => {
+//     tlYear = gsap.timeline({
+//         scrollTrigger: {
+//             trigger: ".intro__year",
+//             start: "top center",
+//             end: "bottom center",
+//             scrub: true,
+//             markers: true,
+//         },
+//     });
+
+//     tlYear.fromTo(
+//         ".year__p--after",
+//         {
+//             opacity: 0,
+//             y: '-100%',
+//         },
+//         {
+//             opacity: 1,
+//             y: 0,
+//         }
+//     );
+
+// }
+
+const changeYear = () => {
+    const tlYear = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".intro__year",
+            start: "top center",
+            end: "bottom center+=20%",
+            scrub: 1,
+            markers: true, // Debug markers (optional)
+        },
+    });
+
+    // Animate each digit individually
+    const digitsBefore = document.querySelectorAll(".year__p--before .digit");
+    const digitsAfter = document.querySelectorAll(".year__p--after .digit");
+
+    digitsBefore.forEach((digit, index) => {
+        tlYear.fromTo(
+            digit,
+            {
+                y: '-100%', // Move up
+                 // Fade out
+                duration: 0.3,
+                ease: "power2.out",
+            },
+            {
+                y: '-230%', // Move to center
+                // Fade in
+                duration: 0.3,
+                ease: "power2.out",
+            }, index * 0.1
+        );
+    });
+
+    digitsAfter.forEach((digit, index) => {
+        tlYear.fromTo(
+            digit,
+            {
+                y: '100%', // Start below
+                 // Invisible
+            },
+            {
+                y: '0%', // Move to center
+                 // Fade in
+                duration: 0.3,
+                ease: "power2.out",
+            },
+            index * 0.1 // Stagger animations
+        );
+    });
+};
+
+
 const animateProgress = () => {
     const progressBar = document.querySelector(".progress--fg");
     gsap.to(progressBar, {
@@ -120,6 +197,7 @@ const animate = () => {
     animateProgress();
     horizontalTextAnimation();
     animateHidingSection();
+    changeYear();
 };
 
 animate();
