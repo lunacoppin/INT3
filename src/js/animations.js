@@ -491,7 +491,7 @@ const horizontalTextAnimation = () => {
             scrollTrigger: {
                 trigger: ".heretics",
                 scrub: 0.5,
-                markers: true,
+                markers: false,
                 start: "top bottom+=20%",
                 end: "bottom+=20% top",
             },

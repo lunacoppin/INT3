@@ -742,17 +742,11 @@ p {
     position: absolute;
     transform-origin: center;
     -webkit-tap-highlight-color: transparent;
-    transition: scale 0.3s ease-in-out;
 }
 
 .bubble--after {
     z-index: 1;
     transform-origin: center;
-}
-
-.bubble:hover {
-    cursor: pointer;
-    scale: 1.1;
 }
 
 .bubble__p {
