@@ -275,15 +275,33 @@ const animateProfile = () => {
         },
     });
 
-    tlProfile.fromTo(
-        ".profile",
-        {
-            y: "15%",
-        },
-        {
-            y: '-5%',
-        }
-    )
+
+
+    let maxProfile = gsap.matchMedia();
+    maxProfile.add("(max-width: 45em)", () => {
+        tlProfile.fromTo(
+            ".profile",
+            {
+                y: "5%",
+            },
+            {
+                y: '-5%',
+            }
+        )
+    });
+
+    let minProfile = gsap.matchMedia();
+    minProfile.add("(min-width: 45em)", () => {
+        tlProfile.fromTo(
+            ".profile",
+            {
+                y: "15%",
+            },
+            {
+                y: '-5%',
+            }
+        )
+    });
 
     const $profileName = document.querySelector(".profile__name");
     const fullName = $profileName.innerText;
