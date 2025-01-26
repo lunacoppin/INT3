@@ -4,44 +4,23 @@ import { TextPlugin } from 'gsap/TextPlugin';
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 
-// const player = new DotLottie({
-//     canvas: document.querySelector(".animation"),
-//     src: "/lottie/dashes-square.json",
-// });
-
-// gsap.to(player.canvas, {
-//     scrollTrigger: {
-//         trigger: player.canvas,
-//         start: 'top top',
-//         end: '+=1000',
-//         pin: true,
-//         scrub: true,
-//         onUpdate: (self) => {
-//             player.setFrame(self.progress * (player.totalFrames - 1));
-//         }
-//     },
-// });
-
 const animateBackgroundPaths = () => {
     const paths = document.querySelectorAll(".draw-path");
 
     paths.forEach((path) => {
-        // Get the length of the path
         const pathLength = path.getTotalLength();
 
-        // Set initial strokeDasharray and strokeDashoffset
         path.style.strokeDasharray = "30, 20";
         path.style.strokeDashoffset = pathLength;
 
-        // GSAP ScrollTrigger animation
         gsap.to(path, {
-            strokeDashoffset: 0, // Animate to a strokeDashoffset of 0
+            strokeDashoffset: 0,
             scrollTrigger: {
-                trigger: path,          // Trigger the animation when the path comes into view
-                start: "top bottom",       // When the top of the path reaches 80% of the viewport height
-                end: "bottom top-=5000",      // When the bottom of the path reaches 20% of the viewport height
-                scrub: true,            // Smoothly animate as you scroll
-                markers: false,           // Show the start and end markers for debugging
+                trigger: path,
+                start: "top bottom",
+                end: "bottom top-=5000",
+                scrub: true,
+                markers: false,
             }
         });
     });
@@ -89,7 +68,7 @@ const animateHeader = () => {
             ".hero__title--bottom",
             { y: 100, opacity: 0 },
             { y: 0, opacity: 1 },
-            "<0.4" // Slight overlap with the top title animation
+            "<0.4"
         )
         .fromTo(
             ".hero__subtitle",
@@ -126,7 +105,6 @@ const changeYear = () => {
         },
     });
 
-    // Animate each digit individually
     const digitsBefore = document.querySelectorAll(".year__p--before .digit");
     const digitsAfter = document.querySelectorAll(".year__p--after .digit");
 
@@ -339,12 +317,6 @@ const animateProfile = () => {
     });
 
     profileImgTl
-        // .fromTo(
-        //     ".profile__svg",
-        //     { y: "-10%" },
-        //     { y: "10%", ease: "none", duration: 1 },
-        //     "<"
-        // )
         .fromTo(
             ".profile__img",
             { y: "-20%" },
@@ -400,27 +372,6 @@ const animateHumanists = () => {
 animateHumanists();
 
 const animateReformation = () => {
-
-    // Circle
-    // const tlReformation = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: ".reformation",
-    //         scrub: 0.5,
-    //         markers: true,
-    //     },
-    // });
-
-    // tlReformation.fromTo(
-    //     ".reformation",
-    //     {
-    //         marginBlockStart: "5%",
-    //     },
-    //     {
-    //         marginBlockStart: '-70%',
-
-    //     }
-    // )
-
     //Img
     gsap.fromTo(
         ".reformation__graphic",
@@ -547,8 +498,8 @@ const horizontalTextAnimation = () => {
             scrollTrigger: {
                 trigger: ".heretics",
                 scrub: 0.5,
-                markers: false,
-                start: "top center+=40%",
+                markers: true,
+                start: "top bottom+=10%",
                 end: "bottom+=20% top",
             },
         }
@@ -568,7 +519,7 @@ const animateHeretics = () => {
                 trigger: ".heretics__graphic",
                 start: "center bottom",
                 end: "+=1",
-                markers: true,
+                markers: false,
             }
         }
     );
