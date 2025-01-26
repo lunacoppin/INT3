@@ -742,6 +742,7 @@ p {
     position: absolute;
     transform-origin: center;
     -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
 }
 
 .bubble--after {
