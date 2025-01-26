@@ -22,12 +22,15 @@ let progress = 0;
 let interval;
 let vibrationInterval;
 
+// Dropdown
+const $options = document.querySelectorAll('.choice__option');
+
 // Light 
 const $light = document.querySelector('.light');
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 const $debugOutput = document.getElementById('debug');
-const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+const isMobileOrTablet = /Mobi|Android|Tablet|iPad|iPhone/i.test(navigator.userAgent);
 
 
 
@@ -73,6 +76,7 @@ const initNavigation = () => {
 
     window.addEventListener("keyup", handleEscapeKey);
 };
+
 
 // Stories
 function revealHiddenStories() {
@@ -171,7 +175,6 @@ const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeigh
 
     const originalText = bubble.dataset.originalText; 
     $bubbleText.textContent = 'You cannot stop the ideas of Humanism from spreading...';
-    // bubble.style.backgroundImage = `url("src/assets/svg/background-bubble-after.svg")`;
     bubble.style.transition = 'opacity 5s ease-in';
     bubble.style.opacity = '0';
     $bubbleText.style.color = '#5A564E';
@@ -189,12 +192,9 @@ const handleBubbleClick = (bubble, placedBubbles, containerWidth, containerHeigh
         bubble.style.transition = 'none';
         bubble.style.transform = 'scale(0)';
         bubble.style.opacity = '0.5';
-        // bubble.style.backgroundImage = `url('../assets/svg/background-bubble-bfore.svg')`;
         $bubbleText.textContent = originalText; 
         $backgroundBefore.classList.remove('visually-hidden');
         $backgroundAfter.classList.add('visually-hidden');
-
-        // console.log('Current placed bubbles:', placedBubbles);
 
         requestAnimationFrame(() => {
             animateBubble(bubble, containerWidth, containerHeight, placedBubbles, overlapThreshold);
@@ -226,6 +226,7 @@ const animateBubbles = () => {
 const updateScrollPosition = () =>{
     $list.scrollLeft = currentIndex * (itemWidth + gap);
 }
+
 
 // Printing
 const updateText = () => {
@@ -271,20 +272,22 @@ const pressPrint = () => {
     $ctaButton.addEventListener("pointercancel", stopPrinting);
 };
 
+
 // Dropdown
-const $options = document.querySelectorAll('.choice__option');
-$options.forEach((option) => {
-    const $optionP = option.querySelector('.option__p');
-    option.addEventListener('click', () => {
-        option.classList.toggle('active');
-        $optionP.classList.toggle('hidden');
+const handleDropDown = () => {
+    $options.forEach((option) => {
+        const $optionP = option.querySelector('.option__p');
+        option.addEventListener('click', () => {
+            option.classList.toggle('active');
+            $optionP.classList.toggle('hidden');
+        });
     });
-});
+};
+
 
 // Light in the Dark
 const lightInteraction = () => {
-    if (!isMobile && window.PointerEvent) {
-        // Handle pointer events (desktop)
+    if (!isMobileOrTablet && window.PointerEvent) {
         if (isSafari) {
             window.addEventListener('pointermove', (e) => {
                 const { clientX, clientY } = e;
@@ -308,25 +311,24 @@ const lightInteraction = () => {
         window.addEventListener('deviceorientation', (e) => {
             const { beta, gamma } = e; // beta: front-back tilt, gamma: left-right tilt
 
-            // Map beta (front-back tilt) and gamma (left-right tilt) to screen coordinates
             const y = clamp(window.innerHeight / 4 + beta * 5, 0, window.innerHeight);
             const x = clamp(window.innerWidth / 2 + gamma * 5, 0, window.innerWidth);
 
-            // Apply a smooth animation to the light using the animate() method
             $light.animate(
                 {
                     left: `${x}px`,
                     top: `${y}px`,
                 },
                 {
-                    duration: 1000, // Set the duration of the animation (adjust as needed)
-                    easing: 'ease-out', // Apply smooth easing
-                    fill: 'forwards', // Ensure the final position is retained
+                    duration: 1000,
+                    easing: 'ease-out',
+                    fill: 'forwards', 
                 }
             );
         });
     } else {
-        $debugOutput.innerHTML = 'DeviceOrientationEvent or PointerEvent is not supported on this device.';
+        $light.style.display = 'none';
+        document.querySelector('.black-background').style.display = 'none';
     }
 };
 
@@ -352,6 +354,7 @@ const init = () => {
     });
     
     pressPrint();
+    handleDropDown();
     lightInteraction();
 };
 
