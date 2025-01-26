@@ -1020,11 +1020,16 @@ p {
     -webkit-user-drag: none;
 }
 
+.printing__cta {
+        align-self: end;
+        justify-self: center;
+        margin-block-end: var(--whitespace-l);
+        margin-inline-start: var(--whitespace-xl);
+}
+
 .printing__button {
-    align-self: end;
-    justify-self: center;
-    padding-block-end: var(--whitespace-l);
-    padding-inline-start: var(--whitespace-xl);
+    inline-size: 100%;
+    block-size: 100%;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
@@ -1033,12 +1038,11 @@ p {
     -webkit-tap-highlight-color: transparent;
 }
 
+
 .printing__cta--p,
 .ending__cta--p {
     font-size: var(--font-size-base);
 }
-
-.printing__books {}
 
 /* ------------------------------------- HERETICS ------------------------------------- */
 .heretics {
@@ -2018,11 +2022,14 @@ p {
         grid-row: 1;
     }
 
-    .printing__button {
+    .printing__cta {
         justify-self: start;
         align-self: center;
         margin-block-start: -10rem;
         margin-inline-start: -3rem;
+    }
+
+    .printing__button {
         padding: 0;
     }
 }
