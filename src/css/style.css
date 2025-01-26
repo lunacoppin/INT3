@@ -2377,3 +2377,66 @@ p {
         margin-block-start: -7rem;
     }
 }
+
+@media (prefers-reduced-motion) {
+    .cta {
+            animation: none;
+        }
+
+    .bell__img {
+        animation: none;
+    }
+
+    .light {
+        animation: none;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+            --color-red-primary: #B10A3A;
+            --color-red-darker: #91072e;
+            --color-green-primary: #6D762C;
+            --color-white: #ECEAE5;
+            --color-background: #231F20;;
+            --color-beige-light: #BCB7AD;
+            --color-beige-dark: #8E887D;
+            --color-black: var(--color-white)
+    }
+
+    .hero__title--top {
+        margin-block-end: clamp(-10rem, -10vw, -1rem);
+    }
+
+    .hero__title--bottom {
+        margin-block-start: clamp(-6rem, -10vw, -1rem);
+    }
+
+    .highlight {
+        color: #a7b256;
+    }
+
+    body {
+        line-height: 1.8;
+    }
+
+    .profile, .reformation, .card, .choice__option, .hiding, .black-background {
+        color: var(--color-background);
+    }
+
+    .card .highlight {
+        color: var(--color-red-primary);
+    }
+
+    .black-background {
+       background-color: var(--color-background);
+    }
+
+    .light {
+        background-color: var(--color-white);
+    }
+
+    .endnote, .ending__shoutout {
+        color: var(--color-white);
+    }
+}

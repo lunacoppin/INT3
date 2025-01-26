@@ -737,7 +737,11 @@ const animateEndingSection = () => {
         );
 }
 
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
 const animate = () => {
+    if (reducedMotionQuery.matches) return; 
+    
     animateBackgroundPaths();
     animateHeader();
     animateIntro();
