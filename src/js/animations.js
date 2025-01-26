@@ -112,14 +112,12 @@ const changeYear = () => {
         tlYear.fromTo(
             digit,
             {
-                y: '-100%', // Move up
-                // Fade out
+                y: '-100%',
                 duration: 0.3,
                 ease: "power2.out",
             },
             {
-                y: '-230%', // Move to center
-                // Fade in
+                y: '-230%', 
                 duration: 0.3,
                 ease: "power2.out",
             }, index * 0.1
@@ -130,16 +128,14 @@ const changeYear = () => {
         tlYear.fromTo(
             digit,
             {
-                y: '100%', // Start below
-                // Invisible
+                y: '100%',
             },
             {
-                y: '0%', // Move to center
-                // Fade in
+                y: '0%',
                 duration: 0.3,
                 ease: "power2.out",
             },
-            index * 0.1 // Stagger animations
+            index * 0.1
         );
     });
 
@@ -324,7 +320,6 @@ const animateProfile = () => {
             "<"
         );
 }
-animateProfile();
 
 const animateHumanists = () => {
 
@@ -369,7 +364,6 @@ const animateHumanists = () => {
             "<"
         );
 };
-animateHumanists();
 
 const animateReformation = () => {
     //Img
@@ -414,7 +408,6 @@ const animateReformation = () => {
         );
 
 }
-animateReformation();
 
 const animateStrategy = () => {
     const tlStrategy = gsap.timeline({
@@ -499,7 +492,7 @@ const horizontalTextAnimation = () => {
                 trigger: ".heretics",
                 scrub: 0.5,
                 markers: true,
-                start: "top bottom+=10%",
+                start: "top bottom+=20%",
                 end: "bottom+=20% top",
             },
         }
@@ -748,6 +741,9 @@ const animate = () => {
     animateBackgroundPaths();
     animateHeader();
     animateIntro();
+    animateProfile();
+    animateHumanists();
+    animateReformation();
     animateStrategy();
     animatePrinting();
     animateHeretics();
@@ -758,9 +754,6 @@ const animate = () => {
     horizontalTextAnimation();
     animateHidingSection();
     changeYear();
-    // animateProfile();
-    // animateHumanists();
-    // animateReformation();
 };
 
 animate();

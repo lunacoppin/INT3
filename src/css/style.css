@@ -89,7 +89,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 10px;
+    block-size: 10px;
     inline-size: 100%;
     background: var(--color-beige-dark);
     transform-origin: 0%;
@@ -101,7 +101,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 10px;
+    block-size: 10px;
     background: var(--color-red-primary);
     transform-origin: 0%;
     inline-size: 0%;
@@ -315,8 +315,8 @@ button:hover {
 }
 
 .story li {
-    width: 18rem;
-    height: auto;
+    max-inline-size: 18rem;
+    block-size: auto;
     margin-inline-start: -8rem;
     transition: all 0.3s ease;
 }
@@ -402,7 +402,7 @@ button:hover {
 .hero__graphic--bg {
     max-inline-size: 140%;
     inline-size: 140%;
-    height: auto;
+    block-size: auto;
     margin-inline-start: -1.5rem;
     margin-block-end: -3rem;
     z-index: -5;
@@ -615,8 +615,8 @@ h4 {
     font-weight: 700;
     font-size: var(--font-size-m);
     color: var(--color-red-primary);
-    max-width: fit-content;
-    margin-bottom: var(--whitespace-xxs);
+    max-inline-size: fit-content;
+    margin-block-end: var(--whitespace-xxs);
 }
 
 .profile__img {
@@ -650,7 +650,7 @@ h4 {
 
 /* ------------------------------------- HUMANISTS ------------------------------------- */
 .humanists {
-    margin-top: var(--whitespace-l);
+    margin-block-start: var(--whitespace-l);
 }
 
 .humanists__imgs {
@@ -742,6 +742,7 @@ p {
     position: absolute;
     transform-origin: center;
     -webkit-tap-highlight-color: transparent;
+    transition: scale 0.3s ease-in-out;
 }
 
 .bubble--after {
@@ -751,6 +752,7 @@ p {
 
 .bubble:hover {
     cursor: pointer;
+    scale: 1.1;
 }
 
 .bubble__p {
@@ -774,7 +776,7 @@ p {
 .circle__dark {
     max-inline-size: 130%;
     inline-size: 130%;
-    height: auto;
+    block-size: auto;
 }
 
 .background {
@@ -887,7 +889,7 @@ p {
 .card {
     background-color: var(--color-white);
     padding: var(--whitespace-base);
-    min-width: 100%;
+    min-inline-size: 100%;
     margin: 0 auto;
     scroll-snap-align: center;
 }
@@ -1177,7 +1179,7 @@ p {
 
 /* ------------------------------------- HIDING ------------------------------------- */
 .light {
-    height: 17rem;
+    block-size: 17rem;
     background-color: var(--color-background);
     aspect-ratio: 1;
     border-radius: 50%;
@@ -1202,8 +1204,8 @@ p {
 .black-background {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 0;
+    inline-size: 100%;
+    block-size: 0;
     background-color: var(--color-black);
     z-index: -2;
 }
@@ -1641,7 +1643,7 @@ p {
 
 @media (min-width: 60em) {
     .profile {
-        max-width: 85rem;
+        max-inline-size: 85rem;
         margin: 0 auto;
     }
 
@@ -1714,7 +1716,7 @@ p {
     }
 
     .humanists__group {
-        margin-top: var(--whitespace-l);
+        margin-block-start: var(--whitespace-l);
         padding-inline: var(--whitespace-l);
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1742,7 +1744,7 @@ p {
         padding-inline: var(--whitespace-l);
         max-inline-size: 80rem;
         margin: 0 auto;
-        margin-block-start: 0px;
+        margin-block-start: 0;
         place-items: center;
         padding-block-end: 7rem;
     }
@@ -1804,7 +1806,7 @@ p {
 
     .reformation__text {
         padding-inline: 0rem;
-        max-width: 50ch;
+        max-inline-size: 50ch;
     }
 
     .ending__text {
@@ -1876,8 +1878,8 @@ p {
     }
 
     .card-inner {
-        width: 100%;
-        height: 100%;
+        block-size: 100%;
+        block-size: 100%;
         position: relative;
         transform-style: preserve-3d;
         transition: transform 0.6s;
@@ -1886,8 +1888,8 @@ p {
     .card-front,
     .card-back {
         position: absolute;
-        width: 100%;
-        height: 100%;
+        block-size: 100%;
+        block-size: 100%;
         backface-visibility: hidden;
     }
 
@@ -2004,7 +2006,7 @@ p {
 
 @media screen and (min-width: 65em) {
     .printing__group {
-        margin-top: var(--whitespace-l);
+        margin-block-start: var(--whitespace-l);
         padding-inline: var(--whitespace-l);
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -2272,7 +2274,7 @@ p {
 
     .reformation__text {
         padding-inline: 0rem;
-        max-width: 55ch;
+        max-inline-size: 55ch;
     }
 
     .reformation__p {
