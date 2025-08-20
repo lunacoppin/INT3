@@ -2393,7 +2393,7 @@ p {
     }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root {
             --color-red-primary: #B10A3A;
             --color-red-darker: #91072e;
@@ -2440,4 +2440,4 @@ p {
     .endnote, .ending__shoutout {
         color: var(--color-white);
     }
-}
+} */
